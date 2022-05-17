@@ -17,4 +17,8 @@ export class DashboardsPage implements OnInit {
   ngOnInit() {
   }
 
+  async onNav(menu) {
+    console.log(menu);
+    window.location.href = 'https://github.com/google';
+  }
 }

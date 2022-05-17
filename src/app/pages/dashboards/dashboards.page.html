@@ -11,7 +11,7 @@
   <div id="container">
     <ion-list *ngFor="let menu of menus">
       <ion-item>
-        <ion-label>{{menu.name}}</ion-label>
+        <ion-label (click)="onNav(menu)">{{menu.name}}</ion-label>
       </ion-item>
     </ion-list>
   </div>
