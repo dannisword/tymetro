@@ -1,16 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="false">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>dannis</ion-title>
+    <ion-title>桃捷-</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-
   <div id="container">
-    <strong class="capitalize">content</strong>
+    <ion-list *ngFor="let menu of menus">
+      <ion-item>
+        <ion-label>{{menu.name}}</ion-label>
+      </ion-item>
+
+
+
+    </ion-list>
   </div>
 </ion-content>
