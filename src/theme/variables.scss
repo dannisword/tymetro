@@ -76,3 +76,26 @@
   --ion-color-light-tint: #f5f6f9;
 }
 
+.ios {
+  --ion-text-color: #000;
+
+
+
+  --ion-background-color: #FFF;
+
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255,
+  255,
+  255;
+
+  --ion-item-color: #000;
+
+  ion-menu-button {
+    --color: #fff;
+  }
+  ion-toolbar {
+    --background: #8b38ac;
+    height: constant(safe-area-inset-top) + 64px; /* iOS 11.0-iOS 11.1 */
+    height: env(safe-area-inset-top) + 64px;/*iOS 11.2 */
+  }
+}
