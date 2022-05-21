@@ -4,12 +4,12 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #3880ff;
-  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary: #8b38ac;
+  --ion-color-primary-rgb: rgb(139 56 172);
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
-  --ion-color-primary-tint: #4c8dff;
+  --ion-color-primary-shade: #a860c4;
+  --ion-color-primary-tint: #79448f;
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
@@ -77,25 +77,53 @@
 }
 
 .ios {
-  --ion-text-color: #000;
+
+  .brand-nav ion-toolbar {
+      --background: #ffffff;
+      height: constant(safe-area-inset-top) + 64px;
+      /* iOS 11.0-iOS 11.1 */
+      height: env(safe-area-inset-top) + 64px;
+      /*iOS 11.2 */
+    }
+}
+// 品牌 tool bar
+.brand-nav {
+  background: #ffffff !important;
+}
+
+.brand-nav ion-title {
+  font-size: 16px;
+  line-height: 18px;
+  padding: 0 6px;
+}
+
+.brand-nav ion-title small {
+  font-size: 12px;
+}
+
+.brand-nav ion-menu-button {
+  --color: #fff;
+  background: #8b38ac;
+  border-radius: 100%;
+  padding: 8px 2px;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+}
 
 
+.brand-nav .login ion-button {
+--color: #fff;
+  background: #8b38ac;
+  border-radius: 100%;
+  padding: 8px 2px;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+}
 
-  --ion-background-color: #FFF;
-
-  --ion-text-color: #ffffff;
-  --ion-text-color-rgb: 255,
-  255,
-  255;
-
-  --ion-item-color: #000;
-
-  ion-menu-button {
-    --color: #fff;
-  }
-  ion-toolbar {
-    --background: #8b38ac;
-    height: constant(safe-area-inset-top) + 64px; /* iOS 11.0-iOS 11.1 */
-    height: env(safe-area-inset-top) + 64px;/*iOS 11.2 */
-  }
+.logo-img {
+  width: 140px;
+  padding: 5px 0;
+  margin: auto;
 }

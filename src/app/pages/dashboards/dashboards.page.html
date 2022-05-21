@@ -1,18 +1,35 @@
-<ion-header [translucent]="false">
+<ion-header [translucent]="false" class="brand-nav">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>桃捷</ion-title>
+    <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+    <ion-buttons slot="end" class="login">
+      <ion-button [routerLink]="['/shoppingcart']">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div id="container">
-    <ion-list *ngFor="let menu of menus">
+<ion-content [fullscreen]="true" class="brand-nav">
+  <div id="container" class="smartcms_body">
+  <div class="component">
+    <div class="smartcms_wrapper opened-nav">
+
+      <ul>
+        <li><button class="smartcms_button" id="smartcms_button">Close</button></li>
+        <li *ngFor="let menu of menus">
+          <a href="#"><span>{{menu.name}} <br>
+              <ion-icon name="person-outline"></ion-icon></span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+    <!-- <ion-list *ngFor="let menu of menus">
       <ion-item>
         <ion-label (click)="onNav(menu)">{{menu.name}}</ion-label>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
   </div>
 </ion-content>

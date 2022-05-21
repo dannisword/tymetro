@@ -11,7 +11,20 @@ export class DashboardsPage implements OnInit {
     name: '最新消息',
   }, {
     name: '票價時刻'
-  }];
+  },
+  {
+    name: '車站資訊'
+  },
+  {
+    name: '列車動態'
+  },
+  {
+    name: '路線規劃'
+  },
+  {
+    name: '紀念商品'
+  },
+  ];
   constructor() { }
 
   ngOnInit() {
