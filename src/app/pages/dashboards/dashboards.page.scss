@@ -1,0 +1,325 @@
+ion-content {
+  --background: #fff url('https://images.unsplash.com/photo-1552243412-fdeaae9619cb?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770') no-repeat center center / cover;
+}
+
+.dashboard-component {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+
+  .station-status {
+    order: 1;
+  }
+
+  .station-news {
+    order: 3;
+  }
+
+  .brand-list {
+    order: 2;
+  }
+
+}
+
+.station-status {
+  background: #8b38ac;
+  padding: 0.5rem 5px;
+  color: #fff;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+
+  ion-icon {
+    color: #8bc34a;
+    margin-right: 10px;
+  }
+}
+
+/* circle menu */
+
+.smartcms_button {
+  position: absolute;
+  top: 125px;
+  z-index: 11;
+  padding-top: 0;
+  width: 170px;
+  height: 170px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  border: 4px solid white;
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  text-align: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 2px rgb(51 51 51 / 10%);
+
+}
+.main-button {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  .icon-img {
+      width: 80px;
+      height: 70px;
+    }
+}
+
+.brand-list {
+  position: relative;
+  min-height: 420px;
+  top: 110px;
+
+  .smartcms_wrapper {
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .smartcms_wrapper ul {
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  .smartcms_wrapper li:first-child {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .smartcms_wrapper li:not(:first-child) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    margin-top: -1.3em;
+    margin-left: -10em;
+    width: 10em;
+    height: 10em;
+    font-size: 1.5em;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+    -webkit-transform: rotate(75deg) skew(62deg);
+    -moz-transform: rotate(75deg) skew(62deg);
+    -ms-transform: rotate(75deg) skew(62deg);
+    transform: rotate(75deg) skew(62deg);
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    pointer-events: none;
+
+    a {
+      position: absolute;
+      right: -7.25em;
+      bottom: -7.25em;
+      display: block;
+      width: 14.5em;
+      height: 14.5em;
+      border-radius: 50%;
+      background: linear-gradient(66deg, #cae0f7 0%, #ffffff 48%, rgb(196 221 247 / 68%) 100%);
+      text-align: center;
+      text-decoration: none;
+      font-size: 1em;
+      line-height: 2;
+      transform: skew(-30deg) rotate(-60deg);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      pointer-events: auto;
+
+      span {
+        position: relative;
+        display: block;
+        font-size: 0.8rem;
+        color: #222;
+        top: -2px;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: radial-gradient(transparent 35%, #8b38ac 35%);
+        color: #fff;
+      }
+    }
+
+    ion-icon {
+      font-size: 40px;
+      background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+      background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+      background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+         .icon-img {
+           width: 40px;
+           height: 40px;
+           position: relative;
+           top: 12px;
+         }
+
+  }
+
+
+
+  .smartcms_wrapper li:not(:first-child) {
+    -webkit-transition: all .3s ease .3s;
+    -moz-transition: all .3s ease .3s;
+    transition: all .3s ease .3s;
+
+    &:nth-child(2) {
+      transform: rotate(0deg) skew(30deg);
+
+      .smartcms_content {
+
+        transform: rotate(60deg) skew(0deg);
+      }
+    }
+
+    &:nth-child(3) {
+      transform: rotate(60deg) skew(30deg);
+
+      .smartcms_content {
+
+        transform: rotate(0deg) skew(0deg);
+      }
+    }
+
+    &:nth-child(4) {
+      transform: rotate(120deg) skew(30deg);
+
+      .smartcms_content {
+        transform: rotate(-60deg) skew(0deg);
+      }
+    }
+
+    &:nth-child(5) {
+      transform: rotate(180deg) skew(30deg);
+
+      .smartcms_content {
+
+        transform: rotate(-120deg) skew(0deg);
+        position: relative;
+        top: 10px;
+        left: -10px;
+      }
+    }
+
+    &:nth-child(6) {
+      transform: rotate(240deg) skew(30deg);
+
+      .smartcms_content {
+
+        transform: rotate(180deg) skew(0deg);
+        margin: 10px;
+      }
+    }
+
+    &:nth-child(7) {
+      transform: rotate(300deg) skew(30deg);
+
+      .smartcms_content {
+        transform: rotate(120deg) skew(0deg);
+        position: relative;
+        top: 10px;
+        right: -10px;
+      }
+    }
+  }
+}
+
+/*cover to prevent extra space of anchors from being clickable*/
+
+.no-csstransforms {
+  .smartcms_wrapper {
+    overflow: hidden;
+    margin: 10em auto;
+    padding: .5em;
+    text-align: center;
+
+    ul {
+      display: inline-block;
+    }
+
+    li {
+      float: left;
+      width: 5em;
+      height: 5em;
+      background-color: #fff;
+      text-align: center;
+      font-size: 1em;
+      line-height: 5em;
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: inherit;
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: #f8f8f8;
+        }
+      }
+
+      &.active a {
+        background-color: #6F325C;
+        color: #fff;
+      }
+    }
+  }
+
+  .smartcms_button {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .no-csstransforms li {
+    width: 4em;
+    height: 4em;
+    line-height: 4em;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .no-ccstransforms .smartcms_wrapper {
+    padding: .5em;
+  }
+
+  .no-csstransforms .smartcms_wrapper li {
+    width: 4em;
+    height: 4em;
+    font-size: .9em;
+    line-height: 4em;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .csstransforms .smartcms_wrapper {
+    font-size: .68em;
+  }
+
+  .smartcms_button {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .no-csstransforms .smartcms_wrapper li {
+    width: 100%;
+    height: 3em;
+    line-height: 3em;
+  }
+}

@@ -1,18 +1,60 @@
-<ion-header [translucent]="false">
+<ion-header [translucent]="false" class="brand-nav">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>桃捷</ion-title>
+    <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+    <ion-buttons slot="end" class="login">
+      <ion-button [routerLink]="['/shoppingcart']">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <div class="dashboard-component">
+    <div class="station-status" *ngIf="false">
+      <ion-icon name="radio-button-on-sharp"></ion-icon>正常營運中
+    </div>
+    <div class="brand-list smartcms_body">
 
-<ion-content [fullscreen]="true">
-  <div id="container">
-    <ion-list *ngFor="let menu of menus">
-      <ion-item>
-        <ion-label (click)="onNav(menu)">{{menu.name}}</ion-label>
-      </ion-item>
-    </ion-list>
+      <div class="smartcms_wrapper">
+        <ul>
+          <li>
+            <button class="smartcms_button" id="smartcms_button">
+              <div class="main-button">
+                <img src="../../../assets/dashboard/ticket.svg" class="icon-img">
+                <span>行動購票</span>
+              </div>
+            </button>
+          </li>
+          <li *ngFor="let menu of menus">
+            <a [href]="menu.url">
+              <div class="smartcms_content">
+              <img [src]="menu.icon" class="icon-img">
+              <span>{{menu.name}}</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="station-news" *ngIf="false">
+      <ul>
+        <li>News</li>
+        <li>
+            <ion-slides pager="true" [options]="{ slidesPerView: true, loop: true,navigation: true}">
+              <ion-slide [routerLink]="['/shoplist']">
+                <h1>Slide 1</h1>
+              </ion-slide>
+              <ion-slide [routerLink]="['/shoplist']">
+              <h1>Slide 2</h1>
+              </ion-slide>
+            </ion-slides>
+        </li>
+      </ul>
+    </div>
   </div>
 </ion-content>
