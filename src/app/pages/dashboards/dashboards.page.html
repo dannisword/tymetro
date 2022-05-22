@@ -11,25 +11,50 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+  <div class="dashboard-component">
+    <div class="station-status" *ngIf="false">
+      <ion-icon name="radio-button-on-sharp"></ion-icon>正常營運中
+    </div>
+    <div class="brand-list smartcms_body">
 
-<ion-content [fullscreen]="true" class="brand-nav">
-  <div id="container" class="smartcms_body">
-  <div class="component">
-    <div class="smartcms_wrapper opened-nav">
+      <div class="smartcms_wrapper">
+        <ul>
+          <li>
+            <button class="smartcms_button" id="smartcms_button">
+              <div class="main-button">
+                <img src="../../../assets/dashboard/ticket.svg" class="icon-img">
+                <span>行動購票</span>
+              </div>
+            </button>
+          </li>
+          <li *ngFor="let menu of menus">
+            <a [href]="menu.url">
+              <div class="smartcms_content">
+              <img [src]="menu.icon" class="icon-img">
+              <span>{{menu.name}}</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
 
+    </div>
+
+    <div class="station-news" *ngIf="false">
       <ul>
-        <li><button class="smartcms_button" id="smartcms_button">Close</button></li>
-        <li *ngFor="let menu of menus">
-          <a href="#"><span>{{menu.name}} <br>
-              <ion-icon name="person-outline"></ion-icon></span></a>
+        <li>News</li>
+        <li>
+            <ion-slides pager="true" [options]="{ slidesPerView: true, loop: true,navigation: true}">
+              <ion-slide [routerLink]="['/shoplist']">
+                <h1>Slide 1</h1>
+              </ion-slide>
+              <ion-slide [routerLink]="['/shoplist']">
+              <h1>Slide 2</h1>
+              </ion-slide>
+            </ion-slides>
         </li>
       </ul>
     </div>
-  </div>
-    <!-- <ion-list *ngFor="let menu of menus">
-      <ion-item>
-        <ion-label (click)="onNav(menu)">{{menu.name}}</ion-label>
-      </ion-item>
-    </ion-list> -->
   </div>
 </ion-content>

@@ -1,18 +1,45 @@
-.smartcms_body {
+ion-content {
+  --background: #fff url('https://images.unsplash.com/photo-1552243412-fdeaae9619cb?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770') no-repeat center center / cover;
+}
 
-  .component {
-    position: relative;
-    height: 100vh;
-    background: url(https://images.unsplash.com/uploads/1413259…/6e609595?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472);
-    background-size: cover;
+.dashboard-component {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+
+  .station-status {
+    order: 1;
+  }
+
+  .station-news {
+    order: 3;
+  }
+
+  .brand-list {
+    order: 2;
+  }
+
+}
+
+.station-status {
+  background: #8b38ac;
+  padding: 0.5rem 5px;
+  color: #fff;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+
+  ion-icon {
+    color: #8bc34a;
+    margin-right: 10px;
   }
 }
 
-/* style for demo 1 */
+/* circle menu */
 
 .smartcms_button {
   position: absolute;
-  top: 127px;
+  top: 125px;
   z-index: 11;
   padding-top: 0;
   width: 170px;
@@ -20,23 +47,34 @@
   border: none;
   border-radius: 50%;
   background: none;
-  border: 12px solid white;
+  border: 4px solid white;
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-  color: #8b38ac;
   text-align: center;
-  font-weight: 700;
-  font-size: 1.5em;
-  text-transform: uppercase;
+  font-size: 0.8rem;
   cursor: pointer;
+  box-shadow: 0px 0px 3px 2px rgb(51 51 51 / 10%);
+
+}
+.main-button {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  .icon-img {
+      width: 80px;
+      height: 70px;
+    }
 }
 
-.brand-nav {
+.brand-list {
+  position: relative;
+  min-height: 420px;
+  top: 110px;
+
   .smartcms_wrapper {
     position: relative;
     z-index: 10;
-  }
-
-  .opened-nav {
     opacity: 1;
     pointer-events: auto;
     display: flex;
@@ -86,7 +124,6 @@
       height: 14.5em;
       border-radius: 50%;
       background: linear-gradient(66deg, #cae0f7 0%, #ffffff 48%, rgb(196 221 247 / 68%) 100%);
-      color: #8b37ab;
       text-align: center;
       text-decoration: none;
       font-size: 1em;
@@ -98,11 +135,10 @@
 
       span {
         position: relative;
-        top: 1em;
         display: block;
-        font-size: 1rem;
-        font-weight: 700;
-        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: #222;
+        top: -2px;
       }
 
       &:hover,
@@ -112,35 +148,91 @@
         color: #fff;
       }
     }
+
+    ion-icon {
+      font-size: 40px;
+      background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+      background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
+      background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+         .icon-img {
+           width: 40px;
+           height: 40px;
+           position: relative;
+           top: 12px;
+         }
+
   }
 
-  .opened-nav li:not(:first-child) {
+
+
+  .smartcms_wrapper li:not(:first-child) {
     -webkit-transition: all .3s ease .3s;
     -moz-transition: all .3s ease .3s;
     transition: all .3s ease .3s;
 
     &:nth-child(2) {
       transform: rotate(0deg) skew(30deg);
+
+      .smartcms_content {
+
+        transform: rotate(60deg) skew(0deg);
+      }
     }
 
     &:nth-child(3) {
       transform: rotate(60deg) skew(30deg);
+
+      .smartcms_content {
+
+        transform: rotate(0deg) skew(0deg);
+      }
     }
 
     &:nth-child(4) {
       transform: rotate(120deg) skew(30deg);
+
+      .smartcms_content {
+        transform: rotate(-60deg) skew(0deg);
+      }
     }
 
     &:nth-child(5) {
       transform: rotate(180deg) skew(30deg);
+
+      .smartcms_content {
+
+        transform: rotate(-120deg) skew(0deg);
+        position: relative;
+        top: 10px;
+        left: -10px;
+      }
     }
 
     &:nth-child(6) {
       transform: rotate(240deg) skew(30deg);
+
+      .smartcms_content {
+
+        transform: rotate(180deg) skew(0deg);
+        margin: 10px;
+      }
     }
 
     &:nth-child(7) {
       transform: rotate(300deg) skew(30deg);
+
+      .smartcms_content {
+        transform: rotate(120deg) skew(0deg);
+        position: relative;
+        top: 10px;
+        right: -10px;
+      }
     }
   }
 }
