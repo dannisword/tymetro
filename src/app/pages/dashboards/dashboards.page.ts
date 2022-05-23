@@ -42,13 +42,20 @@ export class DashboardsPage implements OnInit {
     initialSlide: 1,
     speed: 400
   };
+  public mobile: boolean;
   constructor() { }
 
   ngOnInit() {
+    this.onHideSvg();
   }
 
   async onNav(menu) {
     console.log(menu);
     window.location.href = 'https://github.com/google';
   }
+  async onHideSvg() {
+    return window.screen.width <= 360 ? this.mobile = true:false;
+  }
+
+
 }
