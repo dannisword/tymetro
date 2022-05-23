@@ -35,291 +35,287 @@ ion-content {
   }
 }
 
-/* circle menu */
 
-.smartcms_button {
-  position: absolute;
-  top: 125px;
-  z-index: 11;
-  padding-top: 0;
-  width: 170px;
-  height: 170px;
-  border: none;
-  border-radius: 50%;
-  background: none;
-  border: 4px solid white;
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
-  text-align: center;
-  font-size: 0.8rem;
-  cursor: pointer;
-  box-shadow: 0px 0px 3px 2px rgb(51 51 51 / 10%);
-
-}
 .main-button {
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-
-  .icon-img {
-      width: 80px;
-      height: 70px;
-    }
 }
 
-.brand-list {
+.main-menu {
+  padding: 0;
+  list-style: none;
   position: relative;
-  min-height: 420px;
-  top: 110px;
+  margin: 60px auto;
+  width: 80%;
+  height: 0;
+  padding-top: 70%;
+}
 
-  .smartcms_wrapper {
-    position: relative;
-    z-index: 10;
-    opacity: 1;
-    pointer-events: auto;
-    display: flex;
-    flex-flow: column;
-  }
-
-  .smartcms_wrapper ul {
-    position: relative;
-    margin: 0;
+@media all and (max-width: 320px) {
+  .main-menu {
+    width: 300px;
+    height: 300px;
     padding: 0;
   }
+}
 
-  .smartcms_wrapper li:first-child {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+@media all and (min-width: 700px) {
+  .main-menu {
+    width: 570px;
+    height: 500px;
+    padding: 0;
+  }
+}
+
+
+.main-menu li {
+  -webkit-clip-path: url(#sector);
+  clip-path: url(#sector);
+  /* try this one in Chrome/Opera/Safari */
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  &:nth-child(1) {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transform: rotate(0deg);
+
+    .main-menu-content {
+      right: 39px;
+      top: 51px;
+    }
   }
 
-  .smartcms_wrapper li:not(:first-child) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    overflow: hidden;
-    margin-top: -1.3em;
-    margin-left: -10em;
-    width: 10em;
-    height: 10em;
-    font-size: 1.5em;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    transition: all .3s ease;
-    -webkit-transform: rotate(75deg) skew(62deg);
-    -moz-transform: rotate(75deg) skew(62deg);
-    -ms-transform: rotate(75deg) skew(62deg);
-    transform: rotate(75deg) skew(62deg);
-    -webkit-transform-origin: 100% 100%;
-    -moz-transform-origin: 100% 100%;
-    transform-origin: 100% 100%;
-    pointer-events: none;
+  &:nth-child(2) {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transform: rotate(-60deg);
 
-    a {
-      position: absolute;
-      right: -7.25em;
-      bottom: -7.25em;
-      display: block;
-      width: 14.5em;
-      height: 14.5em;
-      border-radius: 50%;
-      background: linear-gradient(66deg, #cae0f7 0%, #ffffff 48%, rgb(196 221 247 / 68%) 100%);
-      text-align: center;
-      text-decoration: none;
-      font-size: 1em;
-      line-height: 2;
-      transform: skew(-30deg) rotate(-60deg);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      pointer-events: auto;
-
-      span {
-        position: relative;
-        display: block;
-        font-size: 0.8rem;
-        color: #222;
-        top: -2px;
-      }
-
-      &:hover,
-      &:active,
-      &:focus {
-        background: radial-gradient(transparent 35%, #8b38ac 35%);
-        color: #fff;
-      }
+    .main-menu-content {
+      right: 34px;
+      top: 54px;
+      transform: rotate(60deg);
     }
-
-    ion-icon {
-      font-size: 40px;
-      background: -moz-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-      background: -webkit-linear-gradient(top, #e72c83 0%, #a742c6 100%);
-      background: linear-gradient(to bottom, #e72c83 0%, #a742c6 100%);
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-         .icon-img {
-           width: 40px;
-           height: 40px;
-           position: relative;
-           top: 12px;
-         }
-
   }
 
+  &:nth-child(3) {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transform: rotate(-120deg);
 
+    .main-menu-content {
+      right: 29px;
+      top: 51px;
+      transform: rotate(120deg);
+    }
+  }
 
-  .smartcms_wrapper li:not(:first-child) {
-    -webkit-transition: all .3s ease .3s;
-    -moz-transition: all .3s ease .3s;
-    transition: all .3s ease .3s;
+  &:nth-child(4) {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transform: rotate(-180deg);
+
+    .main-menu-content {
+      right: 35px;
+      top: 58px;
+      transform: rotate(180deg);
+    }
+  }
+
+  &:nth-child(5) {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transform: rotate(-240deg);
+
+    .main-menu-content {
+      right: 41px;
+      top: 51px;
+      transform: rotate(-120deg);
+    }
+  }
+
+  &:nth-child(6) {
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    transform: rotate(-300deg);
+
+    .main-menu-content {
+      right: 38px;
+      top: 54px;
+      transform: rotate(-60deg);
+    }
+  }
+
+  @media all and (max-width: 375px) {
+    &:nth-child(1) {
+      .main-menu-content {
+        right: 27px;
+        top: 66px;
+      }
+    }
 
     &:nth-child(2) {
-      transform: rotate(0deg) skew(30deg);
 
-      .smartcms_content {
-
-        transform: rotate(60deg) skew(0deg);
+      .main-menu-content {
+        right: 28px;
+        top: 64px;
       }
     }
 
     &:nth-child(3) {
-      transform: rotate(60deg) skew(30deg);
 
-      .smartcms_content {
-
-        transform: rotate(0deg) skew(0deg);
+      .main-menu-content {
+        right: 29px;
+        top: 61px;
       }
     }
 
     &:nth-child(4) {
-      transform: rotate(120deg) skew(30deg);
 
-      .smartcms_content {
-        transform: rotate(-60deg) skew(0deg);
+      .main-menu-content {
+        right: 31px;
+        top: 66px;
       }
     }
 
     &:nth-child(5) {
-      transform: rotate(180deg) skew(30deg);
 
-      .smartcms_content {
-
-        transform: rotate(-120deg) skew(0deg);
-        position: relative;
-        top: 10px;
-        left: -10px;
+      .main-menu-content {
+        right: 31px;
+        top: 64px;
       }
     }
 
     &:nth-child(6) {
-      transform: rotate(240deg) skew(30deg);
 
-      .smartcms_content {
-
-        transform: rotate(180deg) skew(0deg);
-        margin: 10px;
-      }
-    }
-
-    &:nth-child(7) {
-      transform: rotate(300deg) skew(30deg);
-
-      .smartcms_content {
-        transform: rotate(120deg) skew(0deg);
-        position: relative;
-        top: 10px;
-        right: -10px;
-      }
-    }
-  }
-}
-
-/*cover to prevent extra space of anchors from being clickable*/
-
-.no-csstransforms {
-  .smartcms_wrapper {
-    overflow: hidden;
-    margin: 10em auto;
-    padding: .5em;
-    text-align: center;
-
-    ul {
-      display: inline-block;
-    }
-
-    li {
-      float: left;
-      width: 5em;
-      height: 5em;
-      background-color: #fff;
-      text-align: center;
-      font-size: 1em;
-      line-height: 5em;
-
-      a {
-        display: block;
-        width: 100%;
-        height: 100%;
-        color: inherit;
-        text-decoration: none;
-
-        &:hover,
-        &:active,
-        &:focus {
-          background-color: #f8f8f8;
-        }
-      }
-
-      &.active a {
-        background-color: #6F325C;
-        color: #fff;
+      .main-menu-content {
+        right: 33px;
+        top: 62px;
       }
     }
   }
 
-  .smartcms_button {
-    display: none;
-  }
-}
+  @media all and (min-width: 700px) {
+    &:nth-child(1) {
+      .main-menu-content {
+        right: 88px;
+        top: 124px;
+      }
+    }
 
-@media only screen and (max-width: 620px) {
-  .no-csstransforms li {
-    width: 4em;
-    height: 4em;
-    line-height: 4em;
-  }
-}
+    &:nth-child(2) {
 
-@media only screen and (max-width: 500px) {
-  .no-ccstransforms .smartcms_wrapper {
-    padding: .5em;
+      .main-menu-content {
+        right: 78px;
+        top: 105px;
+      }
+    }
+
+    &:nth-child(3) {
+
+      .main-menu-content {
+        right: 89px;
+        top: 100px;
+      }
+    }
+
+    &:nth-child(4) {
+
+      .main-menu-content {
+        right: 81px;
+        top: 126px;
+      }
+    }
+
+    &:nth-child(5) {
+
+      .main-menu-content {
+        right: 91px;
+        top: 114px;
+      }
+    }
+
+    &:nth-child(6) {
+
+      .main-menu-content {
+        right: 96px;
+        top: 109px;
+      }
+    }
   }
 
-  .no-csstransforms .smartcms_wrapper li {
-    width: 4em;
-    height: 4em;
-    font-size: .9em;
-    line-height: 4em;
-  }
-}
-
-@media only screen and (max-width: 480px) {
-  .csstransforms .smartcms_wrapper {
-    font-size: .68em;
-  }
-
-  .smartcms_button {
-    font-size: 1em;
-  }
-}
-
-@media only screen and (max-width: 420px) {
-  .no-csstransforms .smartcms_wrapper li {
+  a {
+    display: block;
     width: 100%;
-    height: 3em;
-    line-height: 3em;
+    height: 100%;
+    position: relative;
+    color: #333;
+  }
+
+  &:hover {
+    background-image: linear-gradient(135deg, #d5d6da 0%, #bfc6ec 100%);
+  }
+}
+
+.main-menu-content {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  flex: auto;
+}
+
+.icon {
+  position: absolute;
+  /* exact values here depend on what you are placing inside the items (icon, image, text, etc.) */
+  right: 15%;
+  top: 30%;
+  /* make sure it it rotated enough; angle of rotation = angle of the sector itself */
+  transform: rotate(60deg);
+
+  /* style further as needed */
+  font-family: Indie Flower;
+  font-size: 25px;
+}
+
+// 底層內容
+.main-menu-wrapp {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+// 中間按鈕位置
+.middle-button-wrapp {
+  position: absolute;
+  z-index: 999;
+}
+
+// 中間按鈕
+.middle-button {
+  padding: 30px;
+  border-radius: 100px;
+  border: 7px solid rgba(202, 202, 202, 0.33);
+  background: #fff;
+  border: 11px solid rgb(202 202 202 / 33%);
+  color: #333;
+  font-size: 13px;
+  width: 160px;
+  height: 160px;
+}
+
+//  icon size
+.icon-img {
+  width: 50px;
+
+  @media all and (max-width: 425px) {
+    width: 44px;
+  }
+
+  @media all and (min-width: 700px) {
+    width: 54px;
   }
 }

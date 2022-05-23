@@ -11,8 +11,43 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <div class="dashboard-component">
+<ion-content [fullscreen]="true">
+  <div class="main-menu-wrapp">
+    <div class="middle-button-wrapp">
+      <button class="middle-button">
+        <div class="main-button">
+          <img src="../../../assets/dashboard/ticket.svg" class="icon-img">
+          <span>行動購票</span>
+        </div>
+      </button>
+    </div>
+    <ul class="main-menu">
+      <li *ngFor="let menu of menus">
+        <a [href]="menu.url">
+          <div class="main-menu-content">
+            <img [src]="menu.icon" class="icon-img">
+            <span>{{menu.name}}</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <svg height="0" width="0" viewbox="0 0 1 1" *ngIf="!mobile">
+      <defs>
+        <clipPath id="sector" clipPathUnits="objectBoundingBox">
+          <path fill-rule="evenodd" d="M0.5,0.5 l0.5,0 A0.45,0.6 0 0,0 0.75,.006987298 z"></path>
+        </clipPath>
+      </defs>
+    </svg>
+    <svg height="0" width="0" viewbox="0 0 1 1" *ngIf="mobile">
+      <defs>
+        <clipPath id="sector" clipPathUnits="objectBoundingBox">
+          <path fill-rule="evenodd" d="M0.5,0.5 l0.5,0 A0.5,0.5 0 0,0 0.75,.066987298 z"></path>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- <div class="dashboard-component">
     <div class="station-status" *ngIf="false">
       <ion-icon name="radio-button-on-sharp"></ion-icon>正常營運中
     </div>
@@ -31,8 +66,8 @@
           <li *ngFor="let menu of menus">
             <a [href]="menu.url">
               <div class="smartcms_content">
-              <img [src]="menu.icon" class="icon-img">
-              <span>{{menu.name}}</span>
+                <img [src]="menu.icon" class="icon-img">
+                <span>{{menu.name}}</span>
               </div>
             </a>
           </li>
@@ -56,5 +91,5 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 </ion-content>
