@@ -74,6 +74,7 @@ ion-content {
   -webkit-clip-path: url(#sector);
   clip-path: url(#sector);
   /* try this one in Chrome/Opera/Safari */
+   -webkit-overflow: hidden;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -305,6 +306,12 @@ ion-content {
   font-size: 13px;
   width: 160px;
   height: 160px;
+  @media all and (max-width: 425px) {
+      padding: 10px;
+      width: 130px;
+        height: 130px;
+    }
+
 }
 
 //  icon size
