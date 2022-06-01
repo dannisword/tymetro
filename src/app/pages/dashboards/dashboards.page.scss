@@ -22,17 +22,25 @@ ion-content {
 }
 
 .station-status {
-  background: #8b38ac;
-  padding: 0.5rem 5px;
-  color: #fff;
-  display: flex;
-  flex-flow: row;
-  align-items: center;
 
-  ion-icon {
-    color: #8bc34a;
-    margin-right: 10px;
-  }
+    padding: 0.5rem 5px;
+    color: #fff;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    &-normal {
+        background: #009688;
+    }
+
+    &-danger {
+        background: #b9575c;
+    }
+
+    img {
+        width: 20px;
+        margin-right: 10px;
+    }
 }
 
 
