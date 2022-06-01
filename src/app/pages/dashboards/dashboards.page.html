@@ -12,6 +12,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+    <div class="station-status station-status-normal">
+        <img src="../../../assets/dashboard/normal.svg" alt="">營運狀態：全線正常營運
+    </div>
+    <div class="station-status station-status-danger">
+        <img src="../../../assets/dashboard/danger.svg" alt="">營運狀態：全線檢測中，暫停行駛中
+    </div>
   <div class="main-menu-wrapp">
     <div class="middle-button-wrapp">
       <button class="middle-button">
@@ -45,6 +51,9 @@
         </clipPath>
       </defs>
     </svg>
+  </div>
+  <div class="news-wrap">
+      <h1>重大消息</h1>
   </div>
 
   <!-- <div class="dashboard-component">
