@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
+import { ApiService } from '../_services/api.service';
+
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { IonicSlides } from '@ionic/angular';
+import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
 @Component({
@@ -8,21 +11,21 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
   templateUrl: './dashboards.page.html',
   styleUrls: ['./dashboards.page.scss'],
 })
-export class DashboardsPage implements OnInit {
+export class DashboardsPage extends BaseComponent implements OnInit {
 
   public menus = [{
     name: '最新消息',
-    icon:'../../../assets/dashboard/news.svg',
-    url:'https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11',
+    icon: '../../../assets/dashboard/news.svg',
+    url: 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11',
   }, {
     name: '票價時刻',
     icon: '../../../assets/dashboard/date-range.svg',
-    url:'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php'
+    url: 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php'
   },
   {
     name: '車站資訊',
     icon: '../../../assets/dashboard/airline.svg',
-    url:'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/A1'
+    url: 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/A1'
   },
   {
     name: '列車動態',
@@ -31,7 +34,7 @@ export class DashboardsPage implements OnInit {
   {
     name: '路線規劃',
     icon: '../../../assets/dashboard/edit-location.svg',
-    url:'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/road.html'
+    url: 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/road.html'
   },
   {
     name: '紀念商品',
@@ -43,10 +46,21 @@ export class DashboardsPage implements OnInit {
     speed: 400
   };
   public mobile: boolean;
-  constructor() { }
+
+  constructor(
+    protected injector: Injector,
+    protected api: ApiService) {
+    super(injector);
+  }
 
   ngOnInit() {
     this.onHideSvg();
+  }
+
+  async getNewAdvertising() {
+    const resp = await this.api.getNewAdvertising('10', 'TW');
+    console.log(resp);
+    this.alert("123");
   }
 
   async onNav(menu) {
@@ -54,7 +68,7 @@ export class DashboardsPage implements OnInit {
     window.location.href = 'https://github.com/google';
   }
   async onHideSvg() {
-    return window.screen.width <= 360 ? this.mobile = true:false;
+    return window.screen.width <= 360 ? this.mobile = true : false;
   }
 
 

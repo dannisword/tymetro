@@ -1,3 +1,4 @@
+<!--
 <ion-header [translucent]="false" class="brand-nav">
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -11,6 +12,9 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+-->
+<app-header></app-header>
 <ion-content [fullscreen]="true">
     <div class="station-status station-status-normal">
         <img src="../../../assets/dashboard/normal.svg" alt="">營運狀態：全線正常營運
@@ -20,7 +24,7 @@
     </div>
   <div class="main-menu-wrapp">
     <div class="middle-button-wrapp">
-      <button class="middle-button">
+      <button class="middle-button" (click)="getNewAdvertising()">
         <div class="main-button">
           <img src="../../../assets/dashboard/ticket.svg" class="icon-img">
           <span>行動購票</span>
