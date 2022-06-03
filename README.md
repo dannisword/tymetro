@@ -11,7 +11,9 @@ $ ionic capacitor build ios --prod
 ## 多國
 npm install @ngx-translate/core
 npm install @ngx-translate/http-loader
-
+## 
+$ npm install cordova-plugin-inappbrowser 
+$ npm install @awesome-cordova-plugins/in-app-browser 
 ## 執行
 ionic seve  
 
