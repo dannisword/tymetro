@@ -1,5 +1,5 @@
-import { Component, OnInit, Injector, ChangeDetectorRef } from '@angular/core';
-
+import { Component, Injector, ChangeDetectorRef } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AlertController, Platform } from '@ionic/angular';
 
 @Component({
@@ -10,16 +10,20 @@ import { AlertController, Platform } from '@ionic/angular';
 export abstract class BaseComponent {
   public platForm: Platform;
   public alertController: AlertController;
+  public translateService: TranslateService;
   public changeDetectorRef: ChangeDetectorRef;
 
   constructor(protected injector: Injector) {
     this.platForm = injector.get(Platform);
     this.alertController = injector.get(AlertController);
+    this.translateService = injector.get(TranslateService);
     this.changeDetectorRef = injector.get(ChangeDetectorRef);
     this.onInit();
   }
 
-  onInit() { }
+  onInit() { 
+    //this.translateService.use('en');
+  }
 
   public async confirm(msg: string) {
     return await this.presentAlert('提示訊息', msg);

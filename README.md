@@ -8,6 +8,10 @@ $ npx cap add android
 $ ionic capacitor add ios  
 $ ionic capacitor build ios --prod  
 
+## 多國
+npm install @ngx-translate/core
+npm install @ngx-translate/http-loader
+
 ## 執行
 ionic seve  
 
@@ -31,3 +35,6 @@ ionic generate service _shared/services/snackbar
 
 ## api 服務
 ionic generate service pages/_services/api
+
+## moduel or class
+ionic generate class --skip-tests pages/_module/lang
