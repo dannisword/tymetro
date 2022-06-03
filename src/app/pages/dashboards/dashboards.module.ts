@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { DashboardsPageRoutingModule } from './dashboards-routing.module';
 
+import { SharedModule } from '../../_shared/shared/shared.module';
+
 import { DashboardsPage } from './dashboards.page';
 import { NewsComponent } from '../news/news.component';
 
@@ -14,6 +16,7 @@ import { NewsComponent } from '../news/news.component';
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     DashboardsPageRoutingModule
   ],
   declarations: [

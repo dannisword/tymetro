@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'news',
     component: NewsComponent,
-    data: { title: '請假' }
+    data: { title: '最新消息' }
   }
 ];
 
