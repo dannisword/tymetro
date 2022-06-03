@@ -11,6 +11,12 @@ import { SwiperModule } from 'swiper/angular';
 import { SharedModule } from './_shared/shared/shared.module';
 import { RequestInterceptor, ResponseInterceptor } from './_shared/index';
 
+import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,13 +25,29 @@ import { RequestInterceptor, ResponseInterceptor } from './_shared/index';
     HttpClientModule,
     SwiperModule,
     SharedModule,
-    IonicModule.forRoot(), AppRoutingModule
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
+    TranslateService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(public translate: TranslateService) {
+    const lang = this.translate.getBrowserLang();
+    console.log(lang);
+    this.translate.setDefaultLang(lang);
+    this.translate.use(lang);
+  }
+}

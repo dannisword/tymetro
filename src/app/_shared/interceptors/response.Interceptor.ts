@@ -13,6 +13,7 @@ export class ResponseInterceptor implements HttpInterceptor {
         private snackbarService: SnackbarService) {
     }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        
         return next.handle(request).pipe(catchError(resp => {
             if (resp && resp.status && resp.status === 401) {
                 this.snackbarService.warning('Please log in to the system again, thanks！');

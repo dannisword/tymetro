@@ -4,6 +4,7 @@ import { ApiService } from '../_services/api.service';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { IonicSlides } from '@ionic/angular';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
+import { Lang } from '../_module/lang';
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
 @Component({
@@ -58,9 +59,12 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   }
 
   async getNewAdvertising() {
-    const resp = await this.api.getNewAdvertising('10', 'TW');
+    const resp = await this.api.getProductList();
+    //const resp = await this.api.getData();
     console.log(resp);
-    this.alert("123");
+    //const resp = await this.api.login('A123456789', '123456');
+    //const resp = await this.api.getProductList();
+
   }
 
   async onNav(menu) {
