@@ -7,6 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SwiperModule } from 'swiper/angular';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 import { SharedModule } from './_shared/shared/shared.module';
 import { RequestInterceptor, ResponseInterceptor } from './_shared/index';
@@ -37,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     TranslateService,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },

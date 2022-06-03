@@ -4,7 +4,8 @@ import { ApiService } from '../_services/api.service';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
 import { IonicSlides } from '@ionic/angular';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
-import { Lang } from '../_module/lang';
+import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
+
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
 @Component({
@@ -13,6 +14,7 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
   styleUrls: ['./dashboards.page.scss'],
 })
 export class DashboardsPage extends BaseComponent implements OnInit {
+
 
   public menus = [{
     name: '最新消息',
@@ -50,7 +52,8 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
   constructor(
     protected injector: Injector,
-    protected api: ApiService) {
+    protected api: ApiService,
+    protected iab: InAppBrowser) {
     super(injector);
   }
 
@@ -59,21 +62,19 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   }
 
   async getNewAdvertising() {
-    const resp = await this.api.getProductList();
+    //const resp = await this.api.getProductList();
+    //console.log(resp);
     //const resp = await this.api.getData();
-    console.log(resp);
+
     //const resp = await this.api.login('A123456789', '123456');
     //const resp = await this.api.getProductList();
-
+    // 導覽頁面
+    const url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php';
+    this.onNav(url);
   }
 
-  async onNav(menu) {
-    console.log(menu);
-    window.location.href = 'https://github.com/google';
-  }
+
   async onHideSvg() {
     return window.screen.width <= 360 ? this.mobile = true : false;
   }
-
-
 }

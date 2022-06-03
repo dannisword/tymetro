@@ -10,9 +10,10 @@ export class RequestInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let newRequest = request.clone({ url: request.url });
+        
         request = request.clone({
             setHeaders: {
-                Accept: 'application/json'
+                'Content-Type': 'application/json'
             }
         });
         
