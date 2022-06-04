@@ -49,6 +49,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     speed: 400
   };
   public mobile: boolean;
+  public assetPath= 'https://app.tymetro.com.tw/Content/App_img/backgroup/spring.gif';
 
   constructor(
     protected injector: Injector,

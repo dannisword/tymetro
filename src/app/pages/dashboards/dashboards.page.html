@@ -15,7 +15,7 @@
 
 -->
 <app-header></app-header>
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+assetPath+') no-repeat center center / cover'}">
     <div class="station-status station-status-normal">
         <img src="../../../assets/dashboard/normal.svg" alt="">營運狀態：全線正常營運
     </div>
@@ -33,7 +33,7 @@
     </div>
     <ul class="main-menu">
       <li *ngFor="let menu of menus">
-        <a [href]="menu.url">
+        <a (click)="onNav(menu.url)">
           <div class="main-menu-content">
             <img [src]="menu.icon" class="icon-img">
             <span>{{menu.name}}</span>
