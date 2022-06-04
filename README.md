@@ -40,3 +40,7 @@ ionic generate service pages/_services/api
 
 ## moduel or class
 ionic generate class --skip-tests pages/_module/lang
+
+## component
+member
+ionic generate component pages/member

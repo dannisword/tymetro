@@ -10,6 +10,7 @@ import { SharedModule } from '../../_shared/shared/shared.module';
 
 import { DashboardsPage } from './dashboards.page';
 import { NewsComponent } from '../news/news.component';
+import { MemberComponent } from '../member/member.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { NewsComponent } from '../news/news.component';
   ],
   declarations: [
     DashboardsPage,
-    NewsComponent]
+    NewsComponent,
+    MemberComponent]
 })
 export class DashboardsPageModule { }

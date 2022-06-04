@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,15 +7,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   public pageInfo: any;
-  constructor(route: ActivatedRoute) { 
-    this.pageInfo = route.snapshot.data; 
+  @Output() goBack = new EventEmitter<any>();
+  constructor(route: ActivatedRoute) {
+    this.pageInfo = route.snapshot.data;
     console.log(this.pageInfo);
   }
- 
-  ngOnInit() {
-    
-  }
 
+  ngOnInit() {
+
+  }
+  onGoBack(event) {
+    this.goBack.emit(event);
+  }
 }

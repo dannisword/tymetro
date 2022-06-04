@@ -1,9 +1,14 @@
 <ion-header [translucent]="false" class="brand-nav">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button auto-hide="false" *ngIf="pageInfo.isPage === false"></ion-menu-button>
+      <ion-button *ngIf="pageInfo.isPage === true" icon-only (click)="onGoBack($event)">
+        <ion-icon name="arrow-back-sharp"></ion-icon>
+      </ion-button>
     </ion-buttons>
-    <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+
+    <ion-img class="logo-img" *ngIf="pageInfo.isPage === false" src="assets/logo.png"></ion-img>
+    <ion-title *ngIf="pageInfo.isPage === true"  >{{pageInfo.title}}</ion-title>
     <ion-buttons slot="end" class="login">
       <ion-button [routerLink]="['/shoppingcart']">
         <ion-icon name="person-outline"></ion-icon>
