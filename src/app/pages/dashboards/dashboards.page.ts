@@ -73,7 +73,10 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     this.onNav(url);
   }
 
+  onGoBack(event) {
 
+  }
+  
   async onHideSvg() {
     return window.screen.width <= 360 ? this.mobile = true : false;
   }

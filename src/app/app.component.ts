@@ -16,9 +16,13 @@ export class AppComponent {
       { title: '沿線景點', url: 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/life/attractions.html', icon: 'leaf' },
       { title: '路線規劃', url: '#', icon: 'golf' },
       { title: '我的最愛', url: '#', icon: 'pricetag' },
-      { title: '會員專區', url: '#', icon: 'person' },
+      { title: '會員專區', url: 'dashboards/member', icon: 'person' },
       { title: '紀念商品', url: '#', icon: 'gift' },
       { title: '設定', url: '#', icon: 'settings' },
   ];
   constructor() {}
+
+  public async onNav1(page){
+console.log(page)
+  }
 }

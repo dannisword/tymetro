@@ -1,6 +1,7 @@
 import { Component, Injector, ChangeDetectorRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController, Platform } from '@ionic/angular';
+import { Router, ActivatedRoute } from '@angular/router';
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
@@ -14,6 +15,8 @@ export abstract class BaseComponent {
   public translateService: TranslateService;
   public inAppBrowser: InAppBrowser;
   public changeDetectorRef: ChangeDetectorRef;
+  public activatedRoute: ActivatedRoute;
+  public router: Router;
 
   private options: InAppBrowserOptions = {
     location: 'yes',//Or 'no' 
@@ -42,17 +45,25 @@ export abstract class BaseComponent {
     this.translateService = injector.get(TranslateService);
     this.inAppBrowser = injector.get(InAppBrowser);
     this.changeDetectorRef = injector.get(ChangeDetectorRef);
+    this.activatedRoute = injector.get(ActivatedRoute);
+    this.router = injector.get(Router);
     this.onInit();
   }
 
-  onInit() { 
+  onInit() {
     //this.translateService.use('en');
   }
- public async onNav(url){
-  let target = "_blank";
-  //const url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php';
-  this.inAppBrowser.create(url, target, this.options);
- }
+  public async onNav(url) {
+    let target = "_blank";
+    this.inAppBrowser.create(url, target, this.options);
+  }
+
+  abstract onGoBack(event);
+
+  protected async onBack(url) {
+    await this.router.navigate([url], { replaceUrl: true });
+  }
+
   public async confirm(msg: string) {
     return await this.presentAlert('提示訊息', msg);
   }
