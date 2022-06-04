@@ -1,0 +1,31 @@
+<app-header (goBack)="onGoBack($event)"></app-header>
+<ion-content fullscreen>
+  <section class="full-width">
+    <ion-button expand="full" color="medium">請選擇您現有的票卡</ion-button>
+  </section>
+  <ion-card>
+    <ion-card-header color="primary">
+      <ion-card-subtitle>定期票</ion-card-subtitle>
+      <ion-card-title>定期票/135通勤</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item (click)="onClick()">
+        <ion-avatar slot="start">
+          <img src="./avatar-finn.png" />
+        </ion-avatar>
+        <ion-label>
+          <h3>定期票</h3>
+        </ion-label>
+      </ion-item>
+      <ion-item (click)="onClick()">
+        <ion-avatar slot="start">
+          <img src="./avatar-finn.png" />
+        </ion-avatar>
+        <ion-label>
+          <h3>135通勤</h3>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

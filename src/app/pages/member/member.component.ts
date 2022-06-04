@@ -15,6 +15,10 @@ export class MemberComponent extends BaseComponent implements OnInit {
   ngOnInit() { }
 
   onGoBack(event) {
-    this.onBack('/dashboards');
+    this.onNavigate('/dashboards');
+  }
+  
+  goToPage(url) {
+    this.onNavigate(url);
   }
 }

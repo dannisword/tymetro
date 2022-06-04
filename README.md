@@ -44,3 +44,7 @@ ionic generate class --skip-tests pages/_module/lang
 ## component
 member
 ionic generate component pages/member
+載具專區
+ionic generate component pages/carrier
+ionic generate component pages/carrier/carrier-select
+ionic generate component pages/carrier/carrier-add

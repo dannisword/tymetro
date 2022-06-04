@@ -1,0 +1,22 @@
+<app-header (goBack)="onGoBack($event)" (onOption)="onOption($event)"></app-header>
+<ion-content fullscreen>
+    <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+    <ion-list>
+        <ion-item > 
+            <ion-label slot="end">Dannis 您好</ion-label>
+        </ion-item>
+    </ion-list>
+   <br>
+    <ion-list *ngFor="let card of cards">
+        <ion-list-header> {{card.cardType}}</ion-list-header>
+        <ion-item *ngFor="let item of card.list">
+            <ion-avatar slot="start">
+                <img src="./avatar-finn.png" />
+            </ion-avatar>
+            <ion-label>
+                <h3>{{item.name}}</h3>
+                <p>{{item.expired}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+</ion-content>

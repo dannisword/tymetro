@@ -1,0 +1,15 @@
+<app-header (goBack)="onGoBack($event)"></app-header>
+<ion-content fullscreen>
+  <section class="full-width">
+    <ion-button expand="full" color="medium">您已選擇 定期票/135通勤</ion-button>
+    <ion-button expand="full" color="light">卡號位置說明</ion-button>
+  </section>
+  <section expand="full" class="ion-text-justify">
+    <label>請輸入卡號：</label>
+    <ion-input></ion-input>
+  </section>
+  <section expand="full">
+    <ion-button expand="block" (click)="onSave()">確認送出</ion-button>
+  </section>
+
+</ion-content>

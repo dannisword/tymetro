@@ -53,14 +53,14 @@ export abstract class BaseComponent {
   onInit() {
     //this.translateService.use('en');
   }
-  public async onNav(url) {
+  public async goToBrowser(url) {
     let target = "_blank";
     this.inAppBrowser.create(url, target, this.options);
   }
 
   abstract onGoBack(event);
 
-  protected async onBack(url) {
+  protected async onNavigate(url) {
     await this.router.navigate([url], { replaceUrl: true });
   }
 

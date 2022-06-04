@@ -11,7 +11,9 @@ import { SharedModule } from '../../_shared/shared/shared.module';
 import { DashboardsPage } from './dashboards.page';
 import { NewsComponent } from '../news/news.component';
 import { MemberComponent } from '../member/member.component';
-
+import { CarrierComponent } from '../carrier/carrier.component';
+import { CarrierSelectComponent } from '../carrier/carrier-select/carrier-select.component';
+import { CarrierAddComponent } from '../carrier/carrier-add/carrier-add.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -23,6 +25,9 @@ import { MemberComponent } from '../member/member.component';
   declarations: [
     DashboardsPage,
     NewsComponent,
-    MemberComponent]
+    MemberComponent,
+    CarrierComponent,
+    CarrierSelectComponent,
+    CarrierAddComponent]
 })
 export class DashboardsPageModule { }
