@@ -71,7 +71,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     //const resp = await this.api.getProductList();
     // 導覽頁面
     const url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php';
-    this.onNav(url);
+    this.goToBrowser(url);
   }
 
   onGoBack(event) {

@@ -8,10 +8,10 @@
     </ion-buttons>
 
     <ion-img class="logo-img" *ngIf="pageInfo.isPage === false" src="assets/logo.png"></ion-img>
-    <ion-title *ngIf="pageInfo.isPage === true"  >{{pageInfo.title}}</ion-title>
-    <ion-buttons slot="end" class="login">
-      <ion-button [routerLink]="['/shoppingcart']">
-        <ion-icon name="person-outline"></ion-icon>
+    <ion-title *ngIf="pageInfo.isPage === true">{{pageInfo.title}}</ion-title>
+    <ion-buttons slot="end" class="login" *ngIf="pageInfo.option!= 'None'">
+      <ion-button [routerLink]="['/shoppingcart']" (click)="onExecOption($event)">
+        <ion-icon name="{{pageInfo.option}}"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
