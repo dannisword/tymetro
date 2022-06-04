@@ -336,3 +336,50 @@ ion-content {
     width: 54px;
   }
 }
+
+.news {
+  &-wrap {
+    background: rgb(229 237 244);
+  }
+
+  &-title {
+    background: #a76aac;
+    padding: 10px 0;
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    h1 {
+      margin: 0;
+      font-size: 1rem;
+      border-bottom: 1px solid #fff;
+      padding: 0 10px;
+    }
+  }
+}
+
+// 文宣圖
+// 重大公告
+
+.news-important {
+  position: absolute;
+    right: 0;
+    z-index: 1440;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    background: #1a665f;
+    border-radius: 100%;
+    padding: 5px;
+    border: 1px solid rgb(239 239 239 / 44%);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    overflow: hidden;
+    span {
+      font-size: 10px;
+      color: #fff;
+    }
+}
+
+
