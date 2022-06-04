@@ -1,5 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
+import { ModalController } from '@ionic/angular';
+import { CarrierSelectComponent } from './carrier-select/carrier-select.component';
 
 @Component({
   selector: 'app-carrier',
@@ -9,26 +11,26 @@ import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 export class CarrierComponent extends BaseComponent implements OnInit {
   public cards = [{
     cardType: '有效記名票卡', list: [{
-      name: '5月定期票',
+      name: '定期票',
       expired: '2022-05-31'
     }, {
-      name: '6月定期票',
+      name: '定期票',
       expired: '2022-06-30'
     }]
   }, {
     cardType: '驗證中票卡', list: [{
-      name: '5月定期票',
+      name: '定期票',
       expired: '2022-05-31'
     }, {
-      name: '6月定期票',
+      name: '定期票',
       expired: '2022-06-30'
     }]
   }, {
     cardType: '失效記名票卡', list: [{
-      name: '5月定期票',
+      name: '定期票',
       expired: '2022-05-31'
     }, {
-      name: '6月定期票',
+      name: '定期票',
       expired: '2022-06-30'
     }]
   }];
@@ -39,10 +41,18 @@ export class CarrierComponent extends BaseComponent implements OnInit {
   ngOnInit() { }
 
   onGoBack(event) {
-    this.onNavigate('/dashboards');
+    super.onBack();
   }
 
-  onOption() {
-    this.onNavigate('/dashboards/carrier-select');
+  async onOption() {
+    const options = {
+      componentProps: {
+        title: this.translateService.instant('請選擇您現有的票卡')
+      },
+      swipeToClose: true
+    }
+    const modelData = await this.openModal(CarrierSelectComponent, options);
+    // 回傳值
+    console.log(modelData);
   }
 }

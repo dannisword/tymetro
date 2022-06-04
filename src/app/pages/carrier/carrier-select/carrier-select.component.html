@@ -1,8 +1,14 @@
-<app-header (goBack)="onGoBack($event)"></app-header>
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">關閉</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content fullscreen>
-  <section class="full-width">
-    <ion-button expand="full" color="medium">請選擇您現有的票卡</ion-button>
-  </section>
+
   <ion-card>
     <ion-card-header color="primary">
       <ion-card-subtitle>定期票</ion-card-subtitle>
@@ -12,7 +18,7 @@
     <ion-card-content>
       <ion-item (click)="onClick()">
         <ion-avatar slot="start">
-          <img src="./avatar-finn.png" />
+          <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-red.jpg" />
         </ion-avatar>
         <ion-label>
           <h3>定期票</h3>
@@ -20,7 +26,7 @@
       </ion-item>
       <ion-item (click)="onClick()">
         <ion-avatar slot="start">
-          <img src="./avatar-finn.png" />
+          <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />
         </ion-avatar>
         <ion-label>
           <h3>135通勤</h3>

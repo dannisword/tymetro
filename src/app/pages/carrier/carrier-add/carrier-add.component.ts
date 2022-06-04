@@ -1,6 +1,5 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
-
 @Component({
   selector: 'app-carrier-add',
   templateUrl: './carrier-add.component.html',
@@ -8,17 +7,18 @@ import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 })
 export class CarrierAddComponent extends BaseComponent implements OnInit {
 
+  public cardNo: any;
+
   constructor(protected injector: Injector) {
     super(injector);
   }
 
-  ngOnInit() { }
+  ngOnInit() {
 
-  onGoBack(event: any) {
-    this.onNavigate('/dashboards/carrier-select');
   }
-  
-  onSave() {
 
+  onSave() {
+    // 存擋
+    super.dismissModal(this.cardNo);
   }
 }

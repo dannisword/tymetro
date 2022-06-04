@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AlertController, Platform } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-base',
@@ -17,6 +18,7 @@ export abstract class BaseComponent {
   public changeDetectorRef: ChangeDetectorRef;
   public activatedRoute: ActivatedRoute;
   public router: Router;
+  public modalController: ModalController;
 
   private options: InAppBrowserOptions = {
     location: 'yes',//Or 'no' 
@@ -47,21 +49,49 @@ export abstract class BaseComponent {
     this.changeDetectorRef = injector.get(ChangeDetectorRef);
     this.activatedRoute = injector.get(ActivatedRoute);
     this.router = injector.get(Router);
+    this.modalController = injector.get(ModalController);
+
     this.onInit();
   }
 
   onInit() {
-    //this.translateService.use('en');
+    this.translateService.use('zh');
   }
   public async goToBrowser(url) {
     let target = "_blank";
     this.inAppBrowser.create(url, target, this.options);
   }
 
-  abstract onGoBack(event);
+  public onBack(url?: any) {
+    if (url === undefined) {
+      url = '/dashboards';
+    }
+    this.onNavigate(url);
+  }
 
   protected async onNavigate(url) {
     await this.router.navigate([url], { replaceUrl: true });
+  }
+
+  async dismissModal(data?: any) {
+    if (data === undefined) {
+      data = 'Default Result'
+    }
+    await this.modalController.dismiss(data, 'close');
+  }
+
+  async openModal(pageEl, opts) {
+    return new Promise((resolve) => {
+      this.modalController.create({
+        component: pageEl,
+        ...opts,
+      }).then(modal => {
+        modal.onDidDismiss().then(res => {
+          resolve(res);
+        });
+        modal.present();
+      });
+    })
   }
 
   public async confirm(msg: string) {
@@ -69,7 +99,6 @@ export abstract class BaseComponent {
   }
 
   public async alert(msg: string) {
-    console.log(msg);
     return await this.presentAlert('警告訊息', msg);
   }
 
