@@ -22,9 +22,9 @@ export class ApiService {
   }
   /**
    * 取得文宣 依語系取得
-   * @param count 
-   * @param lang 
-   * @returns 
+   * @param count
+   * @param lang
+   * @returns
    */
   public async getNewAdvertising(count: string, lang: string) {
     const url = `/api/Advertising/GetNewAdvertising?count=${count}&lang=${lang}`;
@@ -33,8 +33,8 @@ export class ApiService {
   }
   /**
    * 取得目前營運狀態
-   * @param lang 
-   * @returns 
+   * @param lang
+   * @returns
    */
   public async getNowStatus(lang: string) {
     const url = `/api/BusinessStatus/GetNowStatus?lang=${lang}`;
@@ -42,8 +42,8 @@ export class ApiService {
   }
   /**
    * 取得重大訊息
-   * @param lang 
-   * @returns 
+   * @param lang
+   * @returns
    */
   public async getImportant(lang: string) {
     const url = `/api/BusinessStatus/GetImportant?lang=${lang}`;
@@ -51,7 +51,7 @@ export class ApiService {
   }
   /**
    * 取得商品清單
-   * @returns 
+   * @returns
    */
   public async getProductList() {
     const url = `/api/Redeem/GetProductList`;
@@ -59,9 +59,9 @@ export class ApiService {
   }
   /**
    * 登入
-   * @param account 
-   * @param password 
-   * @returns 
+   * @param account
+   * @param password
+   * @returns
    */
   public async login(account, password) {
     const param = {
@@ -74,8 +74,8 @@ export class ApiService {
   }
   /**
    * 登出
-   * @param memberID 
-   * @returns 
+   * @param memberID
+   * @returns
    */
   public async logout(memberID: string) {
     const param = {
@@ -86,8 +86,8 @@ export class ApiService {
   }
   /**
    * 註冊
-   * @param data 
-   * @returns 
+   * @param data
+   * @returns
    */
   public async register(data) {
     const url = `/api/Member/Register`;

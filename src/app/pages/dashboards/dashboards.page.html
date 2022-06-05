@@ -57,10 +57,17 @@
     </svg>
   </div>
   <div class="news-wrap">
-      <h1>重大消息</h1>
-      {{'刪除' | translate}}
+    <div class="news-title"><h1>News</h1></div>
+    <ion-slides pager="true" [options]="slideOpts" #slideWithNav
+      (ionSlideDidChange)="onSlideDidChange(sliderOne,slideWithNav)">
+      <ion-slide *ngFor="let s of sliderOne.Data.banner">
+        <img src="{{s.PicLink}}">
+      </ion-slide>
+    </ion-slides>
   </div>
-
+  <div class="news-important">
+    <img src="../../../assets/dashboard/news-important.svg" alt="">
+  </div>
   <!-- <div class="dashboard-component">
     <div class="station-status" *ngIf="false">
       <ion-icon name="radio-button-on-sharp"></ion-icon>正常營運中
