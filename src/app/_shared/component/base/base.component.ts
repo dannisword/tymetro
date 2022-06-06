@@ -2,6 +2,7 @@ import { Component, Injector, ChangeDetectorRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController, Platform } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from "@angular/common";
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { ModalController } from '@ionic/angular';
 
@@ -19,6 +20,7 @@ export abstract class BaseComponent {
   public activatedRoute: ActivatedRoute;
   public router: Router;
   public modalController: ModalController;
+  public location: Location;
 
   private options: InAppBrowserOptions = {
     location: 'yes',//Or 'no' 
@@ -49,6 +51,7 @@ export abstract class BaseComponent {
     this.changeDetectorRef = injector.get(ChangeDetectorRef);
     this.activatedRoute = injector.get(ActivatedRoute);
     this.router = injector.get(Router);
+    this.location = injector.get(Location);
     this.modalController = injector.get(ModalController);
 
     this.onInit();
@@ -63,8 +66,10 @@ export abstract class BaseComponent {
   }
 
   public onBack(url?: any) {
+
     if (url === undefined) {
-      url = '/dashboards';
+      this.location.back();
+      return;
     }
     this.onNavigate(url);
   }

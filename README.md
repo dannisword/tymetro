@@ -22,6 +22,9 @@ $ ionic build
 $ npx cap sync ios  
 $ npx cap open ios   
 
+$ npx cap sync android 
+$ npx cap open android 
+
 ## Apple chip M1 pod install CocoaPod
 執行下面指令  
 $ sudo arch -x86_64 gem install ffi  
@@ -42,9 +45,13 @@ ionic generate service pages/_services/api
 ionic generate class --skip-tests pages/_module/lang
 
 ## component
+ionic generate component pages/construct
 member
 ionic generate component pages/member
+ionic generate component pages/member-modify
 載具專區
 ionic generate component pages/carrier
 ionic generate component pages/carrier/carrier-select
 ionic generate component pages/carrier/carrier-add
+
+ionic generate component pages/login

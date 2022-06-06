@@ -41,7 +41,7 @@ export class CarrierComponent extends BaseComponent implements OnInit {
   ngOnInit() { }
 
   onGoBack(event) {
-    super.onBack();
+    super.onBack('dashboards/member');
   }
 
   async onOption() {
