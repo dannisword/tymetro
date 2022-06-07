@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"><defs><style>.cls-1{isolation:isolate;}.cls-2,.cls-4{fill:none;}.cls-3{fill:url(#未命名漸層_8);}.cls-4{stroke:#653d82;stroke-miterlimit:10;stroke-width:0.5px;opacity:0.46;mix-blend-mode:multiply;}</style><linearGradient id="未命名漸層_8" x1="5" y1="12" x2="19" y2="12" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8b38ac"/><stop offset="1" stop-color="#653d82"/></linearGradient></defs><g class="cls-1"><g id="圖層_1" data-name="圖層 1"><path class="cls-2" d="M0,0H24V24H0Z"/><path class="cls-3" d="M19,16.94V8.5C19,5.71,16.39,5.1,13,5l.76-1.51H17V2H7V3.5h4.75L11,5c-3.13.09-6,.71-6,3.48v8.44a3.21,3.21,0,0,0,2.59,3L6,21.5V22H8.23l2-2H14l2,2h2v-.5L16.5,20h-.08C18.11,20,19,18.63,19,16.94ZM12,18.5A1.5,1.5,0,1,1,13.5,17,1.5,1.5,0,0,1,12,18.5ZM17,14H7V9H17Z"/><path class="cls-4" d="M19,16.94V8.5C19,5.71,16.39,5.1,13,5l.76-1.51H17V2H7V3.5h4.75L11,5c-3.13.09-6,.71-6,3.48v8.44a3.21,3.21,0,0,0,2.59,3L6,21.5V22H8.23l2-2H14l2,2h2v-.5L16.5,20h-.08C18.11,20,19,18.63,19,16.94ZM12,18.5A1.5,1.5,0,1,1,13.5,17,1.5,1.5,0,0,1,12,18.5ZM17,14H7V9H17Z"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:url(#SVGID_1_);}
+	.st2{opacity:0.46;fill:none;stroke:#FFFFFF;stroke-width:0.5;stroke-miterlimit:10;enable-background:new    ;}
+</style>
+<g>
+	<g id="圖層_1_1_">
+		<path class="st0" d="M0,0h24v24H0V0z"/>
+		
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="5" y1="14" x2="19" y2="14" gradientTransform="matrix(1 0 0 -1 0 26)">
+			<stop  offset="0" style="stop-color:#887CE6"/>
+			<stop  offset="1" style="stop-color:#BC88D1"/>
+		</linearGradient>
+		<path class="st1" d="M19,16.9V8.5c0-2.8-2.6-3.4-6-3.5l0.8-1.5H17V2H7v1.5h4.8L11,5C7.9,5.1,5,5.7,5,8.5v8.4
+			c0.1,1.5,1.1,2.7,2.6,3L6,21.5V22h2.2l2-2H14l2,2h2v-0.5L16.5,20h-0.1C18.1,20,19,18.6,19,16.9z M12,18.5c-0.8,0-1.5-0.7-1.5-1.5
+			s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S12.8,18.5,12,18.5z M17,14H7V9h10V14z"/>
+		<path class="st2" d="M19,16.9V8.5c0-2.8-2.6-3.4-6-3.5l0.8-1.5H17V2H7v1.5h4.8L11,5C7.9,5.1,5,5.7,5,8.5v8.4
+			c0.1,1.5,1.1,2.7,2.6,3L6,21.5V22h2.2l2-2H14l2,2h2v-0.5L16.5,20h-0.1C18.1,20,19,18.6,19,16.9z M12,18.5c-0.8,0-1.5-0.7-1.5-1.5
+			s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S12.8,18.5,12,18.5z M17,14H7V9h10V14z"/>
+	</g>
+</g>
+</svg>
