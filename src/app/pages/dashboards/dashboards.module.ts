@@ -10,6 +10,7 @@ import { SharedModule } from '../../_shared/shared/shared.module';
 
 import { DashboardsPage } from './dashboards.page';
 import { NewsComponent } from '../news/news.component';
+import { NewsContentComponent } from '../news/news-coontent/news-coontent.component';
 import { MemberComponent } from '../member/member.component';
 import { CarrierComponent } from '../carrier/carrier.component';
 import { CarrierSelectComponent } from '../carrier/carrier-select/carrier-select.component';
@@ -25,6 +26,7 @@ import { CarrierAddComponent } from '../carrier/carrier-add/carrier-add.componen
   declarations: [
     DashboardsPage,
     NewsComponent,
+    NewsContentComponent,
     MemberComponent,
     CarrierComponent,
     CarrierSelectComponent,

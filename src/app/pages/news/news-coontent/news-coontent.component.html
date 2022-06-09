@@ -1,0 +1,9 @@
+<app-header (goBack)="onGoBack($event)"></app-header>
+<ion-content [fullscreen]="true" >
+  <ul class="news-list">
+    <li *ngFor="let new of newsList">
+         <div class="new-sub">{{new.Date}}</div>
+         <p class="new-title">{{new.Title}}</p>
+    </li>
+  </ul>
+</ion-content>
