@@ -35,7 +35,7 @@
     </div>
     <ul class="main-menu">
       <li *ngFor="let menu of menus">
-        <a (click)="onNav(menu.url)">
+        <a (click)="goToBrowser(menu.url)">
           <div class="main-menu-content">
             <img [src]="menu.icon" class="icon-img">
             <span>{{menu.name}}</span>

@@ -1,0 +1,25 @@
+<app-header (goBack)="onGoBack($event)"> </app-header>
+<ion-content fullscreen>
+  <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="person"></ion-icon>
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="account" placeholder="請輸入身分證或護照號碼"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      <ion-icon name="key" class=""></ion-icon>
+    </ion-label>
+    <ion-input type="password" [(ngModel)]="password" placeholder="請輸入密碼"></ion-input>
+  </ion-item>
+  <ion-item>
+    <a slot="end" expand="full" (click)="onForgotPW()">忘記密碼</a>
+  </ion-item>
+
+  <section class="full-width">
+    <ion-button expand="full" (click)="onLogin()">登入</ion-button>
+    <ion-button expand="full" (click)="onRegister()">註冊</ion-button>
+  </section>
+</ion-content>

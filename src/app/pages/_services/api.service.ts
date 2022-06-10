@@ -93,4 +93,11 @@ export class ApiService {
     const url = `/api/Member/Register`;
     return await this.http.post<any>(url, data).toPromise();
   }
+
+  public async forgetPassword(data) {
+    const url = `/api/Member/ForgetPassword`;
+    return await this.http.post<any>(url, data).toPromise();
+  }
+
+  //Member/ForgetPassword
 }

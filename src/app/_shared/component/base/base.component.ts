@@ -2,6 +2,7 @@ import { Component, Injector, ChangeDetectorRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController, Platform } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from "@angular/common";
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { ModalController } from '@ionic/angular';
 
@@ -19,6 +20,7 @@ export abstract class BaseComponent {
   public activatedRoute: ActivatedRoute;
   public router: Router;
   public modalController: ModalController;
+  public location: Location;
 
   private options: InAppBrowserOptions = {
     location: 'yes',//Or 'no' 
@@ -49,6 +51,7 @@ export abstract class BaseComponent {
     this.changeDetectorRef = injector.get(ChangeDetectorRef);
     this.activatedRoute = injector.get(ActivatedRoute);
     this.router = injector.get(Router);
+    this.location = injector.get(Location);
     this.modalController = injector.get(ModalController);
 
     this.onInit();
@@ -63,8 +66,10 @@ export abstract class BaseComponent {
   }
 
   public onBack(url?: any) {
+
     if (url === undefined) {
-      url = '/dashboards';
+      this.location.back();
+      return;
     }
     this.onNavigate(url);
   }
@@ -94,18 +99,10 @@ export abstract class BaseComponent {
     })
   }
 
-  public async confirm(msg: string) {
-    return await this.presentAlert('提示訊息', msg);
-  }
-
-  public async alert(msg: string) {
-    return await this.presentAlert('警告訊息', msg);
-  }
-
-  private async presentAlert(header, msg) {
+  public confirm(msg: string) {
     return new Promise(async (resolve) => {
       const alert = await this.alertController.create({
-        header: header,
+        header: '訊息確認',
         message: msg,
         buttons: [{
           text: '取消',
@@ -123,4 +120,23 @@ export abstract class BaseComponent {
       alert.present();
     });
   }
+
+  public async alert(msg: string) {
+    return new Promise(async (resolve) => {
+      const alert = await this.alertController.create({
+        header: '警告訊息',
+        message: msg,
+        buttons: [{
+          text: '確認',
+          handler: () => {
+            resolve(true);
+          }
+        }]
+      });
+      alert.present();
+    });
+  }
+
+
+
 }

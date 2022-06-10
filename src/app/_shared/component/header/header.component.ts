@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   public pageInfo: any;
   @Output() onOption = new EventEmitter<any>();
   @Output() goBack = new EventEmitter<any>();
+  @Output() onAction = new EventEmitter<any>();
 
   constructor(route: ActivatedRoute) {
     this.pageInfo = route.snapshot.data;
@@ -22,8 +23,12 @@ export class HeaderComponent implements OnInit {
   onGoBack(event) {
     this.goBack.emit(event);
   }
-  
+
   onExecOption(event) {
     this.onOption.emit(event);
+  }
+
+  handleAction(event) {
+    this.onAction.emit(event);
   }
 }

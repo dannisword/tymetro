@@ -59,11 +59,6 @@ export class NewsComponent extends BaseComponent implements OnInit {
   }
 
 
-  // 回上一頁
-  onGoBack(event) {
-    super.onBack();
-  }
-
   // 點開最新消息內容
 
   async openNewsContent(params) {
@@ -81,4 +76,7 @@ export class NewsComponent extends BaseComponent implements OnInit {
     console.log('modelData',modelData);
   }
 
+  onGoBack(event) {
+    this.onNavigate('/dashboards');
+  }
 }

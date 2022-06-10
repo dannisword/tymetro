@@ -11,7 +11,7 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 import { SharedModule } from './_shared/shared/shared.module';
 import { RequestInterceptor, ResponseInterceptor } from './_shared/index';
-
+import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     TranslateService,
     InAppBrowser,
+    DatePicker,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },

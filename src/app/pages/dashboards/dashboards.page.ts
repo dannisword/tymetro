@@ -182,12 +182,12 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   }
 
   async getNewAdvertising() {
-    //const resp = await this.api.getProductList();
-    //console.log(resp);
+    let resp = await this.api.getProductList();
+    console.log(resp);
     //const resp = await this.api.getData();
 
-    //const resp = await this.api.login('A123456789', '123456');
-    //const resp = await this.api.getProductList();
+    //resp = await this.api.login('A123456789', '123456');
+    //console.log(resp);
     // 導覽頁面
     const url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php';
     this.goToBrowser(url);
@@ -196,10 +196,16 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   onGoBack(event) {
 
   }
-
+  onAction(event) {
+    const token = localStorage.getItem('Token');
+    console.log(token);
+    if (token == null) {
+      this.onNavigate('/dashboards/login');
+    } else {
+      this.onNavigate('/dashboards/member');
+    }
+  }
   async onHideSvg() {
     return window.screen.width <= 360 ? this.mobile = true : false;
   }
-
-
 }
