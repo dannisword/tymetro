@@ -14,7 +14,7 @@
 </ion-header>
 
 -->
-<app-header></app-header>
+<app-header (onAction)="onAction($event)"></app-header>
 <ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+assetPath+') no-repeat center center / cover'}">
   <div class="station-status station-status-normal">
     <img src="../../../assets/dashboard/normal.svg" alt="">營運狀態：全線正常營運

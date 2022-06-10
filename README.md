@@ -55,3 +55,5 @@ ionic generate component pages/carrier/carrier-select
 ionic generate component pages/carrier/carrier-add
 
 ionic generate component pages/login
+ionic generate component pages/login/forgot
+ionic generate component pages/login/confirm

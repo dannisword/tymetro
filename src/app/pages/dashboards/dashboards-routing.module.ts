@@ -8,7 +8,8 @@ import { MemberComponent } from '../member/member.component';
 import { MemberModifyComponent } from '../member/member-modify/member-modify.component';
 import { CarrierComponent } from '../carrier/carrier.component';
 import { ConstructComponent } from '../construct/construct.component';
-
+import { LoginComponent } from '../login/login.component';
+import { ForgotComponent } from '../login/forgot/forgot.component';
 const routes: Routes = [
   {
     path: '',
@@ -40,7 +41,16 @@ const routes: Routes = [
     component: ConstructComponent,
     data: { title: '建構中', isPage: true, option: HeaderOption.None }
   },
-  
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: '加入會員', isPage: true, option: HeaderOption.None }
+  },
+  {
+    path: 'forgot',
+    component: ForgotComponent,
+    data: { title: '忘記密碼', isPage: true, option: HeaderOption.None }
+  },
 ];
 
 @NgModule({

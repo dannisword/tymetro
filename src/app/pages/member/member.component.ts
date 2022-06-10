@@ -35,6 +35,7 @@ export class MemberComponent extends BaseComponent implements OnInit {
     }
   }
   logout() {
-
+    localStorage.removeItem('Token');
+    this.onNavigate('/dashboards');
   }
 }

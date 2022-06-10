@@ -99,18 +99,10 @@ export abstract class BaseComponent {
     })
   }
 
-  public async confirm(msg: string) {
-    return await this.presentAlert('提示訊息', msg);
-  }
-
-  public async alert(msg: string) {
-    return await this.presentAlert('警告訊息', msg);
-  }
-
-  private async presentAlert(header, msg) {
+  public confirm(msg: string) {
     return new Promise(async (resolve) => {
       const alert = await this.alertController.create({
-        header: header,
+        header: '訊息確認',
         message: msg,
         buttons: [{
           text: '取消',
@@ -128,4 +120,23 @@ export abstract class BaseComponent {
       alert.present();
     });
   }
+
+  public async alert(msg: string) {
+    return new Promise(async (resolve) => {
+      const alert = await this.alertController.create({
+        header: '警告訊息',
+        message: msg,
+        buttons: [{
+          text: '確認',
+          handler: () => {
+            resolve(true);
+          }
+        }]
+      });
+      alert.present();
+    });
+  }
+
+
+
 }

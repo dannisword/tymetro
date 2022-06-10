@@ -196,7 +196,15 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   onGoBack(event) {
 
   }
-
+  onAction(event) {
+    const token = localStorage.getItem('Token');
+    console.log(token);
+    if (token == null) {
+      this.onNavigate('/dashboards/login');
+    } else {
+      this.onNavigate('/dashboards/member');
+    }
+  }
   async onHideSvg() {
     return window.screen.width <= 360 ? this.mobile = true : false;
   }

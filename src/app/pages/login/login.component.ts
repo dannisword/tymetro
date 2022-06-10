@@ -1,5 +1,6 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
+import { ApiService } from '../_services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +9,35 @@ import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 })
 export class LoginComponent extends BaseComponent implements OnInit {
 
-  constructor(protected injector: Injector) {
+  public account: string;
+  public password: string;
+
+  constructor(protected injector: Injector,
+    protected api: ApiService) {
     super(injector);
   }
 
   ngOnInit() { }
 
   onGoBack(event) {
-    super.onBack();
+    super.onBack('/dashboards');
+  }
+
+  onForgotPW() {
+    super.onBack('/dashboards/forgot');
+  }
+
+  async onLogin() {
+    const resp = await this.api.login(this.account, this.password);
+    if (resp.Code == 0) {
+      localStorage.setItem('Token', resp.Data.Token);
+      super.onBack('/dashboards/member');
+    } else {
+      this.alert(resp.Message);
+    }
+  }
+  
+  onRegister() {
+
   }
 }

@@ -1,4 +1,4 @@
-<app-header (goBack)="onGoBack($event)" (onOption)="onOption($event)"></app-header>
+<app-header (goBack)="onGoBack($event)" (onAction)="onOption($event)"></app-header>
 
 <ion-content fullscreen>
   <ion-img class="logo-img" src="assets/logo.png"></ion-img>
@@ -6,7 +6,6 @@
     請輸入以下基本資料：<ion-label color="primary">*</ion-label>&nbsp;&nbsp;為必填
   </ion-label>
 
-  <ion-datetime displayFormat="YYYY/MM/DD"  placeholder="選擇日期"></ion-datetime>
 
 
   <ion-item>

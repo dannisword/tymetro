@@ -16,6 +16,8 @@ import { CarrierComponent } from '../carrier/carrier.component';
 import { CarrierSelectComponent } from '../carrier/carrier-select/carrier-select.component';
 import { CarrierAddComponent } from '../carrier/carrier-add/carrier-add.component';
 import { ConstructComponent } from '../construct/construct.component';
+import { LoginComponent } from '../login/login.component';
+import { ForgotComponent } from '../login/forgot/forgot.component';
 
 @NgModule({
   imports: [
@@ -34,6 +36,8 @@ import { ConstructComponent } from '../construct/construct.component';
     CarrierComponent,
     CarrierSelectComponent,
     CarrierAddComponent,
-    ConstructComponent]
+    ConstructComponent,
+    LoginComponent,
+    ForgotComponent]
 })
 export class DashboardsPageModule { }

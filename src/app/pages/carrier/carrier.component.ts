@@ -44,7 +44,7 @@ export class CarrierComponent extends BaseComponent implements OnInit {
     super.onBack('dashboards/member');
   }
 
-  async onOption() {
+  async onAction() {
     const options = {
       componentProps: {
         title: this.translateService.instant('請選擇您現有的票卡')
