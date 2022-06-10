@@ -1,4 +1,9 @@
-<app-header (goBack)="onGoBack($event)"> </app-header>
-<ion-content fullscreen>
-  <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+<app-header (goBack)="onGoBack($event)"></app-header>
+<ion-content [fullscreen]="true" >
+  <ul class="news-list">
+    <li *ngFor="let new of newsList" (click)="openNewsContent(new)">
+         <div class="new-sub">{{new.Date}}</div>
+         <p class="new-title">{{new.Title}}</p>
+    </li>
+  </ul>
 </ion-content>

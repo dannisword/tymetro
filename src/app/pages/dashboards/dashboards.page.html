@@ -14,17 +14,16 @@
 </ion-header>
 
 -->
-<app-header (onAction)="onAction($event)"></app-header>
-<ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+assetPath+') no-repeat center center / cover'}">
+<app-header></app-header>
+<ion-content [fullscreen]="true"[ngStyle]="{'background': 'url('+assetPath+') no-repeat center center / cover'}">
+<ion-header>
   <div class="station-status station-status-normal">
     <img src="../../../assets/dashboard/normal.svg" alt="">營運狀態：全線正常營運
   </div>
-  <!--
   <div class="station-status station-status-danger">
     <img src="../../../assets/dashboard/danger.svg" alt="">營運狀態：全線檢測中，暫停行駛中
   </div>
-  -->
-
+</ion-header>
   <div class="main-menu-wrapp">
     <div class="middle-button-wrapp">
       <button class="middle-button" (click)="getNewAdvertising()">
@@ -73,49 +72,5 @@
   <div class="news-important">
     <img src="../../../assets/dashboard/news-important.svg" alt="">
   </div>
-  <!-- <div class="dashboard-component">
-    <div class="station-status" *ngIf="false">
-      <ion-icon name="radio-button-on-sharp"></ion-icon>正常營運中
-    </div>
-    <div class="brand-list smartcms_body">
-
-      <div class="smartcms_wrapper">
-        <ul>
-          <li>
-            <button class="smartcms_button" id="smartcms_button">
-              <div class="main-button">
-                <img src="../../../assets/dashboard/ticket.svg" class="icon-img">
-                <span>行動購票</span>
-              </div>
-            </button>
-          </li>
-          <li *ngFor="let menu of menus">
-            <a [href]="menu.url">
-              <div class="smartcms_content">
-                <img [src]="menu.icon" class="icon-img">
-                <span>{{menu.name}}</span>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="station-news" *ngIf="false">
-      <ul>
-        <li>News</li>
-        <li>
-            <ion-slides pager="true" [options]="{ slidesPerView: true, loop: true,navigation: true}">
-              <ion-slide [routerLink]="['/shoplist']">
-                <h1>Slide 1</h1>
-              </ion-slide>
-              <ion-slide [routerLink]="['/shoplist']">
-              <h1>Slide 2</h1>
-              </ion-slide>
-            </ion-slides>
-        </li>
-      </ul>
-    </div>
-  </div> -->
 </ion-content>
+

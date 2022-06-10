@@ -1,0 +1,18 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">關閉</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" >
+
+  <ul class="news-list">
+    <li>
+      <div class="new-sub"><span>{{news.Date}}</span></div>
+      <h4 class="new-title">{{news.Title}}</h4>
+      <p class="new-content">{{news.Content}}</p>
+    </li>
+  </ul>
+</ion-content>
