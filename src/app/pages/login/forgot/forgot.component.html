@@ -1,0 +1,36 @@
+<app-header (goBack)="onGoBack($event)"> </app-header>
+<ion-content fullscreen>
+  <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+  <ion-item>
+    <ion-label>
+      <ion-icon name="person-outline"></ion-icon>
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="id" placeholder="身分證號碼或護照號碼"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="mail-outline"></ion-icon>
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="mail" placeholder="請輸入註冊時驗證E-mail" [disabled]="phone != ''"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="call-outline"></ion-icon>
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="phone" placeholder="請輸入註冊時手機號碼" [disabled]="mail != ''"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    Email、手機號碼請擇一選擇
+  </ion-item>
+  <ion-item>
+    客服專線：03-2868789 <ion-icon name="call-outline"></ion-icon>
+  </ion-item>
+
+  <section class="full-width">
+    <ion-button expand="full" (click)="onConfirm()">確定送出</ion-button>
+  </section>
+
+</ion-content>

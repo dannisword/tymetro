@@ -5,9 +5,11 @@ import { HeaderOption } from '../_module/headerOption';
 import { DashboardsPage } from './dashboards.page';
 import { NewsComponent } from '../news/news.component';
 import { MemberComponent } from '../member/member.component';
+import { MemberModifyComponent } from '../member/member-modify/member-modify.component';
 import { CarrierComponent } from '../carrier/carrier.component';
-import { CarrierSelectComponent } from '../carrier/carrier-select/carrier-select.component';
-import { CarrierAddComponent } from '../carrier/carrier-add/carrier-add.component';
+import { ConstructComponent } from '../construct/construct.component';
+import { LoginComponent } from '../login/login.component';
+import { ForgotComponent } from '../login/forgot/forgot.component';
 const routes: Routes = [
   {
     path: '',
@@ -25,20 +27,30 @@ const routes: Routes = [
     data: { title: '會員專區', isPage: true, option: HeaderOption.None }
   },
   {
+    path: 'member-modify',
+    component: MemberModifyComponent,
+    data: { title: '會員資料修改', isPage: true, option: HeaderOption.None }
+  },
+  {
     path: 'carrier',
     component: CarrierComponent,
     data: { title: '載具專區', isPage: true, option: HeaderOption.Add }
   },
   {
-    path: 'carrier-select',
-    component: CarrierSelectComponent,
-    data: { title: '載具專區', isPage: true, option: HeaderOption.None }
+    path: 'construct',
+    component: ConstructComponent,
+    data: { title: '建構中', isPage: true, option: HeaderOption.None }
   },
   {
-    path: 'carrier-add',
-    component: CarrierAddComponent,
-    data: { title: '載具專區', isPage: true, option: HeaderOption.None }
-  }
+    path: 'login',
+    component: LoginComponent,
+    data: { title: '加入會員', isPage: true, option: HeaderOption.None }
+  },
+  {
+    path: 'forgot',
+    component: ForgotComponent,
+    data: { title: '忘記密碼', isPage: true, option: HeaderOption.None }
+  },
 ];
 
 @NgModule({
