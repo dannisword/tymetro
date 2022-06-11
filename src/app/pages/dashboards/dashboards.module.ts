@@ -13,6 +13,7 @@ import { NewsComponent } from '../news/news.component';
 import { NewsContentComponent } from '../news/news-coontent/news-coontent.component';
 import { MemberComponent } from '../member/member.component';
 import { MemberModifyComponent } from '../member/member-modify/member-modify.component';
+import { MemberPointsComponent } from '../member/member-points/member-points.component';
 import { CarrierComponent } from '../carrier/carrier.component';
 import { CarrierSelectComponent } from '../carrier/carrier-select/carrier-select.component';
 import { CarrierAddComponent } from '../carrier/carrier-add/carrier-add.component';
@@ -35,6 +36,7 @@ import { ForgotComponent } from '../login/forgot/forgot.component';
     NewsContentComponent,
     MemberComponent,
     MemberModifyComponent,
+    MemberPointsComponent,
     CarrierComponent,
     CarrierSelectComponent,
     CarrierAddComponent,

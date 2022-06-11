@@ -12,7 +12,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./base.component.scss'],
 })
 export abstract class BaseComponent {
-  public platForm: Platform;
+  public platform: Platform;
   public alertController: AlertController;
   public translateService: TranslateService;
   public inAppBrowser: InAppBrowser;
@@ -44,7 +44,7 @@ export abstract class BaseComponent {
   };
 
   constructor(protected injector: Injector) {
-    this.platForm = injector.get(Platform);
+    this.platform = injector.get(Platform);
     this.alertController = injector.get(AlertController);
     this.translateService = injector.get(TranslateService);
     this.inAppBrowser = injector.get(InAppBrowser);
@@ -137,6 +137,12 @@ export abstract class BaseComponent {
     });
   }
 
-
-
+  public setStore(key, value) {
+    const data = JSON.stringify(value);
+    localStorage.setItem(key, data);
+  }
+  public getStore(key) {
+    const data = localStorage.getItem(key);
+    return JSON.parse(data);
+  }
 }
