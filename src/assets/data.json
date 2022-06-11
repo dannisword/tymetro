@@ -1,0 +1,38 @@
+{
+    "Transportations": [
+        {
+            "name": "公車",
+            "alue": 1
+        },
+        {
+            "name": "北捷",
+            "value": 2
+        },
+        {
+            "name": "高鐵",
+            "value": 3
+        },
+        {
+            "name": "自有運具",
+            "value": 4
+        },
+        {
+            "name": "其他",
+            "value": 5
+        }
+    ],
+    "Jobs":[
+        {
+            "name": "學生",
+            "value": 1
+        },
+        {
+            "name": "上班族",
+            "value": 2
+        },
+        {
+            "name": "其他",
+            "value": 3
+        }
+    ]
+}

@@ -1,7 +1,4 @@
-.hacking-datetime {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
+ion-popover {
+  --min-width: 350px;
+  --width: 350px;
+}

@@ -12,13 +12,9 @@ export class ApiService {
   ) { }
 
   public async getData() {
-    const url = `/api/Student/GetStudentRecords`;
-    //const url = `/api/App/GetAppStores`;
-    const param = {
-      schoolYear: '110',
-      keyword: ''
-    };
-    return this.http.post<any>(url, param).toPromise();
+    const url = `/assets/data.json`;
+
+    return this.http.get<any>(url).toPromise();
   }
   /**
    * 取得文宣 依語系取得

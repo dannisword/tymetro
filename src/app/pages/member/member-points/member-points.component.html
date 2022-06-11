@@ -24,10 +24,23 @@
       </div>
     </ion-item>
   </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>您的點數將會在15個日曆天內登錄<br>顯示紀錄為前三十個日曆天</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item-sliding *ngFor="let record of data.PointRecord">
+          <ion-item nopadding>
+            <ion-label>
+              <h2> {{record.Memo}}</h2>
+              <p> {{record.RecordTime | date:'yyyy/MM/dd' }} </p>
+            </ion-label>
 
-  <ion-list>
-    <ion-item *ngFor="let record of data.PointRecord">
-      <ion-label>{{record.RecordTime}}</ion-label>
-    </ion-item>
-  </ion-list>
+            <ion-note slot="end" color="primary">{{record.Points}}點</ion-note>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
