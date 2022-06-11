@@ -1,12 +1,26 @@
 <app-header (goBack)="onGoBack($event)"> </app-header>
 <ion-content fullscreen>
   <ion-img class="logo-img" src="assets/logo.png"></ion-img>
-  <div>
-    <p>您目前共有{{points.PointTotal}} 點</p>
-    <p>{{thisYear}}年到期：{{points.PointsThisYear}} 點</p>
-    <p>{{lastYear}}年到期：{{points.PointsLastYear}} 點</p>
-    <p>提醒您，年度累積點數必須於隔年12/31前使用完畢</p>
-  </div>
+
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>您目前共有{{points.PointTotal}} 點</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <div>
+        <ion-label>{{thisYear}}年到期</ion-label>
+        <ion-label>共有 {{points.PointsThisYear}} 點</ion-label>
+      </div>
+      <div slot="end">
+        <ion-label>{{lastYear}}年到期</ion-label>
+        <ion-label>共有 {{points.PointsLastYear}} 點</ion-label>
+      </div>
+    </ion-item>
+    <ion-item>
+      提醒您，年度累積點數必須於隔年12/31前使用完畢
+    </ion-item>
+  </ion-list>
 
   <section class="full-width">
     <ion-button expand="full" (click)="onNavigate('/dashboards/carrier')">載具專區</ion-button>

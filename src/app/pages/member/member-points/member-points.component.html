@@ -9,8 +9,10 @@
 
 <ion-content fullscreen>
 
-  <!-- 您目前共有{{data.}}點 -->
   <ion-list>
+    <ion-list-header>
+      <ion-label>您目前共有{{data.PointTotal}}點</ion-label>
+    </ion-list-header>
     <ion-item>
       <div>
         <ion-label>{{thisYear}}年到期</ion-label>
@@ -20,6 +22,12 @@
         <ion-label>{{lastYear}}年到期</ion-label>
         <ion-label>共有 {{data.PointsLastYear}} 點</ion-label>
       </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item *ngFor="let record of data.PointRecord">
+      <ion-label>{{record.RecordTime}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,7 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
-import { MemberPointsComponent } from '../member-points/member-points.component';
+import { MemberPointsComponent } from './member-points/member-points.component';
 import { ApiService } from '../_services/api.service';
 import { MemberModifyComponent } from './member-modify/member-modify.component';
 
