@@ -1,25 +1,22 @@
 <app-header (goBack)="onGoBack($event)"> </app-header>
-<ion-content fullscreen>
-  <ion-img class="logo-img" src="assets/logo.png"></ion-img>
 
-  <ion-item>
-    <ion-label>
-      <ion-icon name="person"></ion-icon>
-    </ion-label>
+<ion-content [fullscreen]="true">
+  <ion-item lines="none">
+      <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+  </ion-item>
+  <ion-item class="ion-form-group" lines="full">
     <ion-input type="text" [(ngModel)]="account" placeholder="請輸入身分證或護照號碼"></ion-input>
+    <ion-icon name="person" slot="start"></ion-icon>
   </ion-item>
-  <ion-item>
-    <ion-label>
-      <ion-icon name="key" class=""></ion-icon>
-    </ion-label>
+  <ion-item class="ion-form-group" lines="full">
     <ion-input type="password" [(ngModel)]="password" placeholder="請輸入密碼"></ion-input>
+    <ion-icon name="key" slot="start"></ion-icon>
   </ion-item>
-  <ion-item>
-    <a slot="end" expand="full" (click)="onForgotPW()">忘記密碼</a>
+  <ion-item lines="full">
+    <span slot="end" expand="full"  (click)="onForgotPW()" class="sub-link">忘記密碼</span>
   </ion-item>
-
-  <section class="full-width">
-    <ion-button expand="full" (click)="onLogin()">登入</ion-button>
-    <ion-button expand="full" (click)="onRegister()">註冊</ion-button>
-  </section>
+  <ion-footer class="ion-padding">
+    <ion-button expand="full" color="light" (click)="onLogin()">登入</ion-button>
+    <ion-button expand="full" color="light" (click)="onRegister()">註冊</ion-button>
+  </ion-footer>
 </ion-content>
