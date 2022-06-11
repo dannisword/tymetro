@@ -1,4 +1,188 @@
 {
+    "Menus": [
+        {
+            "name": "最新消息",
+            "icon": "../../../assets/dashboard/news.svg",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11"
+        },
+        {
+            "name": "票價時刻",
+            "icon": "../../../assets/dashboard/date-range.svg",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php"
+        },
+        {
+            "name": "車站資訊",
+            "icon": "../../../assets/dashboard/airline.svg",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/road.html"
+        },
+        {
+            "name": "列車動態",
+            "icon": "../../../assets/dashboard/tran.svg"
+        },
+        {
+            "name": "路線規劃",
+            "icon": "../../../assets/dashboard/edit-location.svg",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/road.html"
+        },
+        {
+            "name": "紀念商品",
+            "icon": "../../../assets/dashboard/gift.svg",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/life/store.html"
+        }
+    ],
+    "SliderOne": {
+        "Code": "0",
+        "Data": {
+            "LastUpdate": "2021-04-20 22:16:22",
+            "BackgroupURL": "https://app.tymetro.com.tw/Content/App_img/backgroup/spring.gif",
+            "banner": [
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20220331112006_0.jpg",
+                    "Sort": 335,
+                    "Title": "【桃捷公告】4月7日起，本公司配合鐵道局工程測試，微幅調整全線時刻表說明",
+                    "Top": 0
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20220329055848_0.jpg",
+                    "Sort": 337,
+                    "Title": "2022捷乘應猿─搭桃捷看Rakuten主場球賽享回程免費",
+                    "Top": 1
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20211105044512_0.jpg",
+                    "Sort": 332,
+                    "Title": "親子一日票",
+                    "Top": 3
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20210914100924_0.jpg",
+                    "Sort": 304,
+                    "Title": "110/9/18起 班距調整公告",
+                    "Top": 8
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20210604022611_0.jpg",
+                    "Sort": 325,
+                    "Title": "中大型寵物開放搭乘機捷",
+                    "Top": 12
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20210224122934_0.jpg",
+                    "Sort": 319,
+                    "Title": "智慧桃捷再升級",
+                    "Top": 15
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20201127121335_0.jpg",
+                    "Sort": 315,
+                    "Title": "信用卡感應支付新功能",
+                    "Top": 18
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20201130034111_0.jpg",
+                    "Sort": 303,
+                    "Title": "進入大眾運輸系統 請全程佩戴口罩 ",
+                    "Top": 26
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20200315103605_0.jpg",
+                    "Sort": 302,
+                    "Title": "自行車搭機捷購票資訊",
+                    "Top": 36
+                },
+                {
+                    "Languag": "TW",
+                    "PicLink": "https://www.tymetro.com.tw/tymetro-new/upload/banner/20200304054758_0.jpg",
+                    "Sort": 300,
+                    "Title": "桃園市政府衛生局-嚴重特殊傳染性肺炎(COVID-19)",
+                    "Top": 38
+                }
+            ]
+        }
+    },
+    "appPages": [
+        {
+            "title": "首頁",
+            "url": "dashboards",
+            "icon": "home",
+            "mode": "APP"
+        },
+        {
+            "title": "最新消息",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11",
+            "icon": "newspaper",
+            "mode": "URL"
+        },
+        {
+            "title": "活動訊息",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/10",
+            "icon": "body",
+            "mode": "URL"
+        },
+        {
+            "title": "票價時刻",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php",
+            "icon": "time",
+            "mode": "URL"
+        },
+        {
+            "title": "路網與車站",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/road.html",
+            "icon": "map",
+            "mode": "URL"
+        },
+        {
+            "title": "旅客服務",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/service/opinion.html",
+            "icon": "information",
+            "mode": "URL"
+        },
+        {
+            "title": "誤點證明",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/late/",
+            "icon": "megaphone",
+            "mode": "URL"
+        },
+        {
+            "title": "航班資訊",
+            "url": "https://www.taoyuan-airport.com/",
+            "icon": "airplane",
+            "mode": "URL"
+        },
+        {
+            "title": "票價與票種",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/ticket.html",
+            "icon": "ticket",
+            "mode": "URL"
+        },
+        {
+            "title": "沿線景點",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/life/attractions.html",
+            "icon": "image",
+            "mode": "URL"
+        },
+        {
+            "title": "會員專區",
+            "url": "dashboards",
+            "icon": "person",
+            "mode": "APP"
+        },
+        {
+            "title": "紀念商品",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/life/store.html",
+            "icon": "gift",
+            "mode": "URL"
+        }
+    ],
     "Transportations": [
         {
             "name": "公車",
@@ -21,7 +205,7 @@
             "value": 5
         }
     ],
-    "Jobs":[
+    "Jobs": [
         {
             "name": "學生",
             "value": 1

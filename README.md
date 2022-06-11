@@ -14,6 +14,9 @@ npm install @ngx-translate/http-loader
 ## 
 $ npm install cordova-plugin-inappbrowser 
 $ npm install @awesome-cordova-plugins/in-app-browser 
+$ npm install @awesome-cordova-plugins/core
+$ npm install cordova-plugin-datepicker
+
 ## 執行
 ionic seve  
 
