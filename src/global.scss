@@ -26,3 +26,17 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import '~@ionic/angular/css/ionic-swiper';
 @import '~swiper/scss';
+
+
+// theme class
+
+.ion-form-group {
+  ion-icon {
+    color: #A76AAC;
+  }
+  ion-input {
+    border: 0;
+    background: transparent;
+  }
+}
+

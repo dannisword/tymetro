@@ -15,14 +15,15 @@
 
 -->
 <app-header (onAction)="onAction($event)"></app-header>
-<ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+assetPath+') no-repeat center center / cover'}">
+
+<ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+assetPath+') no-repeat center center / 120%'}">
   <ion-header>
     <div class="station-status station-status-normal">
       <img src="../../../assets/dashboard/normal.svg" alt="">營運狀態：全線正常營運
     </div>
-    <div class="station-status station-status-danger">
+    <!-- <div class="station-status station-status-danger">
       <img src="../../../assets/dashboard/danger.svg" alt="">營運狀態：全線檢測中，暫停行駛中
-    </div>
+    </div> -->
   </ion-header>
   <div class="main-menu-wrapp">
     <div class="middle-button-wrapp">
@@ -57,7 +58,12 @@
         </clipPath>
       </defs>
     </svg>
+    <div class="news-important">
+      <img src="../../../assets/dashboard/news-important.svg" alt="">
+    </div>
   </div>
+</ion-content>
+<ion-footer>
   <div class="news-wrap">
     <div class="news-title">
       <h1>News</h1>
@@ -69,7 +75,4 @@
       </ion-slide>
     </ion-slides>
   </div>
-  <div class="news-important">
-    <img src="../../../assets/dashboard/news-important.svg" alt="">
-  </div>
-</ion-content>
+</ion-footer>

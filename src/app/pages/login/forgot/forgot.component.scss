@@ -1,0 +1,15 @@
+.service-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 40px;
+  }
+  ion-icon {
+    color: #A76AAC;
+    font-size: 1.6em;
+  }
+  span {
+    padding: 0 10px;
+  }
+}

@@ -70,7 +70,7 @@
   /** light **/
   --ion-color-light: #f4f5f8;
   --ion-color-light-rgb: 244, 245, 248;
-  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast: #A76AAC;
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
@@ -124,6 +124,10 @@
 
 .logo-img {
   width: 140px;
-  padding: 5px 0;
+  padding: 10px 0;
   margin: auto;
+}
+
+.text-sm {
+  font-size: .8rem;
 }
