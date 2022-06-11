@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public pageInfo: any;
+  public token: string = '';
   @Output() onOption = new EventEmitter<any>();
   @Output() goBack = new EventEmitter<any>();
   @Output() onAction = new EventEmitter<any>();
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.token = localStorage.getItem('Token');
+    console.log(this.token);
   }
 
   onGoBack(event) {

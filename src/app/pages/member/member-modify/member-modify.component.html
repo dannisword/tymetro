@@ -6,25 +6,73 @@
     請輸入以下基本資料：<ion-label color="primary">*</ion-label>&nbsp;&nbsp;為必填
   </ion-label>
 
+  <ion-modal *ngIf="opened" [class.date-time]="mode === 'date-time'" [class.date]="mode === 'date'"
+    [class.time]="mode === 'time'" [isOpen]="opened" [backdropDismiss]="false">
+    <ng-template>
+      <ion-content>
+        <ion-datetime style="margin-top: 100px" size="cover" hourCycle="h23" [presentation]="mode" [value]="value"
+          [max]="'2050-12-31'" (ionChange)="updateValue($event)">
+
+        </ion-datetime>
+        <ion-button fill="clear" color="primary" (click)="save()">
+          選擇
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="cancel()">
+          取消
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-list>
+    <ion-item lines="full">
+      <ion-label position="floating">身分證號碼</ion-label>
+      <ion-input clearInput value=""></ion-input>
+      <ion-note slot="helper">此為使用者帳號，後續將無法修改</ion-note>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">姓名</ion-label>
+      <ion-input></ion-input>
+      <ion-note slot="helper"></ion-note>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">電話</ion-label>
+      <ion-input></ion-input>
+      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">信箱</ion-label>
+      <ion-input></ion-input>
+      <ion-note slot="helper">重新修改 e-mail需重新發送驗證信</ion-note>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">生日</ion-label>
+      <ion-input (click)="onDatePicker()"></ion-input>
+      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">地址</ion-label>
+      <ion-input></ion-input>
+      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">原交通方式</ion-label>
+      <ion-select interface="action-sheet">
+        <ion-select-option *ngFor="let item of transportations">{{item.name}}</ion-select-option>
+      </ion-select>
+      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">職業</ion-label>
+      <ion-select interface="action-sheet">
+        <ion-select-option *ngFor="let item of jobs">{{item.name}}</ion-select-option>
+      </ion-select>
+      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+    </ion-item>
 
 
-  <ion-item>
-    <ion-label>Pick date</ion-label>
-    <ion-input
-      value="{{ date | date: 'dd.MM.yyyy' }}"
-      id="date"
-      class="ion-text-end"
-    ></ion-input>
-    <ion-popover trigger="date" size="cover">
-      <ng-template>
-        <ion-datetime
-          presentation="date"
-          [(ngModel)]="date"
-          locale="sl-SI"
-        ></ion-datetime>
-      </ng-template>
-    </ion-popover>
-  </ion-item>
+  </ion-list>
+
   <!--
   <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
     <ion-item lines="full">

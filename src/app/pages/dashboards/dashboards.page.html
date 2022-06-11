@@ -1,27 +1,11 @@
-<!--
-<ion-header [translucent]="false" class="brand-nav">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-img class="logo-img" src="assets/logo.png"></ion-img>
-    <ion-buttons slot="end" class="login">
-      <ion-button [routerLink]="['/shoppingcart']">
-        <ion-icon name="person-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
--->
 <app-header (onAction)="onAction($event)"></app-header>
-<ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+assetPath+') no-repeat center center / cover'}">
+<ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+backgroupURL+') no-repeat center center / cover'}">
   <ion-header>
-    <div class="station-status station-status-normal">
-      <img src="../../../assets/dashboard/normal.svg" alt="">營運狀態：全線正常營運
+    <div class="station-status station-status-normal" *ngIf="statusText != null">
+      <img src="../../../assets/dashboard/normal.svg" alt="">{{statusText}}
     </div>
-    <div class="station-status station-status-danger">
-      <img src="../../../assets/dashboard/danger.svg" alt="">營運狀態：全線檢測中，暫停行駛中
+    <div class="station-status station-status-danger" *ngIf="statusText == null">
+      <img src="../../../assets/dashboard/danger.svg" alt="">全線檢測中，暫停行駛中
     </div>
   </ion-header>
   <div class="main-menu-wrapp">
@@ -58,13 +42,14 @@
       </defs>
     </svg>
   </div>
+
   <div class="news-wrap">
     <div class="news-title">
       <h1>News</h1>
     </div>
     <ion-slides pager="true" [options]="slideOpts" #slideWithNav
-      (ionSlideDidChange)="onSlideDidChange(sliderOne,slideWithNav)">
-      <ion-slide *ngFor="let s of sliderOne.Data.banner">
+      (ionSlideDidChange)="onSlideDidChange(banner,slideWithNav)">
+      <ion-slide *ngFor="let s of banner">
         <img src="{{s.PicLink}}">
       </ion-slide>
     </ion-slides>
