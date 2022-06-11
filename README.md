@@ -49,6 +49,7 @@ ionic generate component pages/construct
 member
 ionic generate component pages/member
 ionic generate component pages/member-modify
+ionic generate component pages/member-points
 載具專區
 ionic generate component pages/carrier
 ionic generate component pages/carrier/carrier-select

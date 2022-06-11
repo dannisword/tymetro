@@ -1,40 +1,59 @@
 import { Component, Injector, OnInit } from '@angular/core';
 
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
+import { MemberPointsComponent } from '../member-points/member-points.component';
+import { ApiService } from '../_services/api.service';
 import { MemberModifyComponent } from './member-modify/member-modify.component';
+
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.scss'],
 })
 export class MemberComponent extends BaseComponent implements OnInit {
+  public points: any = {};
+  public thisYear: number;
+  public lastYear: number;
 
-  constructor(protected injector: Injector) {
+  constructor(protected injector: Injector,
+    protected api: ApiService) {
     super(injector);
   }
 
-  ngOnInit() { }
+  async ngOnInit() {
+    this.thisYear = new Date().getFullYear();
+    this.lastYear = new Date().getFullYear() + 1;
+    const resp = await this.api.getPointsByToken('1');
+
+    if (resp.Code == 0) {
+      this.points = resp.Data;
+      console.log(this.points);
+    } else {
+      this.alert(resp.Message);
+    }
+  }
 
   onGoBack(event) {
     this.onNavigate('/dashboards');
   }
 
   async onOpen(menuID) {
-    if (menuID = 'MemberEdit') {
-
-      /*
+    if (menuID == 'MemberEdit') {
+    }
+    if (menuID == 'points'){
       const options = {
         componentProps: {
-          title: this.translateService.instant('會員資料修改')
+          title: this.translateService.instant('歷史點數查詢'),
+          data: this.points
         },
         swipeToClose: true
       }
-      const modelData = await this.openModal(MemberModifyComponent, options);
-      // 回傳值
-      console.log(modelData);*/
+    const modelData = await this.openModal(MemberPointsComponent, options);
+    console.log(modelData);
     }
+
   }
-  logout() {
+  async logout() {
     localStorage.removeItem('Token');
     this.onNavigate('/dashboards');
   }

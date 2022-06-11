@@ -1,11 +1,16 @@
 <app-header (goBack)="onGoBack($event)"> </app-header>
 <ion-content fullscreen>
   <ion-img class="logo-img" src="assets/logo.png"></ion-img>
-  Dannis您好<br>
+  <div>
+    <p>您目前共有{{points.PointTotal}} 點</p>
+    <p>{{thisYear}}年到期：{{points.PointsThisYear}} 點</p>
+    <p>{{lastYear}}年到期：{{points.PointsLastYear}} 點</p>
+    <p>提醒您，年度累積點數必須於隔年12/31前使用完畢</p>
+  </div>
 
   <section class="full-width">
     <ion-button expand="full" (click)="onNavigate('/dashboards/carrier')">載具專區</ion-button>
-    <ion-button expand="full" (click)="onNavigate('/dashboards/construct')">歷史點數查詢</ion-button>
+    <ion-button expand="full" (click)="onOpen('points')">歷史點數查詢</ion-button>
     <ion-button expand="full" (click)="onNavigate('/dashboards/construct')">兌換專區</ion-button>
     <ion-button expand="full"
       (click)="goToBrowser('https://www.tymetro.com.tw/tymetro-new/tw/_pages/service/FAQ.php?v=#station')">常見問題

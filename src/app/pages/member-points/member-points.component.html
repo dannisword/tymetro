@@ -1,0 +1,25 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">關閉</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <!-- 您目前共有{{data.}}點 -->
+  <ion-list>
+    <ion-item>
+      <div>
+        <ion-label>{{thisYear}}年到期</ion-label>
+        <ion-label>共有 {{data.PointsThisYear}} 點</ion-label>
+      </div>
+      <div slot="end">
+        <ion-label>{{lastYear}}年到期</ion-label>
+        <ion-label>共有 {{data.PointsLastYear}} 點</ion-label>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

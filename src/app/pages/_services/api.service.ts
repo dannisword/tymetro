@@ -28,7 +28,6 @@ export class ApiService {
    */
   public async getNewAdvertising(count: string, lang: string) {
     const url = `/api/Advertising/GetNewAdvertising?count=${count}&lang=${lang}`;
-
     return this.http.get<any>(url).toPromise();
   }
   /**
@@ -54,8 +53,7 @@ export class ApiService {
    * @returns
    */
   public async getProductList() {
-    const url = `/api/Redeem/GetProductList`;
-    return await this.http.post<Array<any>>(url, '').toPromise();
+    return await this.http.post<Array<any>>('/api/Redeem/GetProductList', '').toPromise();
   }
   /**
    * 登入
@@ -68,9 +66,7 @@ export class ApiService {
       Account: account,
       Password: password
     }
-    console.log(param);
-    const url = `/api/Member/Login`;
-    return await this.http.post<any>(url, param).toPromise();
+    return await this.http.post<any>('/api/Member/Login', param).toPromise();
   }
   /**
    * 登出
@@ -81,8 +77,7 @@ export class ApiService {
     const param = {
       MemberID: '00010B15-8047-4A8A-BF27-AB3EE89E311E'
     }
-    const url = `/api/Member/logout`;
-    return await this.http.post<any>(url, param).toPromise();
+    return await this.http.post<any>(`/api/Member/logout`, param).toPromise();
   }
   /**
    * 註冊
@@ -90,14 +85,84 @@ export class ApiService {
    * @returns
    */
   public async register(data) {
-    const url = `/api/Member/Register`;
-    return await this.http.post<any>(url, data).toPromise();
+    return await this.http.post<any>('/api/Member/Register', data).toPromise();
   }
-
+  /**
+   * 發驗證信
+   * @param data 
+   * @returns 
+   */
+  public async verifyLetter(data) {
+    return await this.http.post<any>('/apiMember/VerifyLetter', data).toPromise();
+  }
+  /**
+   * 變更密碼
+   * @param data 
+   * @returns 
+   */
+  public async changePassword(data) {
+    return await this.http.post<any>('/api/Member/ChangePassword', data).toPromise();
+  }
+  /**
+   * 忘記密碼
+   * @param data 
+   * @returns 
+   */
   public async forgetPassword(data) {
-    const url = `/api/Member/ForgetPassword`;
-    return await this.http.post<any>(url, data).toPromise();
+    return await this.http.post<any>('/api/Member/ForgetPassword', data).toPromise();
   }
-
-  //Member/ForgetPassword
+  /**
+   * 會員資料修改
+   * @param data 
+   * @returns 
+   */
+  public async modifyMember(data) {
+    return await this.http.post<any>('/api/Member/ModifyMember', data).toPromise();
+  }
+  /**
+   * 取得紀念商品明細
+   * @returns 
+   */
+  public async getSouvenir() {
+    const param = {
+      category: "1"
+    }
+    return await this.http.post<any>('/api/Souvenir/GetSouvenir', param).toPromise();
+  }
+  /**
+   * 兌換商品
+   * @param data 
+   * @returns 
+   */
+  public async redeemProduct(data) {
+    return await this.http.post<any>('/api/Redeem/RedeemProduct', data).toPromise();
+  }
+  /**
+   * 取得虛擬商品清單
+   * @returns 
+   */
+  public async getVirtualProductList() {
+    const param = {
+      isDiscount: "1"
+    }
+    return await this.http.post<any>('/api/Redeem/RedeemProduct', param).toPromise();
+  }
+  /**
+   * 兌換虛擬商品?
+   * @returns 
+   */
+  public async redeemVirtualProduct() {
+    return await this.http.post<any>('/api/Redeem/RedeemProduct', '').toPromise();
+  }
+  /**
+   * 查詢歷史點數
+   * @returns 
+   */
+  public async getPointsByToken(page) {
+    const data = {
+      Token: localStorage.getItem('Token'),
+      Page: page
+    }
+    return await this.http.post<any>('/api/PointRecord/GetPointsByToken', data).toPromise();
+  }
 }
