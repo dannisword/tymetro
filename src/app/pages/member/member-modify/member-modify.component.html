@@ -1,41 +1,39 @@
 <app-header (goBack)="onGoBack($event)" (onAction)="onOption($event)"></app-header>
 
-<ion-content fullscreen>
+<ion-content fullscreen="true">
   <ion-img class="logo-img" src="assets/logo.png"></ion-img>
   <ion-label class="ion-margin">
-    請輸入以下基本資料：<ion-label color="primary">*</ion-label>&nbsp;&nbsp;為必填
+    請輸入以下基本資料：<ion-text color="primary">*</ion-text>為必填
   </ion-label>
-
-
 
   <form [formGroup]="memberForm" (submit)="onConfirm()" novalidate>
     <ion-list>
-      <ion-item>
+      <ion-item lines="full">
         <ion-label position="floating">身分證號碼</ion-label>
         <ion-input class="ion-text-uppercase" formControlName="Id" clearInput value="" required>
         </ion-input>
         <ion-note slot="helper">此為使用者帳號，後續將無法修改</ion-note>
       </ion-item>
 
-      <ion-item>
+      <ion-item lines="full">
         <ion-label position="floating">姓名</ion-label>
         <ion-input formControlName="Name" value=""></ion-input>
         <ion-note slot="helper">1</ion-note>
       </ion-item>
 
-      <ion-item>
+      <ion-item lines="full">
         <ion-label position="floating">行動電話</ion-label>
         <ion-input formControlName="PhoneNumber" value="" type="tel" mask="****-******"></ion-input>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
       </ion-item>
 
-      <ion-item>
+      <ion-item lines="full">
         <ion-label position="floating">信箱</ion-label>
         <ion-input formControlName="Email" type="email" clearInput value="" required></ion-input>
         <ion-note slot="helper">重新修改 e-mail需重新發送驗證信</ion-note>
       </ion-item>
 
-      <ion-item>
+      <ion-item lines="full">
         <ion-label position="floating">生日</ion-label>
         <ion-input formControlName="Birthday" clearInput type="tel" mask="****-**-**"></ion-input>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
@@ -66,19 +64,23 @@
         <ion-note slot="error">123</ion-note>
       </ion-item>
       <ion-item lines="full">
-        120定期票及369定期票優惠專案使用須知
+        <ion-text color=""primary>120定期票及369定期票優惠專案使用須知</ion-text>
         <ion-checkbox slot="start"></ion-checkbox>
         <ion-note slot="error">123</ion-note>
       </ion-item>
-      <section>
-        <ion-button color="medium" expand="block" (click)="onChangPassword()">修改密碼</ion-button>
-        <ion-button color="primary" expand="block" (click)="onConfirm()">確認修改</ion-button>
-        <ion-button color="primary" expand="block" (click)="onCancel()">取消</ion-button>
-      </section>
+      <ion-item lines="full">
+
+      </ion-item>
 
     </ion-list>
   </form>
+  <ion-footer>
+    <ion-button expand="block" (click)="onChangPassword()" color="secondary">修改密碼</ion-button>
+    <ion-button expand="block" (click)="onConfirm()" color="primary">確認修改</ion-button>
+    <ion-button expand="block" (click)="onCancel()" color="light">取消</ion-button>
+  </ion-footer>
 </ion-content>
+
 
 <!--
   <ion-modal *ngIf="opened" [class.date-time]="mode === 'date-time'" [class.date]="mode === 'date'"

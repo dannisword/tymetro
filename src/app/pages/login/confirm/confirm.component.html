@@ -1,14 +1,14 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title>會員專區</ion-title>
+    <ion-title color="primary">會員專區</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="onClose()">關閉</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
+<ion-content [fullscreen]="true" class="ion-padding ion-text-center">
   <ion-img class="logo-img" src="assets/logo.png"></ion-img>
-   您好,請至於您的信箱收信或是簡訊點選網址
-
+  <p>您好,請至於您的信箱收信或是簡訊點選網址</p>
+  <ion-img src="assets/login-img@2x.png"></ion-img>
 </ion-content>

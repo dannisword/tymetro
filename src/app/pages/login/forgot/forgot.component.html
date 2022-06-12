@@ -19,16 +19,14 @@
   </ion-item>
 
   <ion-item lines="full">
-   <span class="text-sm">Email、手機號碼請擇一選擇</span>
+    <span class="text-sm">Email、手機號碼請擇一選擇</span>
   </ion-item>
-  <div lines="none" class="service-list">
+  <div lines="none" class="service-list ion-padding">
     <img src="assets/logo-small.png">
     <span>客服專線：03-2868789</span>
     <ion-icon name="call"></ion-icon>
   </div>
-
-  <section class="full-width">
-    <ion-button expand="full" (click)="onConfirm()">確定送出</ion-button>
-  </section>
-
+  <ion-footer class="ion-padding ion-full-footer">
+    <ion-button expand="block" (click)="onConfirm()" color="light" >確定送出</ion-button>
+  </ion-footer>
 </ion-content>

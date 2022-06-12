@@ -40,3 +40,12 @@
   }
 }
 
+.ion-full-footer {
+  height: 100%;
+  background: #a76aac;
+}
+
+// 灰色背景
+.gray-bg {
+  --background: linear-gradient(to top, #dfe9f3 0%, white 100%)
+}
