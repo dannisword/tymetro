@@ -1,6 +1,6 @@
 <app-header (onAction)="onAction($event)"></app-header>
 
-<ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+assetPath+') no-repeat center center / 120%'}">
+<ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+backgroupURL+') no-repeat center center / 120%'}">
   <ion-header>
     <div class="station-status station-status-normal" *ngIf="statusText != null">
       <img src="../../../assets/dashboard/normal.svg" alt="">{{statusText}}
