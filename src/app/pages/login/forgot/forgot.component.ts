@@ -20,7 +20,7 @@ export class ForgotComponent extends BaseComponent implements OnInit {
   ngOnInit() { }
 
   onGoBack(event) {
-    super.onBack('/dashboards');
+    super.onBack('/dashboards/login');
   }
 
   async onConfirm() {

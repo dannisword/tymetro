@@ -1,4 +1,4 @@
-<ion-header [translucent]="false" class="brand-nav">
+<ion-header [translucent]="false" class="brand-nav ion-text-center">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button auto-hide="false" *ngIf="pageInfo.isPage === false"></ion-menu-button>
@@ -9,7 +9,7 @@
 
     <ion-img class="logo-img" *ngIf="pageInfo.isPage === false" src="assets/logo.png"></ion-img>
     <ion-title *ngIf="pageInfo.isPage === true">{{pageInfo.title}}</ion-title>
-    
+
     <ion-buttons slot="end" class="login" *ngIf="pageInfo.option!= 'None'">
       <ion-label *ngIf="token != null">Hello</ion-label>
       <ion-button [routerLink]="['/shoppingcart']" (click)="handleAction($event)">

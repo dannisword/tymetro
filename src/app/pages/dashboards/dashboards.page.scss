@@ -9,7 +9,7 @@ ion-content {
 
   .station-status {
     order: 1;
-    
+
   }
 
   .station-news {
@@ -373,7 +373,7 @@ ion-content {
   position: absolute;
   right: 0;
   z-index: 1440;
-  bottom: 0;
+  top: -20px;
   width: 80px;
   height: 80px;
   background: #1a665f;
