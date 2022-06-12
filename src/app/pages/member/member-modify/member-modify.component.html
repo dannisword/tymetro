@@ -8,65 +8,63 @@
 
   <form [formGroup]="memberForm" (submit)="onConfirm()" novalidate>
     <ion-list>
-      <ion-item lines="full">
-        <ion-label position="floating">身分證號碼</ion-label>
-        <ion-input class="ion-text-uppercase" formControlName="Id" clearInput value="" required>
+      <ion-item>
+        <ion-label position="floating"><ion-text color="primary">*</ion-text>身分證號碼</ion-label>
+        <ion-input class="ion-text-uppercase" formControlName="Id" placeholder="A123456789" clearInput>
         </ion-input>
         <ion-note slot="helper">此為使用者帳號，後續將無法修改</ion-note>
       </ion-item>
 
-      <ion-item lines="full">
-        <ion-label position="floating">姓名</ion-label>
-        <ion-input formControlName="Name" value=""></ion-input>
-        <ion-note slot="helper">1</ion-note>
+      <ion-item>
+        <ion-label position="floating"><ion-text color="primary">*</ion-text>姓名</ion-label>
+        <ion-input formControlName="Name" clearInput></ion-input>
       </ion-item>
 
-      <ion-item lines="full">
+      <ion-item>
         <ion-label position="floating">行動電話</ion-label>
-        <ion-input formControlName="PhoneNumber" value="" type="tel" mask="****-******"></ion-input>
+        <ion-input formControlName="PhoneNumber" type="tel" mask="****-******" clearInput></ion-input>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
       </ion-item>
 
-      <ion-item lines="full">
-        <ion-label position="floating">信箱</ion-label>
-        <ion-input formControlName="Email" type="email" clearInput value="" required></ion-input>
+      <ion-item>
+        <ion-label position="floating"><ion-text color="primary">*</ion-text>信箱</ion-label>
+        <ion-input formControlName="Email" type="email" clearInput></ion-input>
         <ion-note slot="helper">重新修改 e-mail需重新發送驗證信</ion-note>
       </ion-item>
 
-      <ion-item lines="full">
+      <ion-item>
         <ion-label position="floating">生日</ion-label>
-        <ion-input formControlName="Birthday" clearInput type="tel" mask="****-**-**"></ion-input>
+        <ion-input formControlName="Birthday" clearInput type="tel" placeholder="1977-01-01" mask="****-**-**">
+        </ion-input>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
       </ion-item>
 
-      <ion-item lines="full">
+      <ion-item>
         <ion-label position="floating">地址</ion-label>
         <ion-input formControlName="Address" clearInput value=""></ion-input>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
       </ion-item>
 
-      <ion-item lines="full">
+      <ion-item>
         <ion-label position="floating">原交通方式</ion-label>
         <ion-select interface="action-sheet" formControlName="OriginTrans" value="">
           <ion-select-option *ngFor="let item of transportations">{{item.name}}
           </ion-select-option>
         </ion-select>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
-        <ion-note slot="error">123</ion-note>
       </ion-item>
 
-      <ion-item lines="full">
+      <ion-item>
         <ion-label position="floating">職業</ion-label>
         <ion-select interface="action-sheet" formControlName="JobTitle" value="">
           <ion-select-option *ngFor="let item of jobs">{{item.name}}</ion-select-option>
         </ion-select>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
-        <ion-note slot="error">123</ion-note>
       </ion-item>
-      <ion-item lines="full">
-        <ion-text color=""primary>120定期票及369定期票優惠專案使用須知</ion-text>
+
+      <ion-item>
+        <ion-text color="" primary>120定期票及369定期票優惠專案使用須知</ion-text>
         <ion-checkbox slot="start"></ion-checkbox>
-        <ion-note slot="error">123</ion-note>
       </ion-item>
       <ion-item lines="full">
 
@@ -77,7 +75,7 @@
   <ion-footer>
     <ion-button expand="block" (click)="onChangPassword()" color="secondary">修改密碼</ion-button>
     <ion-button expand="block" (click)="onConfirm()" color="primary">確認修改</ion-button>
-    <ion-button expand="block" (click)="onCancel()" color="light">取消</ion-button>
+    <ion-button expand="block" (click)="onCancel()" color="primary">取消</ion-button>
   </ion-footer>
 </ion-content>
 

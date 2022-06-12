@@ -16,6 +16,7 @@ $ npm install cordova-plugin-inappbrowser
 $ npm install @awesome-cordova-plugins/in-app-browser 
 $ npm install @awesome-cordova-plugins/core
 $ npm install cordova-plugin-datepicker
+$ npm install @capacitor/app-launcher
 ## input-mask  
 $ npm i @thiagoprz/ionic-input-mask
 ## 執行

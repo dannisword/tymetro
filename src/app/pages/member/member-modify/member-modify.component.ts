@@ -30,11 +30,22 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     protected datePicker: DatePicker,
     protected api: ApiService) {
     super(injector);
+    /*
     this.memberForm = this.formBuilder.group({
       Id: ['', [Validators.required, Validators.minLength(10)]],
       Name: ['', [Validators.required, Validators.nullValidator]],
       PhoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      Birthday: [''],
+      Address: ['',],
+      OriginTrans: [''],
+      JobTitle: ['']
+    })*/
+    this.memberForm = this.formBuilder.group({
+      Id: [''],
+      Name: [''],
+      PhoneNumber: [''],
+      Email: [''],
       Birthday: [''],
       Address: ['',],
       OriginTrans: [''],

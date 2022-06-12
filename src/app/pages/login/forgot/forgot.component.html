@@ -3,22 +3,22 @@
   <ion-item lines="none">
     <ion-img class="logo-img" src="assets/logo.png"></ion-img>
   </ion-item>
-  <ion-item class="ion-form-group" lines="full">
+  <ion-item class="ion-form-group ion-margin-top">
     <ion-input type="text" [(ngModel)]="id" placeholder="身分證號碼或護照號碼"></ion-input>
     <ion-icon name="person" slot="start"></ion-icon>
   </ion-item>
 
-  <ion-item class="ion-form-group" lines="full">
+  <ion-item class="ion-form-group ion-margin-top">
     <ion-icon name="mail" slot="start"></ion-icon>
     <ion-input type="text" [(ngModel)]="mail" placeholder="請輸入註冊時驗證E-mail" [disabled]="phone != ''"></ion-input>
   </ion-item>
 
-  <ion-item class="ion-form-group" lines="full">
+  <ion-item class="ion-form-group ion-margin-top">
     <ion-icon name="call" slot="start"></ion-icon>
     <ion-input type="text" [(ngModel)]="phone" placeholder="請輸入註冊時手機號碼" [disabled]="mail != ''"></ion-input>
   </ion-item>
 
-  <ion-item lines="full">
+  <ion-item lines="none">
     <span class="text-sm">Email、手機號碼請擇一選擇</span>
   </ion-item>
   <div lines="none" class="service-list ion-padding">

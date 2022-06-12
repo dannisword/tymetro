@@ -4,15 +4,17 @@
   <ion-item lines="none">
       <ion-img class="logo-img" src="assets/logo.png"></ion-img>
   </ion-item>
-  <ion-item class="ion-form-group" lines="full">
+  <ion-item class="ion-form-group ion-margin-top" >
     <ion-input type="text" [(ngModel)]="account" placeholder="請輸入身分證或護照號碼"></ion-input>
     <ion-icon name="person" slot="start"></ion-icon>
   </ion-item>
-  <ion-item class="ion-form-group" lines="full">
+
+  <ion-item class="ion-form-group ion-margin-top" >
     <ion-input type="password" [(ngModel)]="password" placeholder="請輸入密碼"></ion-input>
     <ion-icon name="key" slot="start"></ion-icon>
   </ion-item>
-  <ion-item lines="full">
+  
+  <ion-item lines="none">
     <span slot="end" expand="block"  (click)="onForgotPW()" class="sub-link">忘記密碼</span>
   </ion-item>
   <ion-footer class="ion-padding ion-full-footer">

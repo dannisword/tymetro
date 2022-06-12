@@ -3,7 +3,7 @@ import { ApiService } from '../_services/api.service';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Swiper, Zoom } from 'swiper';
 import { IonicSlides, IonSlides } from '@ionic/angular';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
-import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { AppLauncher } from '@capacitor/app-launcher';
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
@@ -32,8 +32,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
   constructor(
     protected injector: Injector,
-    protected api: ApiService,
-    protected iab: InAppBrowser) {
+    protected api: ApiService) {
     super(injector);
   }
 
@@ -102,6 +101,11 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     }
   }
 
+  async onLinkApp(){
+
+    const  value  = await AppLauncher.canOpenUrl({ url: 'com.android.chrome' });
+  }
+  
   async getNewAdvertising() {
     // 導到App todo
     const url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php';

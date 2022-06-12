@@ -11,7 +11,7 @@
     <ion-title *ngIf="pageInfo.isPage === true">{{pageInfo.title}}</ion-title>
 
     <ion-buttons slot="end" class="login" *ngIf="pageInfo.option!= 'None'">
-      <ion-label *ngIf="token != null">Hello</ion-label>
+      <ion-label color="primary" *ngIf="token != null">Hello</ion-label>
       <ion-button [routerLink]="['/shoppingcart']" (click)="handleAction($event)">
         <ion-icon name="{{pageInfo.option}}"></ion-icon>
       </ion-button>
