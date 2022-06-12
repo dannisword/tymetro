@@ -12,12 +12,12 @@
   --ion-color-primary-tint: #845089;
 
   /** secondary **/
-  --ion-color-secondary: #3dc2ff;
-  --ion-color-secondary-rgb: 61, 194, 255;
+  --ion-color-secondary: #237AB8;
+  --ion-color-secondary-rgb: rgb(35 122 184);
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #36abe0;
-  --ion-color-secondary-tint: #50c8ff;
+  --ion-color-secondary-shade: #237AB8;
+  --ion-color-secondary-tint: #1f5a85;
 
   /** tertiary **/
   --ion-color-tertiary: #5260ff;
@@ -111,9 +111,8 @@
   height: 40px;
 }
 
-
 .brand-nav .login ion-button {
---color: #fff;
+  --color: #fff;
   background: #A76AAC;
   border-radius: 100%;
   padding: 8px 2px;

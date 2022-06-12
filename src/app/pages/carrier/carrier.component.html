@@ -2,14 +2,13 @@
 <ion-content fullscreen>
     <ion-img class="logo-img" src="assets/logo.png"></ion-img>
     <ion-list>
-        <ion-item>
-            <ion-label slot="end">Dannis 您好</ion-label>
+        <ion-item lines="full">
+            <ion-label slot="end" color="secondary">Dannis 您好</ion-label>
         </ion-item>
     </ion-list>
-    <br>
     <ion-list *ngFor="let card of cards">
-        <ion-list-header> {{card.cardType}}</ion-list-header>
-        <ion-item *ngFor="let item of card.list">
+        <ion-list-header><ion-text color="secondary"><h6>{{card.cardType}}</h6></ion-text> </ion-list-header>
+        <ion-item *ngFor="let item of card.list" class="gray-bg" lines="full">
             <ion-avatar slot="start">
                 <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />
             </ion-avatar>
