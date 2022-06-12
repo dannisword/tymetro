@@ -7,7 +7,7 @@
         </ion-item>
     </ion-list>
     <ion-list *ngFor="let card of cards">
-        <ion-list-header><ion-text color="secondary"><h6>{{card.cardType}}</h6></ion-text> </ion-list-header>
+        <ion-list-header><ion-text color="primary"><h6>{{card.cardType}}</h6></ion-text> </ion-list-header>
         <ion-item *ngFor="let item of card.list" class="gray-bg" lines="full">
             <ion-avatar slot="start">
                 <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />

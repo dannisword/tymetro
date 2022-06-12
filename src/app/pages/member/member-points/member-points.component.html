@@ -1,6 +1,6 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title>{{title}}</ion-title>
+    <ion-title color="primary">{{title}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="dismissModal()">關閉</ion-button>
     </ion-buttons>
@@ -8,22 +8,30 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-<ion-title>您目前共有<ion-text color="primary">{{data.PointTotal}}</ion-text>點</ion-title>
-  <ion-list>
-    <ion-item>
-      <div>
-        <ion-label>{{thisYear}}年到期</ion-label>
-        <ion-label>共有 {{data.PointsThisYear}} 點</ion-label>
-      </div>
-      <div slot="end">
-        <ion-label>{{lastYear}}年到期</ion-label>
-        <ion-label>共有 {{data.PointsLastYear}} 點</ion-label>
-      </div>
-    </ion-item>
-  </ion-list>
-  <ion-card>
+  <ion-item class="gray-bg">
+    <h6>您目前共有 <ion-text color="primary" class="point-text"><b>{{data.PointTotal}}</b></ion-text> 點</h6>
+  </ion-item>
+<ion-item lines="full">
+  <div slot="start">
+    <ion-label>
+      <p>{{thisYear}}年到期</p>
+    </ion-label>
+    <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="point-text">
+        <b>{{data.PointsThisYear}}</b></ion-text>點</h6>
+  </div>
+  <div slot="end">
+    <ion-label>
+      <p>{{lastYear}}年到期</p>
+    </ion-label>
+    <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="point-text">
+       <b>{{data.PointsLastYear}}</b> </ion-text>點</h6>
+  </div>
+</ion-item>
+  <ion-card color="primary">
     <ion-card-header>
-      <ion-card-subtitle>您的點數將會在15個日曆天內登錄<br>顯示紀錄為前三十個日曆天</ion-card-subtitle>
+      <ion-text color="light">
+        <h6>您的點數將會在15個日曆天內登錄<br>顯示紀錄為前三十個日曆天</h6>
+      </ion-text>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
@@ -34,7 +42,7 @@
               <p> {{record.RecordTime}} </p>
             </ion-label>
 
-            <ion-note slot="end" color="primary">{{record.Points}}點</ion-note>
+            <ion-note slot="end" color="primary"><b>{{record.Points}}點</b></ion-note>
           </ion-item>
         </ion-item-sliding>
       </ion-list>
