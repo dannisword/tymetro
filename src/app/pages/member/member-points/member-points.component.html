@@ -7,12 +7,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
-
+<ion-content fullscreen="true">
+<ion-title>您目前共有<ion-text color="primary">{{data.PointTotal}}</ion-text>點</ion-title>
   <ion-list>
-    <ion-list-header>
-      <ion-label>您目前共有{{data.PointTotal}}點</ion-label>
-    </ion-list-header>
     <ion-item>
       <div>
         <ion-label>{{thisYear}}年到期</ion-label>
