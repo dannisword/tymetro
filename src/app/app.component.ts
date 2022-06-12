@@ -35,18 +35,27 @@ export class AppComponent {
   constructor(
     protected router: Router,
     protected api: ApiService,
-    protected inAppBrowser: InAppBrowser) { 
-      this.api.getData().then(res=>{
-this.appPages = res.appPages;
-      });
-    }
+    protected inAppBrowser: InAppBrowser) {
+    this.api.getData().then(res => {
+      this.appPages = res.appPages;
+    });
+  }
 
   public async onNav(page) {
     if (page.mode == 'URL') {
       let target = "_blank";
       this.inAppBrowser.create(page.url, target, this.options);
-    } else {
-      await this.router.navigate([page.url], { replaceUrl: true });
+      return;
     }
+
+    if (page.url == 'dashboards/member') {
+      const token = localStorage.getItem('Token');
+      if (token == null) {
+        await this.router.navigate(['dashboards/login'], { replaceUrl: true });
+        return;
+      }
+    }
+    await this.router.navigate([page.url], { replaceUrl: true });
+
   }
 }

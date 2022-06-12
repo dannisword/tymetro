@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.token = localStorage.getItem('Token');
-    console.log(this.token);
   }
 
   onGoBack(event) {

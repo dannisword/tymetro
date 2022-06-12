@@ -10,6 +10,7 @@ import { CarrierComponent } from '../carrier/carrier.component';
 import { ConstructComponent } from '../construct/construct.component';
 import { LoginComponent } from '../login/login.component';
 import { ForgotComponent } from '../login/forgot/forgot.component';
+
 const routes: Routes = [
   {
     path: '',

@@ -47,9 +47,6 @@ export class ForgotComponent extends BaseComponent implements OnInit {
         Phone: this.phone
       }
     }
-    //const resp = await this.api.forgetPassword(data);
-    //console.log(resp);
-
     const options = {
       componentProps: {
         title: this.translateService.instant('會員專區')
