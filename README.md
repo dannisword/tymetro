@@ -16,7 +16,8 @@ $ npm install cordova-plugin-inappbrowser
 $ npm install @awesome-cordova-plugins/in-app-browser 
 $ npm install @awesome-cordova-plugins/core
 $ npm install cordova-plugin-datepicker
-
+## input-mask  
+$ npm i @thiagoprz/ionic-input-mask
 ## 執行
 ionic seve  
 
@@ -53,6 +54,7 @@ member
 ionic generate component pages/member
 ionic generate component pages/member-modify
 ionic generate component pages/member-points
+ionic generate component pages/member/chang-password
 載具專區
 ionic generate component pages/carrier
 ionic generate component pages/carrier/carrier-select
@@ -61,3 +63,4 @@ ionic generate component pages/carrier/carrier-add
 ionic generate component pages/login
 ionic generate component pages/login/forgot
 ionic generate component pages/login/confirm
+ionic generate component pages/login/register

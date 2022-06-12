@@ -172,7 +172,7 @@
         },
         {
             "title": "會員專區",
-            "url": "dashboards",
+            "url": "dashboards/member",
             "icon": "person",
             "mode": "APP"
         },

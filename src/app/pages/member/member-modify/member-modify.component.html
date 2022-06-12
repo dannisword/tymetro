@@ -6,6 +6,81 @@
     請輸入以下基本資料：<ion-label color="primary">*</ion-label>&nbsp;&nbsp;為必填
   </ion-label>
 
+
+
+  <form [formGroup]="memberForm" (submit)="onConfirm()" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">身分證號碼</ion-label>
+        <ion-input class="ion-text-uppercase" formControlName="Id" clearInput value="" required>
+        </ion-input>
+        <ion-note slot="helper">此為使用者帳號，後續將無法修改</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">姓名</ion-label>
+        <ion-input formControlName="Name" value=""></ion-input>
+        <ion-note slot="helper">1</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">行動電話</ion-label>
+        <ion-input formControlName="PhoneNumber" value="" type="tel" mask="****-******"></ion-input>
+        <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">信箱</ion-label>
+        <ion-input formControlName="Email" type="email" clearInput value="" required></ion-input>
+        <ion-note slot="helper">重新修改 e-mail需重新發送驗證信</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">生日</ion-label>
+        <ion-input formControlName="Birthday" clearInput type="tel" mask="****-**-**"></ion-input>
+        <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">地址</ion-label>
+        <ion-input formControlName="Address" clearInput value=""></ion-input>
+        <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">原交通方式</ion-label>
+        <ion-select interface="action-sheet" formControlName="OriginTrans" value="">
+          <ion-select-option *ngFor="let item of transportations">{{item.name}}
+          </ion-select-option>
+        </ion-select>
+        <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+        <ion-note slot="error">123</ion-note>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">職業</ion-label>
+        <ion-select interface="action-sheet" formControlName="JobTitle" value="">
+          <ion-select-option *ngFor="let item of jobs">{{item.name}}</ion-select-option>
+        </ion-select>
+        <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+        <ion-note slot="error">123</ion-note>
+      </ion-item>
+      <ion-item lines="full">
+        120定期票及369定期票優惠專案使用須知
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-note slot="error">123</ion-note>
+      </ion-item>
+      <section>
+        <ion-button color="medium" expand="block" (click)="onChangPassword()">修改密碼</ion-button>
+        <ion-button color="primary" expand="block" (click)="onConfirm()">確認修改</ion-button>
+        <ion-button color="primary" expand="block" (click)="onCancel()">取消</ion-button>
+      </section>
+
+    </ion-list>
+  </form>
+</ion-content>
+
+<!--
   <ion-modal *ngIf="opened" [class.date-time]="mode === 'date-time'" [class.date]="mode === 'date'"
     [class.time]="mode === 'time'" [isOpen]="opened" [backdropDismiss]="false">
     <ng-template>
@@ -23,100 +98,4 @@
       </ion-content>
     </ng-template>
   </ion-modal>
-
-  <ion-list>
-    <ion-item lines="full">
-      <ion-label position="floating">身分證號碼</ion-label>
-      <ion-input clearInput value=""></ion-input>
-      <ion-note slot="helper">此為使用者帳號，後續將無法修改</ion-note>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">姓名</ion-label>
-      <ion-input></ion-input>
-      <ion-note slot="helper"></ion-note>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">電話</ion-label>
-      <ion-input></ion-input>
-      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">信箱</ion-label>
-      <ion-input></ion-input>
-      <ion-note slot="helper">重新修改 e-mail需重新發送驗證信</ion-note>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">生日</ion-label>
-      <ion-input (click)="onDatePicker()"></ion-input>
-      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">地址</ion-label>
-      <ion-input></ion-input>
-      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">原交通方式</ion-label>
-      <ion-select interface="action-sheet">
-        <ion-select-option *ngFor="let item of transportations">{{item.name}}</ion-select-option>
-      </ion-select>
-      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">職業</ion-label>
-      <ion-select interface="action-sheet">
-        <ion-select-option *ngFor="let item of jobs">{{item.name}}</ion-select-option>
-      </ion-select>
-      <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
-    </ion-item>
-
-
-  </ion-list>
-
-  <!--
-  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
-    <ion-item lines="full">
-      <ion-label position="floating">*身份證號碼</ion-label>
-      <ion-input formControlName="name" type="text"></ion-input>
-    </ion-item>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.required">
-      需輸入身份證號碼.
-    </span>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.name.errors?.minlength">
-      Name should be min 2 chars long.
-    </span>
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input formControlName="email" type="email"></ion-input>
-    </ion-item>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
-      Email is required.
-    </span>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
-      Please provide valid email id.
-    </span>
-    <ion-item lines="full">
-      <ion-label position="floating">DOB</ion-label>
-
-      <ion-datetime (ionChange)="getDate($event)" formControlName="dob" [value]="defaultDate"></ion-datetime>
-
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Mobile</ion-label>
-      <ion-input maxlength="10" formControlName="mobile" type="text" required></ion-input>
-    </ion-item>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.required">
-      Mobile numbeionic cordova plugin add cordova-plugin-datepickerr is required.
-    </span>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.mobile.errors?.pattern">
-      Only numerical values allowed.
-    </span>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Submit</ion-button>
-      </ion-col>
-    </ion-row>
-  </form>
-  -->
-
-</ion-content>
+-->

@@ -54,16 +54,10 @@ export class NewsComponent extends BaseComponent implements OnInit {
     super(injector);
   }
 
-  ngOnInit() {
-
-  }
-
+  ngOnInit() {}
 
   // 點開最新消息內容
-
   async openNewsContent(params) {
-    console.log('params',params);
-
     const options = {
       componentProps: {
         title: this.translateService.instant('最新消息'),

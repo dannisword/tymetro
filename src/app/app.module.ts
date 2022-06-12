@@ -12,6 +12,7 @@ import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { SharedModule } from './_shared/shared/shared.module';
 import { RequestInterceptor, ResponseInterceptor } from './_shared/index';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+
 import { TranslateModule, TranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,7 +50,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 export class AppModule {
   constructor(public translate: TranslateService) {
     const lang = this.translate.getBrowserLang();
-    console.log(lang);
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
   }

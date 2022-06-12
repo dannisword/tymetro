@@ -24,10 +24,8 @@ export class MemberComponent extends BaseComponent implements OnInit {
     this.thisYear = new Date().getFullYear();
     this.lastYear = new Date().getFullYear() + 1;
     const resp = await this.api.getPointsByToken('1');
-
     if (resp.Code == 0) {
       this.points = resp.Data;
-      console.log(this.points);
     } else {
       this.alert(resp.Message);
     }

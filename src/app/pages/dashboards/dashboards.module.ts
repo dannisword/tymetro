@@ -5,7 +5,7 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { DashboardsPageRoutingModule } from './dashboards-routing.module';
-
+import { IonicInputMaskModule } from "@thiagoprz/ionic-input-mask";
 import { SharedModule } from '../../_shared/shared/shared.module';
 
 import { DashboardsPage } from './dashboards.page';
@@ -20,6 +20,7 @@ import { CarrierAddComponent } from '../carrier/carrier-add/carrier-add.componen
 import { ConstructComponent } from '../construct/construct.component';
 import { LoginComponent } from '../login/login.component';
 import { ForgotComponent } from '../login/forgot/forgot.component';
+import { ChangPasswordComponent } from '../login/chang-password/chang-password.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { ForgotComponent } from '../login/forgot/forgot.component';
     ReactiveFormsModule,
     IonicModule,
     SharedModule,
-    DashboardsPageRoutingModule
+    DashboardsPageRoutingModule,
+    IonicInputMaskModule
   ],
   declarations: [
     DashboardsPage,
@@ -42,6 +44,7 @@ import { ForgotComponent } from '../login/forgot/forgot.component';
     CarrierAddComponent,
     ConstructComponent,
     LoginComponent,
-    ForgotComponent]
+    ForgotComponent,
+    ChangPasswordComponent]
 })
 export class DashboardsPageModule { }

@@ -159,6 +159,9 @@ export class ApiService {
       Token: localStorage.getItem('Token'),
       Page: page
     }
-    return await this.http.post<any>('/api/PointRecord/GetPointsByToken', data).toPromise();
+    return await this.http.post<any>('/api/PointRecord/GetPointsByToken', {
+      Token: localStorage.getItem('Token'),
+      Page: page
+    }).toPromise();
   }
 }
