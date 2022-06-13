@@ -2,20 +2,22 @@
 <ion-content fullscreen>
   <ion-img class="logo-img" src="assets/logo.png"></ion-img>
   <ion-item class="gray-bg">
-    <h6>您目前共有<ion-text color="primary" class="point-text">{{points.PointTotal}}</ion-text> 點</h6>
+    <h6>{{userInfo.Name}} 您好,您目前共有<ion-text color="primary" class="point-text">{{points.PointTotal}}</ion-text>點</h6>
   </ion-item>
   <ion-item lines="full" class="ion-padding-bottom ion-padding-top ">
     <div slot="start">
       <ion-label>
         <p>{{thisYear}}年到期</p>
       </ion-label>
-      <h6 class="ion-no-margin">共有<ion-text color="primary" class="font-x-larger">{{points.PointsThisYear}}</ion-text>點</h6>
+      <h6 class="ion-no-margin">共有<ion-text color="primary" class="font-x-larger">{{points.PointsThisYear}}</ion-text>點
+      </h6>
     </div>
     <div slot="end">
       <ion-label>
         <p>{{lastYear}}年到期</p>
       </ion-label>
-      <h6 class="ion-no-margin">共有<ion-text color="primary" class="font-x-larger">{{points.PointsLastYear}}</ion-text>點</h6>
+      <h6 class="ion-no-margin">共有<ion-text color="primary" class="font-x-larger">{{points.PointsLastYear}}</ion-text>點
+      </h6>
     </div>
   </ion-item>
   <ion-footer class="ion-full-footer ion-padding">
@@ -26,9 +28,10 @@
     <ion-button expand="block" (click)="onOpen('points')" color="light">歷史點數查詢</ion-button>
     <ion-button expand="block" (click)="onNavigate('/dashboards/construct')" color="light">兌換專區</ion-button>
     <ion-button expand="block"
-      (click)="goToBrowser('https://www.tymetro.com.tw/tymetro-new/tw/_pages/service/FAQ.php?v=#station')" color="light">常見問題
+      (click)="goToBrowser('https://www.tymetro.com.tw/tymetro-new/tw/_pages/service/FAQ.php?v=#station')"
+      color="light">常見問題
     </ion-button>
-    <ion-button expand="block" (click)="onNavigate('/dashboards/member-modify')" color="light">會員資料修改</ion-button>
+    <ion-button expand="block" (click)="onNavigate('/dashboards/member-modify/false')" color="light">會員資料修改</ion-button>
     <ion-button expand="block" (click)="logout()" color="light">登出</ion-button>
   </ion-footer>
 </ion-content>
