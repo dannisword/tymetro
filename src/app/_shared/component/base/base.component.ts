@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from "@angular/common";
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { ModalController } from '@ionic/angular';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-base',
@@ -17,10 +18,11 @@ export abstract class BaseComponent {
   public translateService: TranslateService;
   public inAppBrowser: InAppBrowser;
   public changeDetectorRef: ChangeDetectorRef;
-  public activatedRoute: ActivatedRoute;
+  public route: ActivatedRoute;
   public router: Router;
   public modalController: ModalController;
   public location: Location;
+  public snackbarService: SnackbarService;
 
   private options: InAppBrowserOptions = {
     location: 'yes',//Or 'no' 
@@ -49,11 +51,11 @@ export abstract class BaseComponent {
     this.translateService = injector.get(TranslateService);
     this.inAppBrowser = injector.get(InAppBrowser);
     this.changeDetectorRef = injector.get(ChangeDetectorRef);
-    this.activatedRoute = injector.get(ActivatedRoute);
+    this.route = injector.get(ActivatedRoute);
     this.router = injector.get(Router);
     this.location = injector.get(Location);
     this.modalController = injector.get(ModalController);
-
+    this.snackbarService = injector.get(SnackbarService);
     this.onInit();
   }
 
@@ -141,6 +143,7 @@ export abstract class BaseComponent {
     const data = JSON.stringify(value);
     localStorage.setItem(key, data);
   }
+
   public getStore(key) {
     const data = localStorage.getItem(key);
     return JSON.parse(data);

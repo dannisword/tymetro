@@ -28,7 +28,7 @@ const routes: Routes = [
     data: { title: '會員專區', isPage: true, option: HeaderOption.None }
   },
   {
-    path: 'member-modify',
+    path: 'member-modify/:new',
     component: MemberModifyComponent,
     data: { title: '會員資料修改', isPage: true, option: HeaderOption.None }
   },

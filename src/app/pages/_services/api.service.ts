@@ -65,13 +65,23 @@ export class ApiService {
     return await this.http.post<any>('/api/Member/Login', param).toPromise();
   }
   /**
+   * 取得帳號資訊
+   * @returns 
+   */
+  public async reviewerMember() {
+    const param = {
+      Token: localStorage.getItem('Token')
+    }
+    return await this.http.post<any>('/api/Member/ReviewerMember', param).toPromise();
+  }
+  /**
    * 登出
    * @param memberID
    * @returns
    */
   public async logout(memberID: string) {
     const param = {
-      MemberID: '00010B15-8047-4A8A-BF27-AB3EE89E311E'
+      Token: localStorage.getItem('Token')
     }
     return await this.http.post<any>(`/api/Member/logout`, param).toPromise();
   }

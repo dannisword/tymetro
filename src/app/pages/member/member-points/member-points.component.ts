@@ -11,6 +11,7 @@ import * as moment from 'moment';
 export class MemberPointsComponent extends BaseComponent implements OnInit {
   public data: any;
   public points: any;
+  public userInfo: any = {};
   public title: string;
   public thisYear: number;
   public lastYear: number;
@@ -21,24 +22,13 @@ export class MemberPointsComponent extends BaseComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.userInfo = this.getStore('userInfo');
     this.thisYear = new Date().getFullYear();
     this.lastYear = new Date().getFullYear() + 1;
 
     for (let point of this.data.PointRecord) {
       point.RecordTime = moment(point.RecordTime).format('YYYY/MM/DD');
     }
-
-    /*
-    const resp = await this.api.getPointsByToken('1');
-
-    if (resp.Code == 0) {
-      this.points = resp.Data.PointRecord;
-      for (let point of this.points) {
-        point.RecordTime = moment(point.RecordTime).format('YYYY/MM/DD')
-      }
-    } else {
-      this.alert(resp.Message);
-    }*/
   }
 
 }
