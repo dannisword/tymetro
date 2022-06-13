@@ -28,17 +28,18 @@
         </a>
       </li>
     </ul>
+    <svg height="0" width="0">
+      <defs>
+        <clipPath clipPathUnits="objectBoundingBox" id="sector"  *ngIf="mobile">
+          <path fill="none" stroke="#111" stroke-width="1" class="sector"
+            d="M0.5,0.5 l0.5,0 A0.5,0.5 0 0,0 0.75,.066987298 z"></path>
+        </clipPath>
+      </defs>
+    </svg>
     <svg height="0" width="0" viewbox="0 0 1 1" *ngIf="!mobile">
       <defs>
         <clipPath id="sector" clipPathUnits="objectBoundingBox">
           <path fill-rule="evenodd" d="M0.5,0.5 l0.5,0 A0.45,0.6 0 0,0 0.75,.006987298 z"></path>
-        </clipPath>
-      </defs>
-    </svg>
-    <svg height="0" width="0" viewbox="0 0 1 1" *ngIf="mobile">
-      <defs>
-        <clipPath id="sector" clipPathUnits="objectBoundingBox">
-          <path fill-rule="evenodd" d="M0.5,0.5 l0.5,0 A0.5,0.5 0 0,0 0.75,.066987298 z"></path>
         </clipPath>
       </defs>
     </svg>
