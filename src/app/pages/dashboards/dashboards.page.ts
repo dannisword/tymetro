@@ -37,7 +37,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.mobile = window.screen.width <= 360 ? true : false;
+    this.mobile = window.screen.width <= 526 ? true : false;
     const data = await this.api.getData();
     this.menus = data.Menus;
     // 恢復執行
@@ -105,7 +105,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
     const  value  = await AppLauncher.canOpenUrl({ url: 'com.android.chrome' });
   }
-  
+
   async getNewAdvertising() {
     // 導到App todo
     const url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php';
