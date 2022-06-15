@@ -53,7 +53,6 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     // get 
     if (this.register == true) {
       await this.getMember();
-      console.log('修改');
     }
   }
 
@@ -64,7 +63,6 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   onGoBack(event) {
     console.log(this.register);
     if (this.register == true) {
-     
       super.onBack('dashboards/login');
       return;
     }
@@ -90,23 +88,37 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       return;
     }
     //modifyMember
-    const member = {
-      Token: localStorage.getItem("Token"),
-      Id: this.memberForm.value.Id,
+    let member = {
       Address: this.memberForm.value.Address,
       Birthday: this.memberForm.value.Birthday,
       Email: this.memberForm.value.Email,
+      Id: this.memberForm.value.Id,
       Name: this.memberForm.value.Name,
       Tel: this.memberForm.value.PhoneNumber,
       OriginTrans: this.memberForm.value.OriginTrans,
       JobTitle: this.memberForm.value.JobTitle,
-      ReadNotice: this.memberForm.value.ReadNotice
+      ReadNotice: this.memberForm.value.ReadNotice,
+      Password: '123456'
     };
-    const resp = await this.api.modifyMember(member);
-    if (resp.Code != '0') {
-      this.snackbarService.warning(resp.Message);
+    // 註冊
+    if (this.register == true) {
+      const resp = await this.api.register(member);
+      if (resp.Code != '0') {
+        this.snackbarService.warning(resp.Message);
+        return;
+      }
+      this.snackbarService.success('註冊成功');
+    } else {
+      //member.Token = localStorage.getItem("Token");
+      const resp = await this.api.modifyMember(member);
+      if (resp.Code != '0') {
+        this.snackbarService.warning(resp.Message);
+        return;
+      }
+      this.snackbarService.success('異動成功');
     }
-    this.snackbarService.success('異動成功');
+    return;
+
     await this.getMember();
   }
 
