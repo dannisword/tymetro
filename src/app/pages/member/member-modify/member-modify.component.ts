@@ -30,7 +30,11 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     protected api: ApiService) {
     super(injector);
 
-    this.register = Boolean(this.route.snapshot.paramMap.get('new'));
+    //this.register = Boolean(this.route.snapshot.paramMap.get('new'));
+    if (this.route.snapshot.paramMap.get('new') == 'true'){
+      this.register = true;
+    }
+    console.log(this.register);
 
     this.memberForm = this.formBuilder.group({
       Id: ['', [Validators.required, Validators.minLength(10)]],
@@ -51,7 +55,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     this.transportations = resp.Transportations;
     this.jobs = resp.Jobs;
     // get 
-    if (this.register == true) {
+    if (this.register == false) {
       await this.getMember();
     }
   }
@@ -89,6 +93,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     }
     //modifyMember
     let member = {
+      Token: localStorage.getItem("Token"),
       Address: this.memberForm.value.Address,
       Birthday: this.memberForm.value.Birthday,
       Email: this.memberForm.value.Email,
@@ -97,17 +102,18 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       Tel: this.memberForm.value.PhoneNumber,
       OriginTrans: this.memberForm.value.OriginTrans,
       JobTitle: this.memberForm.value.JobTitle,
-      ReadNotice: this.memberForm.value.ReadNotice,
-      Password: '123456'
+      ReadNotice: '0' //this.memberForm.value.ReadNotice
+      //Password: '123456'
     };
+    console.log(this.register);
     // 註冊
     if (this.register == true) {
-      const resp = await this.api.register(member);
-      if (resp.Code != '0') {
-        this.snackbarService.warning(resp.Message);
-        return;
-      }
-      this.snackbarService.success('註冊成功');
+      //const resp = await this.api.register(member);
+      //if (resp.Code != '0') {
+      //  this.snackbarService.warning(resp.Message);
+      //  return;
+      //}
+      //this.snackbarService.success('註冊成功');
     } else {
       //member.Token = localStorage.getItem("Token");
       const resp = await this.api.modifyMember(member);
