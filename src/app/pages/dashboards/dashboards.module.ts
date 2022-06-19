@@ -1,7 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
 
 import { DashboardsPageRoutingModule } from './dashboards-routing.module';
@@ -21,6 +20,8 @@ import { ConstructComponent } from '../construct/construct.component';
 import { LoginComponent } from '../login/login.component';
 import { ForgotComponent } from '../login/forgot/forgot.component';
 import { ChangPasswordComponent } from '../login/chang-password/chang-password.component';
+import { SouvenirComponent } from '../souvenir/souvenir.component';
+import { ProductComponent } from '../product/product.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,11 @@ import { ChangPasswordComponent } from '../login/chang-password/chang-password.c
     ConstructComponent,
     LoginComponent,
     ForgotComponent,
-    ChangPasswordComponent]
+    ChangPasswordComponent,
+    SouvenirComponent,
+    ProductComponent]
 })
-export class DashboardsPageModule { }
+export class DashboardsPageModule { 
+  constructor() {
+  }
+}

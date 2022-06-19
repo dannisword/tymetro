@@ -10,6 +10,9 @@ import { CarrierComponent } from '../carrier/carrier.component';
 import { ConstructComponent } from '../construct/construct.component';
 import { LoginComponent } from '../login/login.component';
 import { ForgotComponent } from '../login/forgot/forgot.component';
+import { SouvenirComponent } from '../souvenir/souvenir.component';
+import { ProductComponent } from '../product/product.component';
+import { AbnormalComponent } from '../abnormal/abnormal.component';
 
 const routes: Routes = [
   {
@@ -52,6 +55,22 @@ const routes: Routes = [
     component: ForgotComponent,
     data: { title: '忘記密碼', isPage: true, option: HeaderOption.None }
   },
+  {
+    path: 'souvenir',
+    component: SouvenirComponent,
+    data: { title: '兌換專區', isPage: true, option: HeaderOption.None }
+  },
+  {
+    path: 'abnormal',
+    component: AbnormalComponent,
+    data: { title: '連線異常', isPage: true, option: HeaderOption.None }
+  },
+  {
+    path: 'product',
+    component: ProductComponent,
+    data: { title: '兌換專區', isPage: true, option: HeaderOption.None }
+    
+  }
 ];
 
 @NgModule({

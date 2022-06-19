@@ -6,6 +6,7 @@ export const environment = {
   version: '1.0',
   production: true,
   apiServer: "http://59.126.242.4:8025"
+  //apiServer: "http://60.199.132.69/TYMetroAPI"
 };
 
 /*

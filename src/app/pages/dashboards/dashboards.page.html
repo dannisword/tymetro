@@ -2,8 +2,8 @@
 
 <ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+backgroupURL+') no-repeat center center / 120%'}">
   <ion-header>
-    <div class="station-status station-status-normal" *ngIf="statusText != null">
-      <img src="../../../assets/dashboard/normal.svg" alt="">{{statusText}}
+    <div class="station-status station-status-normal" *ngIf="title != null">
+      <img src="../../../assets/dashboard/normal.svg" alt="">{{title}}
     </div>
     <!-- <div class="station-status station-status-danger">
       <img src="../../../assets/dashboard/danger.svg" alt="">營運狀態：全線檢測中，暫停行駛中
@@ -43,9 +43,12 @@
         </clipPath>
       </defs>
     </svg>
+    <!--
     <div class="news-important">
       <img src="../../../assets/dashboard/news-important.svg" alt="">
     </div>
+    -->
+
   </div>
 </ion-content>
 <ion-footer>

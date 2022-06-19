@@ -1,0 +1,60 @@
+import { Component, Injector, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
+import { Network } from '@capacitor/network';
+import { BaseComponent } from 'src/app/_shared/component/base/base.component';
+
+@Component({
+  selector: 'app-abnormal',
+  templateUrl: './abnormal.component.html',
+  styleUrls: ['./abnormal.component.scss'],
+})
+export class AbnormalComponent extends BaseComponent implements OnInit {
+  private interval: any;
+  constructor(
+    protected injector: Injector,
+    protected loadingController: LoadingController
+  ) {
+    super(injector);
+  }
+
+  async ngOnInit() {
+    // 監聽事件
+    Network.addListener('networkStatusChange', async status => {
+      if (status.connected == false) {
+        await this.handlerNetwork();
+      }
+    });
+    await this.handlerNetwork();
+  }
+
+  async handlerNetwork() {
+    await this.present();
+    this.interval = setInterval(async () => {
+      await this.handler();
+    }, 2000)
+  }
+  onBack() {
+    super.onBack('/dashboards/home');
+  }
+
+  async present() {
+    const loading = await this.loadingController.create({
+      message: '連線中....',
+      duration: 10000,
+    });
+    await loading.present();
+  }
+  async dismiss() {
+    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
+  }
+
+  async handler() {
+    const status = await Network.getStatus();
+    console.log(status);
+    if (status.connected == true) {
+      clearInterval(this.interval);
+      super.onBack('/dashboards');
+      await this.dismiss();
+    }
+  }
+}

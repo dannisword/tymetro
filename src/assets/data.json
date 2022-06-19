@@ -112,7 +112,7 @@
     "appPages": [
         {
             "title": "首頁",
-            "url": "dashboards",
+            "url": "dashboards/home",
             "icon": "home",
             "mode": "APP"
         },
@@ -181,6 +181,12 @@
             "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/life/store.html",
             "icon": "gift",
             "mode": "URL"
+        },
+        {
+            "title": "離開",
+            "url": "dashboards/home",
+            "icon": "exit",
+            "mode": "APP"
         }
     ],
     "Transportations": [

@@ -30,10 +30,8 @@ export class MemberComponent extends BaseComponent implements OnInit {
       return;
     }
     this.userInfo = resp.Data;
-    console.log(this.userInfo);
     this.setStore('userInfo', resp.Data);
-
-
+    
     resp = await this.api.getPointsByToken('1');
     if (resp.Code == 0) {
       this.points = resp.Data;
