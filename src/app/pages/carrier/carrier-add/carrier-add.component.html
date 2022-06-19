@@ -1,6 +1,6 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title color="primary">定期票/135通勤</ion-title>
+    <ion-title color="primary">{{title}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="dismissModal()">關閉</ion-button>
     </ion-buttons>
@@ -8,13 +8,15 @@
 </ion-header>
 
 <ion-content fullscreen="true" class="ion-padding">
-  <section class="full-width">
-    <ion-button expand="block" color="secondary">卡號位置說明</ion-button>
-  </section>
-  <ion-item lines="full">
-    <ion-label position="floating">請輸入卡號</ion-label>
-    <ion-input [(ngModel)]="cardNo"></ion-input>
+  <ion-item class="ion-form-group ion-margin-top" >
+       <ion-text>卡號位置說明</ion-text>
+      
   </ion-item>
+  <ion-item class="ion-form-group" >
+    <ion-input type="text" [(ngModel)]="account" placeholder="請輸入卡號"></ion-input>
+    <ion-icon name="ticket" slot="start"></ion-icon>
+  </ion-item>
+
   <section expand="block">
     <ion-button expand="block" (click)="onSave()">確認送出</ion-button>
   </section>

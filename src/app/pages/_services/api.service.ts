@@ -131,11 +131,11 @@ export class ApiService {
    * @returns 
    */
   public async getSouvenir() {
- 
-      const param = {
-        category: "2"
-      }
-      return await this.http.post<any>('/api/Souvenir/GetSouvenir', param).toPromise();
+
+    const param = {
+      category: "2"
+    }
+    return await this.http.post<any>('/api/Souvenir/GetSouvenir', param).toPromise();
   }
   /**
    * 兌換商品
@@ -167,11 +167,54 @@ export class ApiService {
    * @returns 
    */
   public async getPointsByToken(page) {
-
     const data = {
       Token: localStorage.getItem('Token'),
       Page: page
     }
     return await this.http.post<any>('/api/PointRecord/GetPointsByToken', data).toPromise();
+  }
+  /**
+   * 取得載具類別
+   * @returns 
+   */
+  public async getVehicleType(lang) {
+    const url = `/api/vehicle/GetVehicleType?lang=${lang}&type=`
+    return await this.http.get<any>(url).toPromise();
+  }
+  /**
+   * 
+   * @returns 取得使用者載具
+   */
+  public async getMemberVehicle() {
+    const data = {
+      Token: localStorage.getItem('Token')
+    }
+    return await this.http.post<any>('/api/vehicle/GetMemberVehicle', data).toPromise();
+  }
+  /**
+   * 新增載具
+   * @param exterCode 
+   * @param type 
+   * @returns 
+   */
+  public async addVehicle(exterCode, type) {
+    const data = {
+      Token: localStorage.getItem('Token'),
+      ExterCode: exterCode,
+      Type: type
+    }
+    return await this.http.post<any>('/api/vehicle/AddVehicle', data).toPromise();
+  }
+  /**
+   * 刪除載具
+   * @param exterCode 
+   * @returns 
+   */
+  public async DelMemberVehicle(exterCode) {
+    //vehicle/DelMemberVehicle
+    const data = {
+      CardNo: exterCode
+    }
+    return await this.http.post<any>('/api/vehicle/AddVehicle', data).toPromise();
   }
 }

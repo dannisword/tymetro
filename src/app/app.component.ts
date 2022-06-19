@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { ApiService } from './pages/_services/api.service';
-
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -35,6 +35,7 @@ export class AppComponent {
   constructor(
     protected router: Router,
     protected api: ApiService,
+    protected menuCtrl: MenuController,
     protected inAppBrowser: InAppBrowser) {
     this.api.getData().then(res => {
       this.appPages = res.appPages;
@@ -57,5 +58,9 @@ export class AppComponent {
     }
     await this.router.navigate([page.url], { replaceUrl: true });
 
+  }
+  onClose() {
+    this.menuCtrl.toggle();
+    //this.router.navigate(['/dashboards'], { replaceUrl: true });
   }
 }

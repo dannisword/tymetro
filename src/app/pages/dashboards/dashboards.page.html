@@ -14,13 +14,13 @@
       <button class="middle-button" (click)="onLinkApp()">
         <div class="main-button">
           <img src="../../../assets/dashboard/ticket.svg" class="icon-img">
-          <span>行動購票</span>
+          <span>票價時刻</span>
         </div>
       </button>
     </div>
     <ul class="main-menu">
       <li *ngFor="let menu of menus">
-        <a (click)="goToBrowser(menu.url)">
+        <a (click)="gotoMenu(menu)">
           <div class="main-menu-content">
             <img [src]="menu.icon" class="icon-img">
             <span>{{menu.name}}</span>

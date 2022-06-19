@@ -2,6 +2,7 @@ import { Component, Injector, OnInit, Input } from '@angular/core';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 import { ModalController } from '@ionic/angular';
 import { CarrierAddComponent } from '../carrier-add/carrier-add.component';
+import { ApiService } from '../../_services/api.service';
 @Component({
   selector: 'app-carrier-select',
   templateUrl: './carrier-select.component.html',
@@ -9,32 +10,45 @@ import { CarrierAddComponent } from '../carrier-add/carrier-add.component';
 })
 export class CarrierSelectComponent extends BaseComponent implements OnInit {
   @Input() title: string;
-
-  constructor(protected injector: Injector) {
+  public vehicleTypes: any = [];
+  constructor(
+    protected injector: Injector,
+    protected api: ApiService) {
     super(injector);
   }
 
-  ngOnInit() {
-    console.log(this.title);
+  async ngOnInit() {
+    //
+    this.api.getVehicleType('TW').then(resp => {
+      console.log(resp);
+      if (resp.Code == '0') {
+        this.vehicleTypes = resp.Data.Carrier;
+      } else {
+        this.alert('載具查詢失敗');
+      }
+    });
   }
 
   onGoBack(event: any) {
     this.onNavigate('/dashboards/carrier');
   }
 
-  async onClick() {
+  async onClick(vehicleType) {
     const options = {
       componentProps: {
-        title: '載具專區'
+        title: '載具專區',
+        data: vehicleType
       },
       swipeToClose: true
     }
     const modelData = await this.openModal(CarrierAddComponent, options);
     console.log(modelData);
+    this.onGoBack(null);
   }
 
   async dismissModal() {
     super.dismissModal('CarrierAddComponent');
+    this.onGoBack(null);
     //await this.modalController.dismiss('CarrierAddComponent');
   }
 }

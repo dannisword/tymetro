@@ -8,29 +8,19 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card>
-    <ion-card-header color="primary">
-      <ion-card-subtitle>定期票</ion-card-subtitle>
-      <ion-card-title>定期票/135通勤</ion-card-title>
+
+  <ion-card *ngFor="let vehicleType of vehicleTypes">
+    <ion-card-header (click)="onClick(vehicleType)">
+      <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title>定期票</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-item (click)="onClick()">
-        <ion-avatar slot="start">
-          <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-red.jpg" />
-        </ion-avatar>
-        <ion-label>
-          <h4>定期票</h4>
-        </ion-label>
-      </ion-item>
-      <ion-item (click)="onClick()">
-        <ion-avatar slot="start">
-          <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />
-        </ion-avatar>
-        <ion-label>
-          <h4>135通勤</h4>
-        </ion-label>
-      </ion-item>
+     
     </ion-card-content>
   </ion-card>
+
+
+
 </ion-content>
