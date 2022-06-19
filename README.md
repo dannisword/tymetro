@@ -65,3 +65,8 @@ ionic generate component pages/login
 ionic generate component pages/login/forgot
 ionic generate component pages/login/confirm
 ionic generate component pages/login/register
+
+ionic generate component pages/souvenir
+ionic generate component pages/product
+ionic generate component pages/product/product-exchange
+ionic generate component pages/abnormal

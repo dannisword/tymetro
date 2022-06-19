@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { AbnormalComponent } from './pages/abnormal/abnormal.component';
 const routes: Routes = [
+
   {
     path: '',
-    redirectTo: 'dashboards',
+    redirectTo: 'abnormal',
     pathMatch: 'full'
   },
   /*
@@ -14,7 +16,11 @@ const routes: Routes = [
   },*/
   {
     path: 'dashboards',
-    loadChildren: () => import('./pages/dashboards/dashboards.module').then( m => m.DashboardsPageModule)
+    loadChildren: () => import('./pages/dashboards/dashboards.module').then(m => m.DashboardsPageModule)
+  },
+  {
+    path: 'abnormal',
+    component: AbnormalComponent
   }
 ];
 
@@ -24,4 +30,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

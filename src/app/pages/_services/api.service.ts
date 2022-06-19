@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { AlertController, Platform } from '@ionic/angular';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private alert: AlertController
   ) { }
 
   public async getData() {
@@ -24,7 +25,7 @@ export class ApiService {
    */
   public async getNewAdvertising(count: string, lang: string) {
     const url = `/api/Advertising/GetNewAdvertising?count=${count}&lang=${lang}`;
-    return this.http.get<any>(url).toPromise();
+    return await this.http.get<any>(url).toPromise();
   }
   /**
    * 取得目前營運狀態
@@ -33,7 +34,7 @@ export class ApiService {
    */
   public async getNowStatus(lang: string) {
     const url = `/api/BusinessStatus/GetNowStatus?lang=${lang}`;
-    return await this.http.get<any>(url).toPromise();
+    return this.http.get<any>(url).toPromise();
   }
   /**
    * 取得重大訊息
@@ -49,7 +50,7 @@ export class ApiService {
    * @returns
    */
   public async getProductList() {
-    return await this.http.post<Array<any>>('/api/Redeem/GetProductList', '').toPromise();
+    return await this.http.post<any>('/api/Redeem/GetProductList', '').toPromise();
   }
   /**
    * 登入
@@ -130,10 +131,11 @@ export class ApiService {
    * @returns 
    */
   public async getSouvenir() {
-    const param = {
-      category: "1"
-    }
-    return await this.http.post<any>('/api/Souvenir/GetSouvenir', param).toPromise();
+ 
+      const param = {
+        category: "2"
+      }
+      return await this.http.post<any>('/api/Souvenir/GetSouvenir', param).toPromise();
   }
   /**
    * 兌換商品
@@ -165,13 +167,11 @@ export class ApiService {
    * @returns 
    */
   public async getPointsByToken(page) {
+
     const data = {
       Token: localStorage.getItem('Token'),
       Page: page
     }
-    return await this.http.post<any>('/api/PointRecord/GetPointsByToken', {
-      Token: localStorage.getItem('Token'),
-      Page: page
-    }).toPromise();
+    return await this.http.post<any>('/api/PointRecord/GetPointsByToken', data).toPromise();
   }
 }

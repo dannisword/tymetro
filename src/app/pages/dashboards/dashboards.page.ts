@@ -28,6 +28,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   public banner = [];
   public mobile: boolean;
   public statusText: any = null;
+  public title: any;
   public backgroupURL = 'https://app.tymetro.com.tw/Content/App_img/backgroup/spring.gif';
 
   constructor(
@@ -50,17 +51,38 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   async reload() {
     this.statusText = null;
     // 取得目前營運狀態
-    await this.getNowStatus();
+    this.api.getNowStatus('TW').then(resp => {
+      if (resp.Data.Code == '0') {
+        this.statusText = resp.Data.StatusText;
+      } else {
+        this.statusText = '取得目前營運狀態';
+      }
+    });
+
     // 取得最新消息
-    let resp = await this.api.getNewAdvertising('10', 'TW');
-    if (resp.Code == '0') {
-      this.setStore('backgroupURL', resp.Data.BackgroupURL);
-      this.setStore('banner', resp.Data.banner);
-    }
-    await this.getImportant();
+    this.api.getNewAdvertising('10', 'TW').then(resp => {
+      if (resp.Code == '0') {
+        this.setStore('backgroupURL', resp.Data.BackgroupURL);
+        this.setStore('banner', resp.Data.banner);
+      } else {
+        
+      }
+    });
+    // 取得重大訊息
+    this.api.getImportant('TW').then(resp => {
+      console.log(resp);
+      if (resp.Code == '0') {
+        this.title = resp.Data.title;
+      }else{
+        
+        this.alert('取得重大訊息錯誤');
+      }
+    });
+
     // 取出 localStorage 紀錄
     this.backgroupURL = this.getStore('backgroupURL');
     this.banner = this.getStore('banner');
+
   }
 
   onAction(event) {
@@ -89,21 +111,16 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   }
 
   async getNowStatus() {
-    const resp = await this.api.getNowStatus('TW');
-    if (resp.Code == '0') {
-      this.statusText = resp.Data.StatusText;
-    }
+
   }
 
   async getImportant() {
-    const resp = await this.api.getImportant('TW');
-    if (resp.Code == '0') {
-    }
+
   }
 
-  async onLinkApp(){
+  async onLinkApp() {
 
-    const  value  = await AppLauncher.canOpenUrl({ url: 'com.android.chrome' });
+    const value = await AppLauncher.canOpenUrl({ url: 'com.android.chrome' });
   }
 
   async getNewAdvertising() {

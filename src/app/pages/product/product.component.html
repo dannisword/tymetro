@@ -1,0 +1,33 @@
+<app-header (goBack)="onGoBack($event)"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-item class="gray-bg">
+    <h6>{{userInfo.Name}} 您好,您目前共有<ion-text color="primary" class="point-text">{{points.PointTotal}}</ion-text>點</h6>
+  </ion-item>
+  <ion-item lines="full" class="ion-padding-bottom ion-padding-top ">
+    <div slot="start">
+      <ion-label>
+        <p>{{thisYear}}年到期</p>
+      </ion-label>
+      <h6 class="ion-no-margin">共有<ion-text color="primary" class="font-x-larger">{{points.PointsThisYear}}</ion-text>點
+      </h6>
+    </div>
+    <div slot="end">
+      <ion-label>
+        <p>{{lastYear}}年到期</p>
+      </ion-label>
+      <h6 class="ion-no-margin">共有<ion-text color="primary" class="font-x-larger">{{points.PointsLastYear}}</ion-text>點
+      </h6>
+    </div>
+  </ion-item>
+
+  <ion-card *ngFor="let product of products">
+    <img src="{{product.PicPath}}" (click)="onClick(product)" />
+    <ion-card-header>
+      <ion-card-subtitle>兌換點數 : {{product.Point}} 點，現有數量：{{product.Stock}}</ion-card-subtitle>
+      <ion-card-title>{{product.ProductName}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{product.ProductDesc}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

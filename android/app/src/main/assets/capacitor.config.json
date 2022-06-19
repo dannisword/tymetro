@@ -1,5 +1,5 @@
 {
-	"appId": "tw.com.tymetro.iosapp",
+	"appId": "com.tymetro.ios",
 	"appName": "tymetro",
 	"webDir": "www",
 	"bundledWebRuntime": false
