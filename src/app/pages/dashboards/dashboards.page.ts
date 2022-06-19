@@ -74,15 +74,12 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     });
     // 取得重大訊息
     this.api.getImportant('TW').then(resp => {
-      console.log(resp);
       if (resp.Code == '0') {
         this.title = resp.Data.title;
       }else{
-
         this.alert('取得重大訊息錯誤');
       }
     });
-
     // 取出 localStorage 紀錄
     this.backgroupURL = this.getStore('backgroupURL');
     this.banner = this.getStore('banner');
@@ -123,8 +120,9 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   }
 
   async onLinkApp() {
-
-    const value = await AppLauncher.canOpenUrl({ url: 'com.android.chrome' });
+    const url = "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php";
+    this.goToBrowser(url);
+    //const value = await AppLauncher.canOpenUrl({ url: 'com.android.chrome' });
   }
 
   async getNewAdvertising() {
@@ -133,10 +131,24 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     this.goToBrowser(url);
   }
 
+
   async onClickSlide(e) {
-    console.log('=======> e', e);
     this.opened = true;
     this.selectBanner = e;
+  }
 
+
+  async gotoMenu(menu) {
+    if (menu.type == 'app') {
+      const userInfo = this.getStore('userInfo');
+      console.log(userInfo)
+      if (userInfo == null) {
+        this.onNavigate('/dashboards/login');
+        return;
+      }
+      this.onNavigate(menu.url);
+    } else {
+      this.goToBrowser(menu.url);
+    }
   }
 }

@@ -20,7 +20,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
   ngOnInit() { }
 
   onGoBack(event) {
-    super.onBack('/dashboards/home');
+    super.onBack('/dashboards');
   }
 
   onForgotPW() {

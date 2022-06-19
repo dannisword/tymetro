@@ -33,15 +33,21 @@ export class ChangPasswordComponent extends BaseComponent implements OnInit {
   async onConfirm() {
     this.isSubmitted = !this.changPasswordForm.valid;
     if (this.changPasswordForm.valid == false) {
+      this.snackbarService.warning('密碼未輸入完整');
       return;
     }
 
+    if (this.changPasswordForm.value.newPassword != this.changPasswordForm.value.reconfirmPassword){
+      this.snackbarService.warning('密碼未輸入完整');
+      return;
+    }
     const data = {
       Token: localStorage.getItem('Token'),
       OldPassword: this.changPasswordForm.value.oldPassword,
       NewPassword: this.changPasswordForm.value.newPassword
     }
     const resp = await this.api.changePassword(data);
+    console.log(resp);
     if (resp.Code == 0) {
       super.onBack('/dashboards/member');
       return;

@@ -3,19 +3,26 @@
     <ion-img class="logo-img" src="assets/logo.png"></ion-img>
     <ion-list>
         <ion-item lines="full">
-            <ion-label slot="end" color="secondary">Dannis 您好</ion-label>
+            <ion-label slot="end" color="secondary">{{userInfo.Name}} 您好</ion-label>
         </ion-item>
     </ion-list>
-    <ion-list *ngFor="let card of cards">
-        <ion-list-header><ion-text color="primary"><h6>{{card.cardType}}</h6></ion-text> </ion-list-header>
-        <ion-item *ngFor="let item of card.list" class="gray-bg" lines="full">
-            <ion-avatar slot="start">
-                <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />
-            </ion-avatar>
-            <ion-label>
-                <h3>{{item.name}}</h3>
-                <p>{{item.expired}}</p>
-            </ion-label>
-        </ion-item>
-    </ion-list>
+
+    <ion-card *ngFor="let card of cards">
+        
+        <ion-card-header>
+            <ion-card-subtitle>{{card.CardNo}}</ion-card-subtitle>
+            <ion-card-title>{{card.CardName}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />
+            <ion-item lines="full">
+                <ion-label>
+                    <h3>有效日期：{{card.Status.InvalidDate}}</h3>
+                    <h3>購買日期：{{card.Status.BuyDate}}</h3>
+                    <h3>有效天數：{{card.Status.EffectiveDays}}</h3>
+                    <p>{{card.Status.Station.StartStationId}} - {{card.Status.Station.EndStationId}}</p>
+                </ion-label>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
