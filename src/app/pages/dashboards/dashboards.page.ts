@@ -26,7 +26,9 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
   public menus = [];
   public banner = [];
+  public selectBanner = {};
   public mobile: boolean;
+  public opened: boolean = false;
   public statusText: any = null;
   public title: any;
   public backgroupURL = 'https://app.tymetro.com.tw/Content/App_img/backgroup/spring.gif';
@@ -61,6 +63,8 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
     // 取得最新消息
     this.api.getNewAdvertising('10', 'TW').then(resp => {
+      console.log('====>resp', resp);
+
       if (resp.Code == '0') {
         this.setStore('backgroupURL', resp.Data.BackgroupURL);
         this.setStore('banner', resp.Data.banner);
@@ -72,7 +76,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     this.api.getImportant('TW').then(resp => {
       if (resp.Code == '0') {
         this.title = resp.Data.title;
-      } else {
+      }else{
         this.alert('取得重大訊息錯誤');
       }
     });
@@ -126,6 +130,13 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     const url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php';
     this.goToBrowser(url);
   }
+
+
+  async onClickSlide(e) {
+    this.opened = true;
+    this.selectBanner = e;
+  }
+
 
   async gotoMenu(menu) {
     if (menu.type == 'app') {
