@@ -21,17 +21,23 @@ export class MemberComponent extends BaseComponent implements OnInit {
   }
 
   async ngOnInit() {
+
     this.thisYear = new Date().getFullYear();
     this.lastYear = new Date().getFullYear() + 1;
     // 會員資料
     let resp = await this.api.reviewerMember();
+
     if (resp.Code != 0) {
-      this.onNavigate('/dashboards.login');
+      this.onNavigate('/dashboards/login');
+      return;
+    }
+    if (resp.Data.Id == null) {
+      this.onNavigate('/dashboards/login');
       return;
     }
     this.userInfo = resp.Data;
     this.setStore('userInfo', resp.Data);
-    
+
     resp = await this.api.getPointsByToken('1');
     if (resp.Code == 0) {
       this.points = resp.Data;

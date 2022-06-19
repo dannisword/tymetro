@@ -2,6 +2,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 import { ModalController } from '@ionic/angular';
 import { CarrierSelectComponent } from './carrier-select/carrier-select.component';
+import { ApiService } from '../_services/api.service';
 
 @Component({
   selector: 'app-carrier',
@@ -9,36 +10,30 @@ import { CarrierSelectComponent } from './carrier-select/carrier-select.componen
   styleUrls: ['./carrier.component.scss'],
 })
 export class CarrierComponent extends BaseComponent implements OnInit {
-  public cards = [{
-    cardType: '有效記名票卡', list: [{
-      name: '定期票',
-      expired: '2022-05-31'
-    }, {
-      name: '定期票',
-      expired: '2022-06-30'
-    }]
-  }, {
-    cardType: '驗證中票卡', list: [{
-      name: '定期票',
-      expired: '2022-05-31'
-    }, {
-      name: '定期票',
-      expired: '2022-06-30'
-    }]
-  }, {
-    cardType: '失效記名票卡', list: [{
-      name: '定期票',
-      expired: '2022-05-31'
-    }, {
-      name: '定期票',
-      expired: '2022-06-30'
-    }]
-  }];
-  constructor(protected injector: Injector) {
+  public cards: any = [];
+  public userInfo: any = {};
+
+  constructor(
+    protected injector: Injector,
+    protected api: ApiService) {
     super(injector);
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.userInfo = this.getStore('userInfo');
+
+    //取得使用者載具
+    this.api.getMemberVehicle().then(resp => {
+      console.log(resp);
+      if (resp.Code == '0') {
+        this.cards = resp.Data;
+      } else {
+        //this('');
+        this.snackbarService.success('目前無票卡資料');
+      }
+    })
+
+  }
 
   onGoBack(event) {
     super.onBack('dashboards/member');
