@@ -58,9 +58,27 @@
     </div>
     <ion-slides pager="true" [options]="slideOpts" #slideWithNav
       (ionSlideDidChange)="onSlideDidChange(banner,slideWithNav)">
-      <ion-slide *ngFor="let s of banner">
+      <ion-slide *ngFor="let s of banner" (click)="onClickSlide(s)">
         <img src="{{s.PicLink}}">
       </ion-slide>
     </ion-slides>
   </div>
 </ion-footer>
+
+<ion-modal *ngIf="opened" [isOpen]="opened" [backdropDismiss]="false">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+        </ion-title>
+        <ion-button slot="end" fill="clear" color="primary" (click)="opened = false">
+          關閉
+        </ion-button>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content color="primary">
+      <ion-img  [src]="this.selectBanner.PicLink"></ion-img>
+    </ion-content>
+  </ng-template>
+</ion-modal>
