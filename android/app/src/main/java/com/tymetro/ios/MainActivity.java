@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.tymetro.ios;
 
 import com.getcapacitor.BridgeActivity;
 

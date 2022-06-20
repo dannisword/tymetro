@@ -100,7 +100,7 @@ export class ApiService {
    * @returns 
    */
   public async verifyLetter(data) {
-    return await this.http.post<any>('/apiMember/VerifyLetter', data).toPromise();
+    return await this.http.post<any>('/api/Member/VerifyLetter', data).toPromise();
   }
   /**
    * 變更密碼

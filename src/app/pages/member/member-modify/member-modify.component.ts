@@ -45,7 +45,9 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       Address: ['',],
       OriginTrans: [''],
       JobTitle: [''],
-      ReadNotice: [false]
+      ReadNotice: [false],
+      Password: [''],
+      ReconfirmPassword: ['']
     })
   }
 
@@ -84,6 +86,14 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     const modelData = await this.openModal(ChangPasswordComponent, options);
   }
 
+  async onChang(data) {
+    console.log(data);
+    let url = 'https://www.tymetro.com.tw/tymetro-new/tw/_images/document/ticketson02/tab02/08.pdf';
+    if (data == 'member') {
+      url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/service/protocol.html';
+    }
+    this.goToBrowser(url);
+  }
   async onConfirm() {
     this.isSubmitted = !this.memberForm.valid;
 
@@ -97,7 +107,6 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     } else {
       await this.modifyMember();
     }
-    await this.getMember();
   }
 
   async onCancel() {
@@ -114,7 +123,32 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   }
 
   async registerUser() {
+    if (this.memberForm.value.Password != this.memberForm.value.ReconfirmPassword) {
+      this.snackbarService.warning('再次確認密碼錯誤');
+      return;
+    }
 
+    let member = {
+      Token: localStorage.getItem("Token"),
+      Address: this.memberForm.value.Address,
+      Birthday: this.memberForm.value.Birthday,
+      Email: this.memberForm.value.Email,
+      Id: this.memberForm.value.Id,
+      Name: this.memberForm.value.Name,
+      Password: this.memberForm.value.Password,
+      Tel: this.memberForm.value.PhoneNumber,
+      OriginTrans: this.memberForm.value.OriginTrans,
+      JobTitle: this.memberForm.value.JobTitle,
+      ReadNotice: '1'
+    };
+
+    this.api.register(member).then(resp => {
+      if (resp.Code == '0') {
+        super.onBack('dashboards/login');
+      } else {
+        this.snackbarService.success(resp.Message);
+      }
+    });
   }
 
   async modifyMember() {
@@ -133,6 +167,8 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     this.api.modifyMember(member).then(resp => {
       console.log(resp.Data.IsMailModify);
       this.snackbarService.success('IsMailModify = ' + resp.Data.IsMailModify);
+
+      this.getMember();
       /*
      console.log(resp);
      if (resp.Code == '0') {

@@ -36,7 +36,7 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
   onExchangNumber(mode) {
     if (mode == 'remove') {
       this.exchangNumber--;
-    }else{
+    } else {
       this.exchangNumber++;
     }
     if (this.exchangNumber <= 0) {
@@ -46,5 +46,26 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
   }
   onExchang() {
     console.log(this.data);
+    let param = {
+      Token: localStorage.getItem('Token'),
+      Product: {
+        ProductId: this.data.ProductId,
+        Qty: this.exchangNumber.toString()
+      },
+      Recipient:{
+        Name: this.userInfo.Name,
+        PhoneNumber: this.userInfo.PhoneNumber,
+        Address: this.userInfo.Address
+      }
+    }
+  
+    this.api.redeemProduct(param).then(resp=>{
+      console.log(resp);
+      if (resp.Code == '0'){
+        this.dismissModal();
+      }else{
+        this.snackbarService.warning(resp.Message);
+      }
+    });
   }
 }

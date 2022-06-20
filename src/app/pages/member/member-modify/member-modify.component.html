@@ -12,7 +12,7 @@
         <ion-label position="floating">
           <ion-text color="primary">*</ion-text>身分證號碼
         </ion-label>
-        <ion-input class="ion-text-uppercase" formControlName="Id" [(ngModel)]="member.Id" clearInput>
+        <ion-input class="ion-text-uppercase" formControlName="Id" [(ngModel)]="member.Id" clearInput [disabled]="register == false">
         </ion-input>
         <ion-note slot="helper">此為使用者帳號，後續將無法修改</ion-note>
         <ion-note slot="error">此為使用者帳號，後續將無法修改</ion-note>
@@ -30,6 +30,7 @@
         <ion-input formControlName="PhoneNumber" type="tel" mask="****-******" [(ngModel)]="member.Tel" clearInput>
         </ion-input>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
+        <ion-note slot="error">如需購買定期票，此選項為必填</ion-note>
       </ion-item>
 
       <ion-item>
@@ -72,9 +73,24 @@
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
       </ion-item>
 
-      <ion-item>
+      <ion-item *ngIf="register == true">
+        <ion-label position="floating">密碼</ion-label>
+        <ion-input formControlName="Password" type="password" clearInput></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="register == true">
+        <ion-label position="floating">再次確認密碼</ion-label>
+        <ion-input formControlName="ReconfirmPassword" type="password" clearInput></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="register == true" lines="none">
+        <ion-text color="" primary>會員條款及活動規約</ion-text>
+        <ion-checkbox slot="start" formControlName="ReadNotice" value="" (ionChange)="onChang('member')"></ion-checkbox>
+      </ion-item>
+
+      <ion-item lines="none">
         <ion-text color="" primary>120定期票及369定期票優惠專案使用須知</ion-text>
-        <ion-checkbox slot="start" formControlName="ReadNotice" value="" [(ngModel)]="member.ReadNotice"></ion-checkbox>
+        <ion-checkbox slot="start" formControlName="ReadNotice" value="" (ionChange)="onChang('ticket')"></ion-checkbox>
       </ion-item>
       <ion-item lines="full">
 
@@ -83,9 +99,11 @@
     </ion-list>
   </form>
   <ion-footer>
-    <ion-button expand="block" (click)="onChangPassword()" color="primary">修改密碼</ion-button>
-    <ion-button expand="block" (click)="onConfirm()" color="primary">確認修改</ion-button>
-    <ion-button expand="block" (click)="onCancel()" color="primary">取消</ion-button>
+    <ion-button expand="block" (click)="onChangPassword()" color="primary" *ngIf="register == false">修改密碼</ion-button>
+    <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == false">確認修改</ion-button>
+    <ion-button expand="block" (click)="onCancel()" color="primary" *ngIf="register == false">取消</ion-button>
+    <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == true">發送驗證信</ion-button>
+    <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == true">發送驗證簡訊</ion-button>
   </ion-footer>
 </ion-content>
 

@@ -1,5 +1,7 @@
 <app-header (goBack)="onGoBack($event)"> </app-header>
 <ion-content [fullscreen]="true">
+
+
   <ion-item lines="none">
     <ion-img class="logo-img" src="assets/logo.png"></ion-img>
   </ion-item>
@@ -26,6 +28,7 @@
     <span>客服專線：03-2868789</span>
     <ion-icon name="call"></ion-icon>
   </div>
+  
   <ion-footer class="ion-padding ion-full-footer">
     <ion-button expand="block" (click)="onConfirm()" color="light" >確定送出</ion-button>
   </ion-footer>

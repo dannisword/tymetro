@@ -27,18 +27,14 @@
       </h6>
     </div>
   </ion-item>
-  <ion-item-divider>
+  <ion-item-divider lines="none">
     <ion-text color="danger">
-      <h5>郵寄僅限臺、澎、金、馬地區</h5>
-    </ion-text>
-  </ion-item-divider>
-  <ion-item-divider>
-    <ion-text color="danger">
+      <h5>郵寄僅限臺、澎、金、馬地區</h5> 
       <h5>圖片僅供參考</h5>
     </ion-text>
   </ion-item-divider>
   <ion-card>
-    <img src="{{data.PicPath}}" />
+    <img class="img" src="{{data.PicPath}}" />
     <ion-card-header>
       <ion-card-subtitle>兌換點數 : {{data.Point}} 點，現有數量：{{data.Stock}}</ion-card-subtitle>
       <ion-card-title>{{data.ProductName}}</ion-card-title>
@@ -48,7 +44,7 @@
         {{data.ProductDesc}}
       </ion-item>
 
-      <ion-item>
+      <ion-item no-lines>
         <ion-icon name="remove-circle" (click)="onExchangNumber('remove')" [disabled]="exchangNumber==0"></ion-icon>
         {{exchangNumber}}
         <ion-icon name="add-circle" (click)="onExchangNumber('add')"></ion-icon>

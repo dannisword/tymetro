@@ -38,6 +38,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
   }
   
   onRegister() {
-    this.onNavigate('/dashboards/member-modify/true');
+    this.onNavigate('/dashboards/register/true');
   }
 }

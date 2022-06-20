@@ -3,7 +3,7 @@
   <ion-item class="gray-bg">
     <h6>{{userInfo.Name}} 您好,您目前共有<ion-text color="primary" class="point-text">{{points.PointTotal}}</ion-text>點</h6>
   </ion-item>
-  <ion-item lines="full" class="ion-padding-bottom ion-padding-top ">
+  <ion-item lines="full" class="ion-padding-bottom ion-padding-top">
     <div slot="start">
       <ion-label>
         <p>{{thisYear}}年到期</p>
@@ -21,7 +21,10 @@
   </ion-item>
 
   <ion-card *ngFor="let product of products">
-    <img src="{{product.PicPath}}" (click)="onClick(product)" />
+    <div style="align-self:center;">
+      <img class="img" src="{{product.PicPath}}" (click)="onClick(product)"/>
+    </div>
+ 
     <ion-card-header>
       <ion-card-subtitle>兌換點數 : {{product.Point}} 點，現有數量：{{product.Stock}}</ion-card-subtitle>
       <ion-card-title>{{product.ProductName}}</ion-card-title>

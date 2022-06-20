@@ -28,7 +28,6 @@ export class CarrierComponent extends BaseComponent implements OnInit {
       if (resp.Code == '0') {
         this.cards = resp.Data;
       } else {
-        //this('');
         this.snackbarService.success('目前無票卡資料');
       }
     })

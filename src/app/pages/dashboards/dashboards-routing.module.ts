@@ -36,6 +36,11 @@ const routes: Routes = [
     data: { title: '會員資料修改', isPage: true, option: HeaderOption.None }
   },
   {
+    path: 'register/:new',
+    component: MemberModifyComponent,
+    data: { title: '會員註冊', isPage: true, option: HeaderOption.None }
+  },
+  {
     path: 'carrier',
     component: CarrierComponent,
     data: { title: '載具專區', isPage: true, option: HeaderOption.Add }
@@ -55,6 +60,7 @@ const routes: Routes = [
     component: ForgotComponent,
     data: { title: '忘記密碼', isPage: true, option: HeaderOption.None }
   },
+
   {
     path: 'souvenir',
     component: SouvenirComponent,

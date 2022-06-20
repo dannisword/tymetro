@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
   public pageInfo: any;
   public token: string = '';
+
   @Output() onOption = new EventEmitter<any>();
   @Output() goBack = new EventEmitter<any>();
   @Output() onAction = new EventEmitter<any>();
@@ -31,5 +32,10 @@ export class HeaderComponent implements OnInit {
 
   handleAction(event) {
     this.onAction.emit(event);
+  }
+
+  onSetTitle(title) {
+    //this.onTitleChang.emit(title);
+    //this.pageInfo.title = title;
   }
 }

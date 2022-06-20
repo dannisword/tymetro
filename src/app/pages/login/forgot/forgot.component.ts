@@ -47,14 +47,25 @@ export class ForgotComponent extends BaseComponent implements OnInit {
         Phone: this.phone
       }
     }
-    const options = {
-      componentProps: {
-        title: this.translateService.instant('會員專區')
-      },
-      swipeToClose: true
+    const param = {
+      Id: this.id
     }
-    const modelData = await this.openModal(ConfirmComponent, options);
-    // 回傳值
-    console.log(modelData);
+    this.api.verifyLetter(param).then(res => {
+      console.log(res);
+      if (res.Code == '0') {
+        const options = {
+          componentProps: {
+            title: this.translateService.instant('會員專區')
+          },
+          swipeToClose: true
+        }
+        this.openModal(ConfirmComponent, options);
+        // 回傳值
+        //console.log(modelData);
+      } else {
+        this.snackbarService.warning(res.Message);
+      }
+    })
+
   }
 }
