@@ -1,7 +1,8 @@
 {
   "name": "tymetro",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
