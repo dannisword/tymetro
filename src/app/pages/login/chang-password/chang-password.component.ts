@@ -11,6 +11,8 @@ import { ApiService } from '../../_services/api.service';
 export class ChangPasswordComponent extends BaseComponent implements OnInit {
   public changPasswordForm: FormGroup;
   public isSubmitted: boolean = false;
+
+
   constructor(
     protected injector: Injector,
     protected api: ApiService,
@@ -37,7 +39,7 @@ export class ChangPasswordComponent extends BaseComponent implements OnInit {
       return;
     }
 
-    if (this.changPasswordForm.value.newPassword != this.changPasswordForm.value.reconfirmPassword){
+    if (this.changPasswordForm.value.newPassword != this.changPasswordForm.value.reconfirmPassword) {
       this.snackbarService.warning('密碼未輸入完整');
       return;
     }
@@ -46,13 +48,15 @@ export class ChangPasswordComponent extends BaseComponent implements OnInit {
       OldPassword: this.changPasswordForm.value.oldPassword,
       NewPassword: this.changPasswordForm.value.newPassword
     }
-    const resp = await this.api.changePassword(data);
-    console.log(resp);
-    if (resp.Code == 0) {
-      super.onBack('/dashboards/member');
-      return;
-    }
-    this.alert(resp.Message);
-    return;
+    this.api.changePassword(data).then(resp => {
+      if (resp.Code == '0') {
+        this.confirm("密碼修改成功").then(res => {
+          this.dismissModal();
+          //super.onNavigate('/dashboards/member');
+        });
+      } else {
+        this.alert(resp.Message);
+      }
+    });
   }
 }

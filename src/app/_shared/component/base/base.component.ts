@@ -6,6 +6,7 @@ import { Location } from "@angular/common";
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { ModalController } from '@ionic/angular';
 import { SnackbarService } from '../../services/snackbar.service';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-base',
@@ -23,6 +24,8 @@ export abstract class BaseComponent {
   public modalController: ModalController;
   public location: Location;
   public snackbarService: SnackbarService;
+  public loadingController: LoadingController;
+  public loading: any;
 
   private options: InAppBrowserOptions = {
     location: 'yes',//Or 'no' 
@@ -56,6 +59,7 @@ export abstract class BaseComponent {
     this.location = injector.get(Location);
     this.modalController = injector.get(ModalController);
     this.snackbarService = injector.get(SnackbarService);
+    this.loadingController = injector.get(LoadingController);
     this.onInit();
   }
 
@@ -107,12 +111,6 @@ export abstract class BaseComponent {
         header: '訊息確認',
         message: msg,
         buttons: [{
-          text: '取消',
-          role: 'cancel',
-          handler: () => {
-            resolve(false);
-          }
-        }, {
           text: '確認',
           handler: () => {
             resolve(true);
@@ -147,5 +145,15 @@ export abstract class BaseComponent {
   public getStore(key) {
     const data = localStorage.getItem(key);
     return JSON.parse(data);
+  }
+
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...'
+    });
+    await loading.present();
+  }
+  public async onDismiss() {
+    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
   }
 }

@@ -47,11 +47,25 @@ export class ForgotComponent extends BaseComponent implements OnInit {
         Phone: this.phone
       }
     }
-    const param = {
-      Id: this.id
+    if (this.mail.length > 0) {
+      let param = {
+        Id: this.id,
+        Email: this.mail
+      };  
+      this.forgetPassword(param);
+    }else{
+      let param = {
+        Id: this.id,
+        Phone: this.phone
+      };  
+      this.forgetPassword(param);
     }
-    this.api.verifyLetter(param).then(res => {
-      console.log(res);
+  }
+
+  public forgetPassword(param) {
+    this.presentLoading();
+    this.api.forgetPassword(param).then(res => {
+      this.onDismiss();
       if (res.Code == '0') {
         const options = {
           componentProps: {
@@ -60,12 +74,9 @@ export class ForgotComponent extends BaseComponent implements OnInit {
           swipeToClose: true
         }
         this.openModal(ConfirmComponent, options);
-        // 回傳值
-        //console.log(modelData);
       } else {
         this.snackbarService.warning(res.Message);
       }
     })
-
   }
 }

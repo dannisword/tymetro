@@ -16,6 +16,6 @@ export class ConfirmComponent extends BaseComponent implements OnInit {
 
   onClose(){
     this.dismissModal();
-    this.onNavigate('/login');
+    this.onNavigate('/dashboards/login');
   }
 }

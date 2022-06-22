@@ -21,6 +21,8 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   public transportations: any;
   public jobs: any;
   public register: any = false;
+  public opened: any = false;
+
   @Input() public readonly mode: DateTimePickerMode = 'date-time';
   @ViewChild(IonModal) modal!: IonModal;
 
@@ -34,8 +36,6 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     if (this.route.snapshot.paramMap.get('new') == 'true') {
       this.register = true;
     }
-    console.log(this.register);
-
     this.memberForm = this.formBuilder.group({
       Id: ['', [Validators.required, Validators.minLength(10)]],
       Name: [''],
@@ -67,7 +67,6 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   }
 
   onGoBack(event) {
-    console.log(this.register);
     if (this.register == true) {
       super.onBack('dashboards/login');
       return;
@@ -84,8 +83,24 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       swipeToClose: true
     }
     const modelData = await this.openModal(ChangPasswordComponent, options);
+    console.log(modelData);
   }
 
+  onClose(opened) {
+    this.opened = opened;
+  }
+
+  onVerifyLetter(close) {
+    this.presentLoading();
+    const user = this.getStore('userInfo');
+    const param = {
+      Id: user.Id
+    };
+    this.api.verifyLetter(param).then(resp => {
+      this.onDismiss();
+       this.opened = false;
+    });
+  }
   async onChang(data) {
     console.log(data);
     let url = 'https://www.tymetro.com.tw/tymetro-new/tw/_images/document/ticketson02/tab02/08.pdf';
@@ -152,6 +167,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   }
 
   async modifyMember() {
+    await this.presentLoading();
     let member = {
       Token: localStorage.getItem("Token"),
       Address: this.memberForm.value.Address,
@@ -165,17 +181,15 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       ReadNotice: '1'
     };
     this.api.modifyMember(member).then(resp => {
-      console.log(resp.Data.IsMailModify);
-      this.snackbarService.success('IsMailModify = ' + resp.Data.IsMailModify);
-
+      this.onDismiss();
+      if (resp.Data.IsMailModify == true) {
+        this.opened = true;
+      }
+      else {
+        this.snackbarService.success('會員資料修改成功');
+      }
       this.getMember();
-      /*
-     console.log(resp);
-     if (resp.Code == '0') {
-       this.snackbarService.success(resp.Message);
-     }else{
-       this.snackbarService.warning(resp.Message);
-     }*/
     });
   }
+  public
 }

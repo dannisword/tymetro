@@ -1,5 +1,4 @@
 import { Component, Injector, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
 import { Network } from '@capacitor/network';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 
@@ -11,8 +10,7 @@ import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 export class AbnormalComponent extends BaseComponent implements OnInit {
   private interval: any;
   constructor(
-    protected injector: Injector,
-    protected loadingController: LoadingController
+    protected injector: Injector
   ) {
     super(injector);
   }
@@ -44,13 +42,13 @@ export class AbnormalComponent extends BaseComponent implements OnInit {
     });
     await loading.present();
   }
+
   async dismiss() {
     return await this.loadingController.dismiss().then(() => console.log('dismissed'));
   }
 
   async handler() {
     const status = await Network.getStatus();
-    console.log(status);
     if (status.connected == true) {
       clearInterval(this.interval);
       super.onBack('/dashboards');

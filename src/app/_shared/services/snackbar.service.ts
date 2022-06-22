@@ -14,7 +14,7 @@ export class SnackbarService {
       mode: 'md',
       message: message,
       position: 'bottom',
-      duration: 8000,
+      duration: 3000,
       color: color
     });
     toast.present();
