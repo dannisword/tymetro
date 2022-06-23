@@ -70,3 +70,5 @@ ionic generate component pages/souvenir
 ionic generate component pages/product
 ionic generate component pages/product/product-exchange
 ionic generate component pages/abnormal
+
+ionic generate component pages/activities

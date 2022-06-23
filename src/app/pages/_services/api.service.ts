@@ -210,11 +210,21 @@ export class ApiService {
    * @param exterCode 
    * @returns 
    */
-  public async DelMemberVehicle(exterCode) {
-    //vehicle/DelMemberVehicle
+  public async delMemberVehicle(exterCode) {
     const data = {
       CardNo: exterCode
     }
-    return await this.http.post<any>('/api/vehicle/AddVehicle', data).toPromise();
+    return await this.http.post<any>('/api/vehicle/DelMemberVehicle', data).toPromise();
   }
+  /**
+   * 
+   * @param kind Latest: 最新消息; Activities: 活動消息; Serve: 旅客服務; delay:誤點證明;
+   * @returns 
+   */
+
+  public async getLink(kind) {
+    const url = `/api/vehicle/GetVehicleType?kind=${kind}`;
+    return await this.http.get<any>(url).toPromise();
+  }
+
 }

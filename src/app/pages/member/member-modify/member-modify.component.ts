@@ -38,8 +38,8 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     }
     this.memberForm = this.formBuilder.group({
       Id: ['', [Validators.required, Validators.minLength(10)]],
-      Name: [''],
-      PhoneNumber: ['', [Validators.required, Validators.pattern('^[0-9-]+$')]],
+      Name: ['', [Validators.required]],
+      PhoneNumber: [''], // [Validators.required, Validators.pattern('^[0-9-]+$')]
       Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       Birthday: [''],
       Address: ['',],
@@ -98,7 +98,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     };
     this.api.verifyLetter(param).then(resp => {
       this.onDismiss();
-       this.opened = false;
+      this.opened = false;
     });
   }
   async onChang(data) {
@@ -159,7 +159,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
 
     this.api.register(member).then(resp => {
       if (resp.Code == '0') {
-        super.onBack('dashboards/login');
+        super.onBack('/dashboards/login');
       } else {
         this.snackbarService.success(resp.Message);
       }
@@ -191,5 +191,5 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       this.getMember();
     });
   }
-  public
+  
 }

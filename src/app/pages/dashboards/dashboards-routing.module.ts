@@ -26,6 +26,11 @@ const routes: Routes = [
     data: { title: '最新消息', isPage: true, option: HeaderOption.None }
   },
   {
+    path: 'activities',
+    component: NewsComponent,
+    data: { title: '活動訊息', isPage: true, option: HeaderOption.None }
+  },
+  {
     path: 'member',
     component: MemberComponent,
     data: { title: '會員專區', isPage: true, option: HeaderOption.None }

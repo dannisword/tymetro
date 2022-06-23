@@ -28,7 +28,7 @@ export abstract class BaseComponent {
   public loading: any;
 
   private options: InAppBrowserOptions = {
-    location: 'yes',//Or 'no' 
+    location: 'no',//Or 'no' 
     hidden: 'no', //Or  'yes'
     clearcache: 'yes',
     clearsessioncache: 'yes',

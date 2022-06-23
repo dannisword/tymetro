@@ -63,14 +63,10 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
     // 取得最新消息
     this.api.getNewAdvertising('10', 'TW').then(resp => {
-      console.log('====>resp', resp);
-
       if (resp.Code == '0') {
         this.setStore('backgroupURL', resp.Data.BackgroupURL);
         this.setStore('banner', resp.Data.banner);
-      } else {
-
-      }
+      } 
     });
     // 取得重大訊息
     this.api.getImportant('TW').then(resp => {
@@ -83,7 +79,6 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     // 取出 localStorage 紀錄
     this.backgroupURL = this.getStore('backgroupURL');
     this.banner = this.getStore('banner');
-
   }
 
   onAction(event) {
@@ -133,10 +128,11 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
 
   async onClickSlide(e) {
-    this.opened = true;
-    this.selectBanner = e;
+    console.log(e);
+    //this.opened = true;
+    //this.selectBanner = e;
+    this.goToBrowser(e.TextLink);
   }
-
 
   async gotoMenu(menu) {
     if (menu.type == 'app') {

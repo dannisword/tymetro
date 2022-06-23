@@ -125,9 +125,9 @@
         },
         {
             "title": "最新消息",
-            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11",
+            "url": "dashboards/news",
             "icon": "newspaper",
-            "mode": "URL"
+            "mode": "APP"
         },
         {
             "title": "活動訊息",

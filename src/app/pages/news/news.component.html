@@ -1,9 +1,22 @@
 <app-header (goBack)="onGoBack($event)"></app-header>
-<ion-content [fullscreen]="true" >
+<ion-content [fullscreen]="true">
+  <!--
   <ul class="news-list">
     <li *ngFor="let new of newsList" (click)="openNewsContent(new)">
          <div class="new-sub">{{new.Date}}</div>
          <p class="new-title">{{new.Title}}</p>
     </li>
   </ul>
+  -->
+
+  <ion-segment (ionChange)="onTabChang($event)" value="Latest">
+    <ion-segment-button value="Latest">
+      <ion-label>最新消息</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Activities">
+      <ion-label>活動公告</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
 </ion-content>
