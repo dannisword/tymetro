@@ -103,34 +103,37 @@
     <ion-button expand="block" (click)="onChangPassword()" color="primary" *ngIf="register == false">修改密碼</ion-button>
     <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == false">確認修改</ion-button>
     <ion-button expand="block" (click)="onCancel()" color="primary" *ngIf="register == false">取消</ion-button>
-    <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == true">發送驗證信</ion-button>
-    <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == true">發送驗證簡訊</ion-button>
+    <ion-button expand="block" (click)="onConfirm()" color="primary"
+      *ngIf="register == true" [disabled]="memberForm.value.Email === undefined">發送驗證信</ion-button>
+    <ion-button expand="block" (click)="onConfirm()" color="primary"
+      *ngIf="register == true" [disabled]="memberForm.value.PhoneNumber === undefined">發送驗證簡訊</ion-button>
   </ion-footer>
+  <!-- && this.memberForm.value.Email !== undefined" -->
 </ion-content>
-<ion-modal [isOpen]="opened">
-  <ng-template>
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>客服小提醒</ion-title>
-        <ion-buttons slot="end">
-          <ion-button (click)="onClose(false)">關閉</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content class="ion-padding">
-      <p>
-        您已完成資料修改。請點擊發送信箱驗證，進行驗證，若未進行信箱驗證，
-        系統將於隔天凌晨三點，恢復原先註冊信箱。
-      </p>
-      <ion-footer>
-        <ion-button expand="block" (click)="onVerifyLetter()" color="primary">發送驗證信箱</ion-button>
+<ion-modal [isOpen]=" opened">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>客服小提醒</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="onClose(false)">關閉</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <p>
+            您已完成資料修改。請點擊發送信箱驗證，進行驗證，若未進行信箱驗證，
+            系統將於隔天凌晨三點，恢復原先註冊信箱。
+          </p>
+          <ion-footer>
+            <ion-button expand="block" (click)="onVerifyLetter()" color="primary">發送驗證信箱</ion-button>
 
-      </ion-footer>
-    </ion-content>
-  </ng-template>
-</ion-modal>
+          </ion-footer>
+        </ion-content>
+      </ng-template>
+      </ion-modal>
 
-<!--
+      <!--
   <ion-modal *ngIf="opened" [class.date-time]="mode === 'date-time'" [class.date]="mode === 'date'"
     [class.time]="mode === 'time'" [isOpen]="opened" [backdropDismiss]="false">
     <ng-template>

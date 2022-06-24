@@ -21,14 +21,9 @@ const routes: Routes = [
     data: { title: '首頁', isPage: false, option: HeaderOption.Person }
   },
   {
-    path: 'news',
+    path: 'news/:kind',
     component: NewsComponent,
     data: { title: '最新消息', isPage: true, option: HeaderOption.None }
-  },
-  {
-    path: 'activities',
-    component: NewsComponent,
-    data: { title: '活動訊息', isPage: true, option: HeaderOption.None }
   },
   {
     path: 'member',

@@ -223,7 +223,7 @@ export class ApiService {
    */
 
   public async getLink(kind) {
-    const url = `/api/vehicle/GetVehicleType?kind=${kind}`;
+    const url = `/api/GetLink?kind?kind=${kind}`;
     return await this.http.get<any>(url).toPromise();
   }
 

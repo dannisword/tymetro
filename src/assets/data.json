@@ -130,12 +130,6 @@
             "mode": "APP"
         },
         {
-            "title": "活動訊息",
-            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/10",
-            "icon": "body",
-            "mode": "URL"
-        },
-        {
             "title": "票價時刻",
             "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/timetable-search.php",
             "icon": "time",

@@ -29,7 +29,7 @@
   </ion-item>
   <ion-item-divider lines="none">
     <ion-text color="danger">
-      <h5>郵寄僅限臺、澎、金、馬地區</h5> 
+      <h5>郵寄僅限臺、澎、金、馬地區</h5>
       <h5>圖片僅供參考</h5>
     </ion-text>
   </ion-item-divider>
@@ -44,7 +44,7 @@
         {{data.ProductDesc}}
       </ion-item>
 
-      <ion-item no-lines>
+      <ion-item no-lines >
         <ion-icon name="remove-circle" (click)="onExchangNumber('remove')" [disabled]="exchangNumber==0"></ion-icon>
         {{exchangNumber}}
         <ion-icon name="add-circle" (click)="onExchangNumber('add')"></ion-icon>
@@ -53,8 +53,7 @@
     <ion-footer collapse="fade">
 
       <ion-toolbar>
-
-        <ion-title (click)="onExchang()">兌換</ion-title>
+        <ion-button expand="block" (click)="onExchang()" color="primary" [disabled]="points.PointTotal == 0">兌換</ion-button>
       </ion-toolbar>
     </ion-footer>
   </ion-card>
