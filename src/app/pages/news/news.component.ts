@@ -2,6 +2,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 import { ApiService } from '../_services/api.service';
 import { NewsContentComponent } from './news-coontent/news-coontent.component';
+import { DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-news',
@@ -14,7 +15,8 @@ export class NewsComponent extends BaseComponent implements OnInit {
 
   constructor(
     protected injector: Injector,
-    protected api: ApiService) {
+    protected api: ApiService,
+    protected sanitizer: DomSanitizer) {
     super(injector);
   }
 
@@ -31,7 +33,10 @@ export class NewsComponent extends BaseComponent implements OnInit {
       }
     });
   }
-
+  openURL(){
+    const url = "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11";
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
   onTabChang(kind) {
     console.log(kind.detail.value);
   }

@@ -109,18 +109,21 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     }
     this.goToBrowser(url);
   }
+
   async onConfirm() {
     this.isSubmitted = !this.memberForm.valid;
-
+    console.log(this.memberForm.value.PhoneNumber);
+ 
     if (this.memberForm.valid == false) {
       this.snackbarService.warning('必填欄位，尚未完成');
       return;
     }
+    
     // 註冊
     if (this.register == true) {
-      await this.registerUser();
+      //await this.registerUser();
     } else {
-      await this.modifyMember();
+      //await this.modifyMember();
     }
   }
 
@@ -138,6 +141,10 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   }
 
   async registerUser() {
+    if (this.memberForm.value.Password == "" && this.memberForm.value.ReconfirmPassword == "") {
+      this.alert('密碼未輸入完整');
+      return;
+    }
     if (this.memberForm.value.Password != this.memberForm.value.ReconfirmPassword) {
       this.snackbarService.warning('再次確認密碼錯誤');
       return;
@@ -191,5 +198,5 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       this.getMember();
     });
   }
-  
+
 }
