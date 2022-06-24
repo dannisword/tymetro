@@ -112,8 +112,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
 
   async onConfirm() {
     this.isSubmitted = !this.memberForm.valid;
-    console.log(this.memberForm.value.PhoneNumber);
- 
+
     if (this.memberForm.valid == false) {
       this.snackbarService.warning('必填欄位，尚未完成');
       return;
@@ -121,9 +120,9 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     
     // 註冊
     if (this.register == true) {
-      //await this.registerUser();
+      await this.registerUser();
     } else {
-      //await this.modifyMember();
+      await this.modifyMember();
     }
   }
 

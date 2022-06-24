@@ -34,7 +34,9 @@ export class NewsComponent extends BaseComponent implements OnInit {
     });
   }
   openURL(){
-    const url = "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11";
+    //const url = "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11";
+
+    const url = "https://shop.jaipurandco.com"
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
   onTabChang(kind) {

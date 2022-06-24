@@ -21,7 +21,7 @@ const routes: Routes = [
     data: { title: '首頁', isPage: false, option: HeaderOption.Person }
   },
   {
-    path: 'news/:kind',
+    path: 'news',
     component: NewsComponent,
     data: { title: '最新消息', isPage: true, option: HeaderOption.None }
   },
