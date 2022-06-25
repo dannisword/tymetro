@@ -12,6 +12,13 @@ import { DomSanitizer} from '@angular/platform-browser';
 export class NewsComponent extends BaseComponent implements OnInit {
   public latest: [];
   public activities: [];
+  public tempNews= [{
+    'Date': '2022-06-22',
+    'Title': '新聞稿】今(20)日發生於花蓮規模6.0地震，桃捷公司2點因應說明新聞稿】今(20)日發生於花蓮規模6.0地震，桃捷公司2點因應說明',
+    'Content': '【新聞稿】今(20)日發生於花蓮規模6.0地震，桃捷公司2點因應說明新聞稿】今(20)日發生於花蓮規模6.0地震，桃捷公司2點因應說明',
+    'Img': 'https://images.unsplash.com/photo-1593733925160-6f78dc0be8b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fHBob25lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+  }];
+;
 
   constructor(
     protected injector: Injector,
@@ -43,7 +50,8 @@ export class NewsComponent extends BaseComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
   onTabChang(kind) {
-    console.log(kind.detail.value);
+    console.log('kind.detail.value', kind);
+    this.tempNews = kind.detail.value === 'Latest' ? this.latest : this.activities;
   }
   // 點開最新消息內容
   async openNewsContent(params) {
