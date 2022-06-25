@@ -24,6 +24,7 @@ export class NewsComponent extends BaseComponent implements OnInit {
     this.api.getLink('Latest').then(res => {
       if (res.Code == 0) {
         this.latest = res.Data;
+
       }
     });
 
@@ -32,6 +33,8 @@ export class NewsComponent extends BaseComponent implements OnInit {
         this.activities = res.activities;
       }
     });
+    console.log('this.activities', this.activities);
+    console.log('this.latest', this.latest);
   }
   openURL(){
     //const url = "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11";
