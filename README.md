@@ -23,12 +23,11 @@ $ npm i @thiagoprz/ionic-input-mask
 ionic seve  
 
 ## 編譯
-$ ionic build  
+$ ionic build ios
 $ npx cap sync ios  
 $ npx cap open ios   
 
-$ npx cap sync android 
-$ npx cap open android 
+
 
 ## Apple chip M1 pod install CocoaPod
 執行下面指令  
@@ -72,3 +71,29 @@ ionic generate component pages/product/product-exchange
 ionic generate component pages/abnormal
 
 ionic generate component pages/activities
+
+
+## Generate ICON 
+$ npm install -g cordova-res
+$ ionic cordova resources
+### 產生圖示
+$ ionic cordova resources --icon
+$ ionic cordova resources --splash
+### 複製圖示
+$ cordova-res ios --skip-config --copy --type icon
+$ cordova-res android --skip-config --copy --type icon
+## Generate APK
+$ ionic build android
+$ npx cap sync android 
+$ npx cap open android 
+
+### defaultConfig
+VersionCode
+VersionName 
+
+### Allowing Cleartext Traffic
+<application
+    ...
+    android:usesCleartextTraffic="true">
+
+

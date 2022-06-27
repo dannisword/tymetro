@@ -4,7 +4,8 @@ const config: CapacitorConfig = {
   appId: 'com.tymetro.ios',
   appName: 'tymetro',
   webDir: 'www',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  server: { "allowNavigation": ["*"] }
 };
 
 export default config;
