@@ -1,6 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Network } from '@capacitor/network';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
+import { ApiService } from '../_services/api.service';
 
 @Component({
   selector: 'app-abnormal',
@@ -10,7 +11,8 @@ import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 export class AbnormalComponent extends BaseComponent implements OnInit {
   private interval: any;
   constructor(
-    protected injector: Injector
+    protected injector: Injector,
+    protected api: ApiService
   ) {
     super(injector);
   }
@@ -23,6 +25,17 @@ export class AbnormalComponent extends BaseComponent implements OnInit {
       }
     });
     await this.handlerNetwork();
+
+    //this.presentLoading();
+    // 取得最新消息
+    this.api.getNewAdvertising('10', 'TW').then(resp => {
+      if (resp.Code == '0') {
+        this.setStore('backgroupURL', resp.Data.BackgroupURL);
+        this.setStore('banner', resp.Data.banner);
+      } 
+    }).finally(()=>{
+      //this.onDismiss();
+    });
   }
 
   async handlerNetwork() {

@@ -119,15 +119,15 @@
     "appPages": [
         {
             "title": "首頁",
-            "url": "dashboards/home",
+            "url": "/dashboards/home",
             "icon": "home",
             "mode": "APP"
         },
         {
             "title": "最新消息",
-            "url": "dashboards/news",
+            "url": "/dashboards/news",
             "icon": "newspaper",
-            "mode": "APP"
+            "mode": "App"
         },
         {
             "title": "票價時刻",

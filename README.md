@@ -82,6 +82,7 @@ $ ionic cordova resources --splash
 ### 複製圖示
 $ cordova-res ios --skip-config --copy --type icon
 $ cordova-res android --skip-config --copy --type icon
+
 ## Generate APK
 $ ionic build android
 $ npx cap sync android 

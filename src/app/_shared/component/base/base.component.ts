@@ -147,7 +147,7 @@ export abstract class BaseComponent {
     return JSON.parse(data);
   }
 
-  async presentLoading() {
+  public async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...'
     });

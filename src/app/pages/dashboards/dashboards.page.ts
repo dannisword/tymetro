@@ -51,6 +51,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   }
 
   async reload() {
+  
     this.statusText = null;
     // 取得目前營運狀態
     this.api.getNowStatus('TW').then(resp => {
@@ -59,14 +60,20 @@ export class DashboardsPage extends BaseComponent implements OnInit {
       } else {
         this.statusText = '取得目前營運狀態';
       }
+    }).finally(()=>{
+      
     });
-
+   // this.presentLoading();
     // 取得最新消息
     this.api.getNewAdvertising('10', 'TW').then(resp => {
       if (resp.Code == '0') {
         this.setStore('backgroupURL', resp.Data.BackgroupURL);
         this.setStore('banner', resp.Data.banner);
       } 
+    }).catch((e)=>{
+      //this.onDismiss();
+    }).finally(()=>{
+      //this.onDismiss();
     });
     // 取得重大訊息
     this.api.getImportant('TW').then(resp => {
