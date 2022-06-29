@@ -10,19 +10,20 @@
   <ion-card>
     <div class="card-img-wrap">
       <div class="ribbon-content">NEWS</div>
-      <img [src]="news.Img">
+      <img src="{{data.pictures}}">
     </div>
     <ion-card-header>
-      <ion-card-subtitle role="heading" color="primary">{{news.Date}}
+      <ion-card-subtitle role="heading" color="primary">{{data.startDate}}
       </ion-card-subtitle>
       <ion-card-title>
         <h5>
-          {{news.Title}}
+          {{data.title}}
         </h5>
       </ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      {{news.Content}}
+    <ion-card-content >
+      <div [innerHTML]> {{data.content}}</div>
+     
     </ion-card-content>
   </ion-card>
 </ion-content>

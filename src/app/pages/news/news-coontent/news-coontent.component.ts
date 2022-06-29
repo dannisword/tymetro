@@ -9,7 +9,7 @@ import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 })
 export class NewsContentComponent extends BaseComponent implements OnInit {
   @Input() title: string;
-  public news: any;
+  public data: any;
   constructor(
     protected injector: Injector,
     protected navParams: NavParams,
@@ -18,7 +18,8 @@ export class NewsContentComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.news = this.navParams.data.newsContent;
+    console.log(this.data);
+    //this.news = this.navParams.data.newsContent;
   }
 
 
