@@ -19,12 +19,32 @@
       </h6>
     </div>
   </ion-item>
-
-  <ion-card *ngFor="let product of products">
+  <ion-grid>
+  <ion-row>
+    <ion-col size="6" *ngFor="let product of products" class="ion-justify-content-start">
+      <ion-card class="ion-no-margin">
+        <ion-card-header color="primary">
+          <ion-card-subtitle>
+            <h6>{{product.ProductName}}</h6>
+          </ion-card-subtitle>
+        </ion-card-header>
+        <div class="ion-card-img">
+          <img class="img" src="{{product.PicPath}}" (click)="onClick(product)" />
+        </div>
+        <ion-card-content class="ion-text-center">
+          <h2><b>{{product.Point}} 點</b></h2>
+          <h4><b>現有數量：{{product.Stock}}</b></h4>
+          <span *ngIf="false">{{product.ProductDesc}}</span>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  <!-- <ion-card *ngFor="let product of products">
     <div style="align-self:center;">
-      <img class="img" src="{{product.PicPath}}" (click)="onClick(product)"/>
+      <img class="img" src="{{product.PicPath}}" (click)="onClick(product)" />
     </div>
- 
+
     <ion-card-header>
       <ion-card-subtitle>兌換點數 : {{product.Point}} 點，現有數量：{{product.Stock}}</ion-card-subtitle>
       <ion-card-title>{{product.ProductName}}</ion-card-title>
@@ -32,5 +52,5 @@
     <ion-card-content>
       {{product.ProductDesc}}
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 </ion-content>
