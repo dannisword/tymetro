@@ -223,8 +223,16 @@ export class ApiService {
    */
 
   public async getLink(kind) {
-    const url = `/api/GetLink?kind?kind=${kind}`;
+    const url = `/api/GetData?kind=${kind}`;
     return await this.http.get<any>(url).toPromise();
   }
-
+  /**
+   * @param kind Latest: 最新消息; Activities: 活動消息; Serve: 旅客服務; delay:誤點證明;
+   * @param kind 
+   * @returns 
+   */
+  public async getLinkData(kind) {
+    const url = `/api/GetData?kind=${kind}`;
+    return await this.http.get<any>(url).toPromise();
+  }
 }

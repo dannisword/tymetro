@@ -42,6 +42,9 @@ export abstract class BaseComponent {
     disallowoverscroll: 'no', //iOS only 
     toolbar: 'yes', //iOS only 
     toolbarposition: 'top',
+    footer: 'yes',
+    footercolor: '#7b1fa2',
+    hidenavigationbuttons: 'no',
     enableViewportScale: 'no', //iOS only 
     allowInlineMediaPlayback: 'no',//iOS only 
     //presentationstyle: 'pagesheet',//iOS only  
@@ -68,7 +71,11 @@ export abstract class BaseComponent {
   }
   public async goToBrowser(url) {
     let target = "_blank";
-    this.inAppBrowser.create(url, target, this.options);
+    const browser = this.inAppBrowser.create(url, target, this.options);
+
+    browser.on('loadstop').subscribe(event => {
+      browser.insertCSS({ code: "html{height: 100%;} body{height: calc(100% - 45px);}" });
+    });
   }
 
   public onBack(url?: any) {
