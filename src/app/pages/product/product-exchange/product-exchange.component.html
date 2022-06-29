@@ -44,10 +44,10 @@
         {{data.ProductDesc}}
       </ion-item>
 
-      <ion-item no-lines >
-        <ion-icon name="remove-circle" (click)="onExchangNumber('remove')" [disabled]="exchangNumber==0"></ion-icon>
+      <ion-item no-lines>
+        <ion-icon  color="primary" name="remove-circle" (click)="onExchangNumber('remove')" [disabled]="exchangNumber==0"></ion-icon>
         {{exchangNumber}}
-        <ion-icon name="add-circle" (click)="onExchangNumber('add')"></ion-icon>
+        <ion-icon  color="primary" name="add-circle" (click)="onExchangNumber('add')"></ion-icon>
       </ion-item>
     </ion-card-content>
     <ion-footer collapse="fade">
