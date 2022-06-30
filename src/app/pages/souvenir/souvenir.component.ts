@@ -40,7 +40,6 @@ export class SouvenirComponent extends BaseComponent implements OnInit {
     // 取得兌換商品
     this.api.getProductList().then(resp => {
       this.products = resp.Data;
-      console.log(resp);
     }).catch(e => {
       this.alert(e);
     });

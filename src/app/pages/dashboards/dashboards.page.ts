@@ -132,9 +132,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     this.goToBrowser(url);
   }
 
-
   async onClickSlide(e) {
-    console.log(e);
     //this.opened = true;
     //this.selectBanner = e;
     this.goToBrowser(e.TextLink);
@@ -143,7 +141,6 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   async gotoMenu(menu) {
     if (menu.type == 'app') {
       const userInfo = this.getStore('userInfo');
-      console.log(userInfo)
       if (userInfo == null) {
         this.onNavigate('/dashboards/login');
         return;

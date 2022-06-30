@@ -18,12 +18,11 @@ export class CarrierAddComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.data);
+
   }
 
   onSave() {
     this.api.addVehicle(this.cardNo, this.data.Type).then(resp => {
-      console.log(resp);
       if (resp.Code == 0) {
         // 存擋
         super.dismissModal(this.cardNo);

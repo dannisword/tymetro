@@ -18,7 +18,6 @@ export class NewsContentComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.data);
     //this.news = this.navParams.data.newsContent;
   }
 

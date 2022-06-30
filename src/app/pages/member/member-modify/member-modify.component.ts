@@ -102,7 +102,6 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     });
   }
   async onChang(data) {
-    console.log(data);
     let url = 'https://www.tymetro.com.tw/tymetro-new/tw/_images/document/ticketson02/tab02/08.pdf';
     if (data == 'member') {
       url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/service/protocol.html';

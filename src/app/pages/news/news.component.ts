@@ -29,7 +29,6 @@ export class NewsComponent extends BaseComponent implements OnInit {
 
   async ngOnInit() {
     let resp = await this.api.getLinkData('Latest');
-    console.log(resp);
     if (resp.Code == 0) {
       this.latest = resp.Data;
     }

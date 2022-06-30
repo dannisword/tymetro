@@ -43,7 +43,6 @@ export class ProductComponent extends BaseComponent implements OnInit {
     this.api.getProductList().then(resp => {
       if (resp.Code == 0) {
         this.products = resp.Data;
-        console.log(this.products);
       } else {
         this.alert('取得兌換商品錯誤');
       }

@@ -18,9 +18,7 @@ export class CarrierSelectComponent extends BaseComponent implements OnInit {
   }
 
   async ngOnInit() {
-    //
     this.api.getVehicleType('TW').then(resp => {
-      console.log(resp);
       if (resp.Code == '0') {
         this.vehicleTypes = resp.Data.Carrier;
       } else {

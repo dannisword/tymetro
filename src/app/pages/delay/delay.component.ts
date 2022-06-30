@@ -20,7 +20,6 @@ export class DelayComponent extends BaseComponent implements OnInit {
     const resp = await this.api.getLinkData('delay');
     if (resp.Code == 0) {
       this.delaies = resp.Data;
-      console.log(this.delaies);
     } else {
       this.alert(resp.Message);
     }

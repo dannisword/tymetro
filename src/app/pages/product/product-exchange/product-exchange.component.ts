@@ -21,7 +21,6 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
     private cd: ChangeDetectorRef
   ) {
     super(injector);
-    console.log(this.data)
     this.thisYear = new Date().getFullYear();
     this.lastYear = new Date().getFullYear() + 1;
   }
@@ -31,7 +30,6 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
     const resp = await this.api.getPointsByToken('1');
     if (resp.Code == 0) {
       this.points = resp.Data;
-      console.log(this.points.PointTotal);
     }
     this.cd.detectChanges();
     // 取得點數
@@ -81,7 +79,6 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
     }
 
     this.api.redeemProduct(param).then(resp => {
-      console.log(resp);
       if (resp.Code == '0') {
         //this.dismissModal();
       } else {
