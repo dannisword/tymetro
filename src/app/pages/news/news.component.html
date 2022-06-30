@@ -22,11 +22,8 @@
   </ion-segment>
   <ion-card *ngFor="let news of tempNews" (click)="openNewsContent(news)">
 
-    <div class="card-img-wrap">
-
-      <div class="ribbon-content"><img src="{{news.logourl}}"></div>
-      <img src="{{news.cover}}">
-    </div>
+    <div class="ribbon-content"><img src="{{news.logourl}}"></div>
+    <img src="{{news.cover}}">
 
     <ion-card-header color="primary">
       <ion-card-subtitle role="heading">{{news.startDate | date :  "YYYY.MM.dd" }}
