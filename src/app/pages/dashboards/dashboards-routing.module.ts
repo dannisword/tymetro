@@ -13,7 +13,7 @@ import { ForgotComponent } from '../login/forgot/forgot.component';
 import { SouvenirComponent } from '../souvenir/souvenir.component';
 import { ProductComponent } from '../product/product.component';
 import { AbnormalComponent } from '../abnormal/abnormal.component';
-
+import { DelayComponent } from '../delay/delay.component';
 const routes: Routes = [
   {
     path: '',
@@ -75,7 +75,11 @@ const routes: Routes = [
     path: 'product',
     component: ProductComponent,
     data: { title: '兌換專區', isPage: true, option: HeaderOption.None }
-    
+  },
+  {
+    path: 'delay',
+    component: DelayComponent,
+    data: { title: '誤點證明', isPage: true, option: HeaderOption.None }
   }
 ];
 

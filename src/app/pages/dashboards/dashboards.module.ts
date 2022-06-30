@@ -22,7 +22,7 @@ import { ForgotComponent } from '../login/forgot/forgot.component';
 import { ChangPasswordComponent } from '../login/chang-password/chang-password.component';
 import { SouvenirComponent } from '../souvenir/souvenir.component';
 import { ProductComponent } from '../product/product.component';
-
+import { DelayComponent } from '../delay/delay.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -48,7 +48,8 @@ import { ProductComponent } from '../product/product.component';
     ForgotComponent,
     ChangPasswordComponent,
     SouvenirComponent,
-    ProductComponent]
+    ProductComponent,
+    DelayComponent]
 })
 export class DashboardsPageModule { 
   constructor() {

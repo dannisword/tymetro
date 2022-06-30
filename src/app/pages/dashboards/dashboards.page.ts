@@ -48,13 +48,6 @@ export class DashboardsPage extends BaseComponent implements OnInit {
       this.reload();
     });
     await this.reload();
-
-    this.api.getLink('Activities').then(res => {
-      if (res.Code == 0) {
-        console.log(res);
-
-      }
-    });
   }
 
   async reload() {

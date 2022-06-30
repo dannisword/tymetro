@@ -149,9 +149,9 @@
         },
         {
             "title": "誤點證明",
-            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/late/",
+            "url": "/dashboards/delay",
             "icon": "megaphone",
-            "mode": "URL"
+            "mode": "APP"
         },
         {
             "title": "航班資訊",

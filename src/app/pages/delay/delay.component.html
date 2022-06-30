@@ -1,0 +1,18 @@
+<app-header (goBack)="onGoBack($event)"></app-header>
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let item of delaies">
+    <ion-card-header color="primary">
+
+      <ion-card-title>
+        <h6>
+          {{item.Title}}
+        </h6>
+      </ion-card-title>
+
+    </ion-card-header>
+    <ion-card-content >
+      <div [innerHTML]="item.content"></div>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
