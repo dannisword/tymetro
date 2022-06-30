@@ -11,7 +11,7 @@
   <!--
  <iframe class='webPage' src="http://demo.sunyu-tech.com.tw/tymetro-new/tw/index.php" style="width:100%; height:100%;"></iframe>
   -->
- 
+
   <ion-segment (ionChange)="onTabChang($event)" value="Latest">
     <ion-segment-button value="Latest">
       <ion-label>最新消息</ion-label>
@@ -21,13 +21,13 @@
     </ion-segment-button>
   </ion-segment>
   <ion-card *ngFor="let news of tempNews" (click)="openNewsContent(news)">
-    
+
     <div class="card-img-wrap">
-      
-      <div class="ribbon-content"><img src="{{news.logourl}}"></div> 
-      <img class="img" src="{{news.cover}}">
+
+      <div class="ribbon-content"><img src="{{news.logourl}}"></div>
+      <img src="{{news.cover}}">
     </div>
-    
+
     <ion-card-header color="primary">
       <ion-card-subtitle role="heading">{{news.startDate | date :  "YYYY.MM.dd" }}
       </ion-card-subtitle>
@@ -36,7 +36,7 @@
           {{news.title}}
         </h6>
       </ion-card-title>
-      
+
     </ion-card-header>
   </ion-card>
 

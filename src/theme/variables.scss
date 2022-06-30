@@ -169,7 +169,23 @@ ion-segment {
 // 16:9 image ratio
 .card-img-wrap {
   position: relative;
-  padding-bottom: 56.25%;
+  padding-top: (9 / 16) * 100%;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// 1:1 image ratio
+.card-content-wrap {
+  position: relative;
+  padding-top: (1 / 1) * 100%;
   overflow: hidden;
 
   img {
@@ -202,7 +218,7 @@ ion-segment {
     width: 0;
     right: -5.5px;
     top: 0.1px;
- 
+
     border-right: 6px solid transparent;
   }
 
