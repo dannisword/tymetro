@@ -21,13 +21,13 @@
         {
             "name": "沿線景點",
             "icon": "../../../assets/dashboard/tran.svg",
-            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/road.html",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/life/attractions.html",
             "type": "url"
         },
         {
             "name": "票價與票種",
             "icon": "../../../assets/dashboard/airline.svg",
-            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/road.html",
+            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/travel-guide/ticket.html",
             "type": "url"
         },
         {
