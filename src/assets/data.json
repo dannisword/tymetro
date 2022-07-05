@@ -3,8 +3,8 @@
         {
             "name": "最新消息",
             "icon": "../../../assets/dashboard/news.svg",
-            "url": "https://www.tymetro.com.tw/tymetro-new/tw/_pages/news/11",
-            "type": "url"
+            "url": "/dashboards/news",
+            "type": "APP"
         },
         {
             "name": "紀念商品",
@@ -16,7 +16,7 @@
             "name": "會員專區",
             "icon": "../../../assets/dashboard/edit-location.svg",
             "url":"/dashboards/member",
-            "type": "app"
+            "type": "APPS"
         },
         {
             "name": "沿線景點",

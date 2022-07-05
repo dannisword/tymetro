@@ -20,20 +20,19 @@
       <ion-label>活動公告</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <ion-card *ngFor="let news of tempNews" (click)="openNewsContent(news)">
+  <ion-card *ngFor="let item of tempNews" (click)="openNewsContent(item)">
 
-    <div class="ribbon-content"><img src="{{news.logourl}}"></div>
-    <img src="{{news.cover}}">
+    <div class="ribbon-content"><img src="{{item.logourl}}"></div>
+    <img src="{{item.cover}}">
 
     <ion-card-header color="primary">
-      <ion-card-subtitle role="heading">{{news.startDate | date :  "YYYY.MM.dd" }}
+      <ion-card-subtitle>{{item.startDate }}
       </ion-card-subtitle>
       <ion-card-title>
         <h6>
-          {{news.title}}
+          {{item.title}}
         </h6>
       </ion-card-title>
-
     </ion-card-header>
   </ion-card>
 

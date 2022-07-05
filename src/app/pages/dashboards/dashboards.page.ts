@@ -59,26 +59,26 @@ export class DashboardsPage extends BaseComponent implements OnInit {
       } else {
         this.statusText = '取得目前營運狀態';
       }
-    }).finally(()=>{
-      
+    }).finally(() => {
+
     });
-   // this.presentLoading();
+    // this.presentLoading();
     // 取得最新消息
     this.api.getNewAdvertising('10', 'TW').then(resp => {
       if (resp.Code == '0') {
         this.setStore('backgroupURL', resp.Data.BackgroupURL);
         this.setStore('banner', resp.Data.banner);
-      } 
-    }).catch((e)=>{
+      }
+    }).catch((e) => {
       //this.onDismiss();
-    }).finally(()=>{
+    }).finally(() => {
       //this.onDismiss();
     });
     // 取得重大訊息
     this.api.getImportant('TW').then(resp => {
       if (resp.Code == '0') {
         this.title = resp.Data.title;
-      }else{
+      } else {
         this.alert('取得重大訊息錯誤');
       }
     });
@@ -139,15 +139,22 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   }
 
   async gotoMenu(menu) {
-    if (menu.type == 'app') {
+    if (menu.type == 'APPS') {
       const userInfo = this.getStore('userInfo');
+      console.log(userInfo);
       if (userInfo == null) {
         this.onNavigate('/dashboards/login');
         return;
       }
       this.onNavigate(menu.url);
-    } else {
-      this.goToBrowser(menu.url);
+      return;
     }
+    if (menu.type == 'APP') {
+      this.onNavigate(menu.url);
+      return;
+    }
+
+    this.goToBrowser(menu.url);
+
   }
 }
