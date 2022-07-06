@@ -4,8 +4,8 @@
   <ion-header>
     <ion-slides  [options]="{ speed: 1800,autoplay:true,loop:true }" #slideWithNav *ngIf="titleList !== null">
         <ion-slide *ngFor="let title of titleList">
-          <div class="station-status station-status-normal">
-            <img src="../../../assets/dashboard/normal.svg" alt="">{{title}}
+          <div [ngClass]="'station-status  station-status-'+title.Message">
+            <img [src]="'../../../assets/dashboard/'+title.Message+'.svg'" alt="">{{title.Data.title}}
           </div>
         </ion-slide>
     </ion-slides>

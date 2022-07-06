@@ -53,13 +53,14 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     await this.reload();
 
     //const resp = await this.appVersion.getAppName();
- 
+
   }
 
   async reload() {
     this.statusText = null;
     // 取得目前營運狀態
     this.api.getNowStatus('TW').then(resp => {
+      console.log('respˇˇˇˇˇ', resp);
       if (resp.Data.Code == '0') {
         this.statusText = resp.Data.StatusText;
       } else {
@@ -82,8 +83,10 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     });
     // 取得重大訊息
     this.api.getImportant('TW').then(resp => {
+      console.log('resp', resp);
+
       if (resp.Code == '0') {
-        this.titleList.push(resp.Data.title);
+        this.titleList.push(resp);
       } else {
         this.alert('取得重大訊息錯誤');
       }

@@ -31,12 +31,27 @@ ion-content {
   font-size: .8rem;
   width: 100%;
 
-  &-normal {
+  &-on {
     background: #009688;
   }
 
-  &-danger {
+  &-off {
     background: #b9575c;
+  }
+
+  &-end {
+    background: #aeaeae;
+  }
+
+  &-part {
+    background: #72b7e2;
+  }
+  &-adj {
+    background: #735c93;
+  }
+
+  &-slow {
+    background: #d49f66;
   }
 
   img {
