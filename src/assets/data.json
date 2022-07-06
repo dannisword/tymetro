@@ -1,4 +1,8 @@
 {
+    "version": {
+        "ios": "1.1(9)",
+        "android": "1.1"
+    },
     "Menus": [
         {
             "name": "最新公告",
@@ -15,7 +19,7 @@
         {
             "name": "會員專區",
             "icon": "../../../assets/dashboard/edit-location.svg",
-            "url":"/dashboards/member",
+            "url": "/dashboards/member",
             "type": "APPS"
         },
         {

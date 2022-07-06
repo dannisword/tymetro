@@ -11,13 +11,18 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
   public account: string;
   public password: string;
+  public version: string;
 
   constructor(protected injector: Injector,
     protected api: ApiService) {
     super(injector);
   }
 
-  ngOnInit() { }
+  async ngOnInit() {
+    const data = await this.api.getData();
+    this.version = data.version.ios;
+    console.log(this.version);
+   }
 
   onGoBack(event) {
     super.onBack('/dashboards');
