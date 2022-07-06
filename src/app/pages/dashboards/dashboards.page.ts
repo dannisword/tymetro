@@ -4,6 +4,8 @@ import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Swiper, Zoom } f
 import { IonicSlides, IonSlides } from '@ionic/angular';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 import { AppLauncher } from '@capacitor/app-launcher';
+import { App } from '@capacitor/app';
+
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
 
@@ -48,6 +50,9 @@ export class DashboardsPage extends BaseComponent implements OnInit {
       this.reload();
     });
     await this.reload();
+
+    //const resp = await this.appVersion.getAppName();
+ 
   }
 
   async reload() {
