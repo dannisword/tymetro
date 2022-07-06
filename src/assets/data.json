@@ -1,7 +1,7 @@
 {
     "Menus": [
         {
-            "name": "最新消息",
+            "name": "最新公告",
             "icon": "../../../assets/dashboard/news.svg",
             "url": "/dashboards/news",
             "type": "APP"
@@ -124,7 +124,7 @@
             "mode": "APP"
         },
         {
-            "title": "最新消息",
+            "title": "最新公告",
             "url": "/dashboards/news",
             "icon": "newspaper",
             "mode": "App"

@@ -218,7 +218,7 @@ export class ApiService {
   }
   /**
    * 
-   * @param kind Latest: 最新消息; Activities: 活動消息; Serve: 旅客服務; delay:誤點證明;
+   * @param kind Latest: 最新公告; Activities: 活動消息; Serve: 旅客服務; delay:誤點證明;
    * @returns 
    */
 
@@ -227,7 +227,7 @@ export class ApiService {
     return await this.http.get<any>(url).toPromise();
   }
   /**
-   * @param kind Latest: 最新消息; Activities: 活動消息; Serve: 旅客服務; delay:誤點證明;
+   * @param kind Latest: 最新公告; Activities: 活動消息; Serve: 旅客服務; delay:誤點證明;
    * @param kind 
    * @returns 
    */

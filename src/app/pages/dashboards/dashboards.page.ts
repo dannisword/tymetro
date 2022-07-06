@@ -32,10 +32,9 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   public selectBanner = {};
   public mobile: boolean;
   public opened: boolean = false;
-  public statusText: any = null;
-  public titleList =[];
+  public titleList = [];
   public backgroupURL = 'https://app.tymetro.com.tw/Content/App_img/backgroup/spring.gif';
-
+  private interval: any;
   constructor(
     protected injector: Injector,
     protected api: ApiService) {
@@ -50,50 +49,56 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     this.platform.resume.subscribe(async () => {
       this.reload();
     });
+    this.interval = setInterval(async () => {
+      await this.reload();
+    }, 5000);
+
     await this.reload();
-
-    //const resp = await this.appVersion.getAppName();
-
-  }
-
-  async reload() {
-    this.statusText = null;
-    // 取得目前營運狀態
-    this.api.getNowStatus('TW').then(resp => {
-      console.log('respˇˇˇˇˇ', resp);
-      if (resp.Data.Code == '0') {
-        this.statusText = resp.Data.StatusText;
-      } else {
-        this.statusText = '取得目前營運狀態';
-      }
-    }).finally(() => {
-
-    });
-    // this.presentLoading();
-    // 取得最新消息
+    // 取得最新公告
     this.api.getNewAdvertising('10', 'TW').then(resp => {
       if (resp.Code == '0') {
         this.setStore('backgroupURL', resp.Data.BackgroupURL);
         this.setStore('banner', resp.Data.banner);
       }
-    }).catch((e) => {
-      //this.onDismiss();
-    }).finally(() => {
-      //this.onDismiss();
-    });
-    // 取得重大訊息
-    this.api.getImportant('TW').then(resp => {
-      console.log('resp', resp);
+    }).catch((e) => { }).finally(() => { });
 
-      if (resp.Code == '0') {
-        this.titleList.push(resp);
-      } else {
-        this.alert('取得重大訊息錯誤');
-      }
-    });
     // 取出 localStorage 紀錄
     this.backgroupURL = this.getStore('backgroupURL');
     this.banner = this.getStore('banner');
+  }
+  ionViewWillLeave() {
+    clearInterval(this.interval);
+  }
+  async reload() {
+    // 取得目前營運狀態
+    let resp = await this.api.getNowStatus('TW');
+    let data = {
+      StatusText: '全線停駛',
+      StatusType: 'on'
+    }
+
+    if (resp.Code == '0') {
+      if (resp.Data.StatusType != 'on') {
+        data.StatusText = resp.Data.StatusText;
+        data.StatusType = resp.Data.StatusType;
+        this.titleList.push(data);
+      }
+    }
+    if (data.StatusType != 'on') {
+      return;
+    }
+    // 取得重大訊息
+    resp = await this.api.getImportant('TW')
+    if (resp.Code == '0') {
+      if (resp.Message == 'Success') {
+        data.StatusText = resp.Data.content;
+        data.StatusType = 'on';
+      }
+    } else {
+      data.StatusText = resp.Data.content;
+      data.StatusType = 'off';
+    }
+    this.titleList.push(data);
   }
 
   onAction(event) {
@@ -105,6 +110,9 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     }
   }
 
+  async changStatus() {
+
+  }
   //Move to Next slide
   slideNext(slideView) {
     slideView.swiperRef.slideNext(1000);

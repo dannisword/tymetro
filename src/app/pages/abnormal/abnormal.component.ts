@@ -27,7 +27,7 @@ export class AbnormalComponent extends BaseComponent implements OnInit {
     await this.handlerNetwork();
 
     //this.presentLoading();
-    // 取得最新消息
+    // 最新公告
     this.api.getNewAdvertising('10', 'TW').then(resp => {
       if (resp.Code == '0') {
         this.setStore('backgroupURL', resp.Data.BackgroupURL);

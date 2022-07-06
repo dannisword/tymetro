@@ -49,11 +49,11 @@ export class NewsComponent extends BaseComponent implements OnInit {
       item.startDate = moment(item.startDate).format('YYYY-MM-DD')
     }
   }
-  // 點開最新消息內容
+  // 點開最新公告內容
   async openNewsContent(data) {
     const options = {
       componentProps: {
-        title: this.translateService.instant('最新消息'),
+        title: this.translateService.instant('最新公告'),
         data: data
       },
       swipeToClose: true

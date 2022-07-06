@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'news',
     component: NewsComponent,
-    data: { title: '最新消息', isPage: true, option: HeaderOption.None }
+    data: { title: '最新公告', isPage: true, option: HeaderOption.None }
   },
   {
     path: 'member',
