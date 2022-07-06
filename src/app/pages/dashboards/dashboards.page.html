@@ -2,9 +2,13 @@
 
 <ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+backgroupURL+') no-repeat center center / 120%'}">
   <ion-header>
-    <div class="station-status station-status-normal" *ngIf="title != null">
-      <img src="../../../assets/dashboard/normal.svg" alt="">{{title}}
-    </div>
+    <ion-slides  [options]="{ speed: 1800,autoplay:true,loop:true }" #slideWithNav *ngIf="titleList !== null">
+        <ion-slide *ngFor="let title of titleList">
+          <div class="station-status station-status-normal">
+            <img src="../../../assets/dashboard/normal.svg" alt="">{{title}}
+          </div>
+        </ion-slide>
+    </ion-slides>
     <!-- <div class="station-status station-status-danger">
       <img src="../../../assets/dashboard/danger.svg" alt="">營運狀態：全線檢測中，暫停行駛中
     </div> -->

@@ -22,6 +22,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     initialSlide: 1,
     speed: 1500,
     autoplay: true,
+    loop: true,
   };
 
   public menus = [];
@@ -30,7 +31,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   public mobile: boolean;
   public opened: boolean = false;
   public statusText: any = null;
-  public title: any;
+  public titleList =[];
   public backgroupURL = 'https://app.tymetro.com.tw/Content/App_img/backgroup/spring.gif';
 
   constructor(
@@ -77,7 +78,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     // 取得重大訊息
     this.api.getImportant('TW').then(resp => {
       if (resp.Code == '0') {
-        this.title = resp.Data.title;
+        this.titleList.push(resp.Data.title);
       } else {
         this.alert('取得重大訊息錯誤');
       }

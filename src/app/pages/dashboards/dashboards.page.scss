@@ -23,13 +23,13 @@ ion-content {
 }
 
 .station-status {
-
   padding: 0.5rem 5px;
   color: #fff;
   display: flex;
   flex-flow: row;
   align-items: center;
   font-size: .8rem;
+  width: 100%;
 
   &-normal {
     background: #009688;
@@ -57,7 +57,7 @@ ion-content {
   padding: 0;
   list-style: none;
   position: relative;
-  margin: 2rem auto;
+  margin: 1rem auto;
   width: 80%;
   height: 0;
   padding-top: 70%;
@@ -391,4 +391,13 @@ ion-content {
     font-size: 10px;
     color: #fff;
   }
+}
+
+
+ion-slide {
+  width: 100% !important;
+}
+
+.swiper-wrapper {
+  width: min-content !important;
 }
