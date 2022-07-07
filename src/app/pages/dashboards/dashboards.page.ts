@@ -81,7 +81,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
       if (resp.Data.StatusType != 'on') {
         data.StatusText = resp.Data.StatusText;
         data.StatusType = resp.Data.StatusType;
-        this.titleList.push(data);
+        this.titleList = [data];
       }
     }
     if (data.StatusType != 'on') {
@@ -98,7 +98,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
       data.StatusText = resp.Data.content;
       data.StatusType = 'off';
     }
-    this.titleList.push(data);
+    this.titleList=[data];
   }
 
   onAction(event) {
