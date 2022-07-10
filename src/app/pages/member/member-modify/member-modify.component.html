@@ -85,13 +85,13 @@
       </ion-item>
 
       <ion-item *ngIf="register == true" lines="none">
-        <ion-text color="" primary>會員條款及活動規約</ion-text>
-        <ion-checkbox slot="start" formControlName="ReadNotice" value="" (ionChange)="onChang('member')"></ion-checkbox>
+        <a color="primary" (click)="onChang('member')">會員條款及活動規約</a>
+        <ion-checkbox slot="start" formControlName="ReadNotice" value="" ></ion-checkbox>
       </ion-item>
 
       <ion-item lines="none">
-        <ion-text color="" primary>120定期票及369定期票優惠專案使用須知</ion-text>
-        <ion-checkbox slot="start" formControlName="ReadNotice" value="" (ionChange)="onChang('ticket')"></ion-checkbox>
+        <a color="primary" (click)="onChang('ticket')">120定期票及369定期票優惠專案使用須知</a>
+        <ion-checkbox slot="start" formControlName="ReadNotice" value="" ></ion-checkbox>
       </ion-item>
       <ion-item lines="full">
 

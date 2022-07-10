@@ -235,4 +235,11 @@ export class ApiService {
     const url = `/api/GetData?kind=${kind}`;
     return await this.http.get<any>(url).toPromise();
   }
+  /**
+   * 取得版本
+   * @returns 
+   */
+  public async getVersion(){
+    return await this.http.post<any>('/api/GetVersion', '').toPromise();
+  }
 }
