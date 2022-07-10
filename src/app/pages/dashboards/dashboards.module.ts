@@ -22,6 +22,8 @@ import { ForgotComponent } from '../login/forgot/forgot.component';
 import { ChangPasswordComponent } from '../login/chang-password/chang-password.component';
 import { SouvenirComponent } from '../souvenir/souvenir.component';
 import { ProductComponent } from '../product/product.component';
+import { ProductExchangeComponent } from '../product/product-exchange/product-exchange.component';
+import { ProductConfirmComponent } from '../product/product-confirm/product-confirm.component';
 import { DelayComponent } from '../delay/delay.component';
 @NgModule({
   imports: [
@@ -49,6 +51,8 @@ import { DelayComponent } from '../delay/delay.component';
     ChangPasswordComponent,
     SouvenirComponent,
     ProductComponent,
+    ProductExchangeComponent,
+    ProductConfirmComponent,
     DelayComponent]
 })
 export class DashboardsPageModule { 

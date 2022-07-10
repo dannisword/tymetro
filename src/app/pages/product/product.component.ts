@@ -41,6 +41,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
     });
     // 取得兌換商品
     this.api.getProductList().then(resp => {
+      console.log(resp);
       if (resp.Code == 0) {
         this.products = resp.Data;
       } else {
@@ -55,6 +56,9 @@ export class ProductComponent extends BaseComponent implements OnInit {
     this.onNavigate('/dashboards/member');
   }
   async onClick(product) {
+    this.setStore('product', product);
+    this.onNavigate('/dashboards/product-exchange');
+    /*
     const options = {
       componentProps: {
         title: this.translateService.instant('兌換專區'),
@@ -63,6 +67,6 @@ export class ProductComponent extends BaseComponent implements OnInit {
       swipeToClose: true
     }
     const modelData = await this.openModal(ProductExchangeComponent, options);
- 
+    */
   }
 }

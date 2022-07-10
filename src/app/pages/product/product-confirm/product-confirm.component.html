@@ -1,24 +1,50 @@
-<ion-header translucent>
-  <ion-toolbar>
-    <ion-title color="primary">{{title}}</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()">關閉</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header (goBack)="onGoBack($event)"></app-header>
+
 <ion-content [fullscreen]="true">
+  <ion-card>
+    <img class="img" src="{{product.PicPath}}" />
+    <ion-card-header>
+      <ion-card-subtitle>兌換點數 : {{product.Point}} 點，現有數量：{{product.Stock}}</ion-card-subtitle>
+      <ion-card-title>{{product.ProductName}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        {{product.ProductDesc}}
+      </ion-item>
+      <ion-item no-lines>
+        兌換數量： {{redeemProduct.Product.Qty}}
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
   <ion-list>
     <ion-item>
       <ion-label position="floating">
         <ion-text color="primary">*</ion-text>姓名
       </ion-label>
-      <ion-input [(value)]="userInfo.Name" clearInput></ion-input>
+      <ion-input [(ngModel)]="userInfo.Name" clearInput [disabled]="redeem == true"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label position="floating">
+        <ion-text color="primary">*</ion-text>行動電話
+      </ion-label>
+      <ion-input type="tel" mask="****-******" [(ngModel)]="userInfo.Tel" clearInput [disabled]="redeem == true">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-text color="primary">*</ion-text>地址
+      </ion-label>
+      <ion-input [(ngModel)]="userInfo.Address" clearInput [disabled]="redeem == true">
+      </ion-input>
+    </ion-item>
+
+    <ion-item></ion-item>
   </ion-list>
 
-  <ion-footer>
-    <ion-button expand="block" (click)="onRedeem()" color="primary">確認</ion-button>
+  <ion-footer class="ion-padding ion-full-footer">
+    <ion-button expand="block" (click)="onRedeem()" color="light">{{redeemName}}</ion-button>
   </ion-footer>
-
 </ion-content>

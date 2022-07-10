@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 import { ApiService } from '../../_services/api.service';
 import { ProductConfirmComponent } from '../product-confirm/product-confirm.component';
@@ -18,8 +18,7 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
   public redeem: any = false;
   constructor(
     protected injector: Injector,
-    protected api: ApiService,
-    private cd: ChangeDetectorRef
+    protected api: ApiService
   ) {
     super(injector);
     this.thisYear = new Date().getFullYear();
@@ -28,11 +27,13 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
 
   async ngOnInit() {
     this.userInfo = this.getStore('userInfo');
+    this.data = this.getStore('product');
+    // 取得個人點數
     const resp = await this.api.getPointsByToken('1');
+
     if (resp.Code == 0) {
       this.points = resp.Data;
     }
-    this.cd.detectChanges();
   }
 
   onGoBack(event) {
@@ -56,12 +57,12 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
   onRedeem() {
     if (this.points.PointTotal <= 0 || this.points.PointTotal <= this.data.Point) {
       this.confirm('兌換點數不足');
-      //return;
+      return;
     }
 
     if (this.exchangNumber <= 0) {
       this.confirm('請輸入兌換數量');
-      //return;
+      return;
     }
 
     if (this.redeem == false) {
@@ -103,6 +104,20 @@ export class ProductExchangeComponent extends BaseComponent implements OnInit {
   }
   async onExchang() {
     this.opened = true;
+    let param = {
+      Token: localStorage.getItem('Token'),
+      Product: {
+        ProductId: this.data.ProductId,
+        Qty: this.exchangNumber.toString()
+      },
+      Recipient: {
+        Name: this.userInfo.Name,
+        PhoneNumber: this.userInfo.PhoneNumber,
+        Address: this.userInfo.Address
+      }
+    }
+    this.setStore('redeemProduct', param);
+    this.onNavigate('/dashboards/product-confirm');
     return;
     if (this.points.PointTotal <= 0 || this.points.PointTotal <= this.data.Point) {
       this.confirm('兌換點數不足');
