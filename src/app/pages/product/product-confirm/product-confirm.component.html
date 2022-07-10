@@ -1,0 +1,24 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title color="primary">{{title}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">關閉</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">
+        <ion-text color="primary">*</ion-text>姓名
+      </ion-label>
+      <ion-input [(value)]="userInfo.Name" clearInput></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-footer>
+    <ion-button expand="block" (click)="onRedeem()" color="primary">確認</ion-button>
+  </ion-footer>
+
+</ion-content>

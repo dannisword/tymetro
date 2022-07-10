@@ -49,6 +49,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     this.platform.resume.subscribe(async () => {
       this.reload();
     });
+
     this.interval = setInterval(async () => {
       await this.reload();
     }, 5000);
@@ -70,6 +71,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     clearInterval(this.interval);
   }
   async reload() {
+    console.log('reload');
     // 取得目前營運狀態
     let resp = await this.api.getNowStatus('TW');
     let data = {

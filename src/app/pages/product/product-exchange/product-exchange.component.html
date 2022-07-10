@@ -33,6 +33,7 @@
       <h5>圖片僅供參考</h5>
     </ion-text>
   </ion-item-divider>
+  <ion-input [(ngModel)]="data.ProductDesc"></ion-input>
   <ion-card>
     <img class="img" src="{{data.PicPath}}" />
     <ion-card-header>
@@ -45,18 +46,87 @@
       </ion-item>
 
       <ion-item no-lines>
-        <ion-icon  color="primary" name="remove-circle" (click)="onExchangNumber('remove')" [disabled]="exchangNumber==0"></ion-icon>
+        <ion-icon color="primary" name="remove-circle" (click)="onExchangNumber('remove')"
+          [disabled]="exchangNumber==0"></ion-icon>
         {{exchangNumber}}
-        <ion-icon  color="primary" name="add-circle" (click)="onExchangNumber('add')"></ion-icon>
+        <ion-icon color="primary" name="add-circle" (click)="onExchangNumber('add')"></ion-icon>
       </ion-item>
     </ion-card-content>
     <ion-footer collapse="fade">
 
       <ion-toolbar>
-        <ion-button expand="block" (click)="onExchang()" color="primary" [disabled]="points.PointTotal == 0">兌換</ion-button>
+        <!-- data.Point -->
+        <ion-button expand="block" (click)="onExchang()" color="primary" [disabled]="points.PointTotal == 0">兌換
+        </ion-button>
       </ion-toolbar>
     </ion-footer>
   </ion-card>
 
+  <ion-modal [isOpen]="opened">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title color="primary">兌換專區</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="onClose()">關閉</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content [fullscreen]="true">
+      <ion-item class="gray-bg">
+        <h6>{{userInfo.Name}} 您好,您目前共有<ion-text color="primary" class="point-text">{{points.PointTotal}}</ion-text>點
+        </h6>
+      </ion-item>
+      <ion-item lines="full" class="ion-padding-bottom ion-padding-top ">
+        <div slot="start">
+          <ion-label>
+            <p>{{thisYear}}年到期</p>
+          </ion-label>
+          <h6 class="ion-no-margin">共有<ion-text color="primary" class="font-x-larger">{{points.PointsThisYear}}
+            </ion-text>點
+          </h6>
+        </div>
+        <div slot="end">
+          <ion-label>
+            <p>{{lastYear}}年到期</p>
+          </ion-label>
+          <h6 class="ion-no-margin">共有<ion-text color="primary" class="font-x-larger">{{points.PointsLastYear}}
+            </ion-text>點
+          </h6>
+        </div>
+      </ion-item>
+
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">
+            <ion-text color="primary">*</ion-text>姓名
+          </ion-label>
+          <ion-input [value]="userInfo.Name" clearInput (input)="changValue('1', $event)" [disabled]="redeem == true"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            <ion-text color="primary">*</ion-text>行動電話
+          </ion-label>
+          <ion-input type="tel" mask="****-******" [value]="userInfo.Tel" clearInput (input)="changValue('2', $event)" [disabled]="redeem == true">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            <ion-text color="primary">*</ion-text>地址
+          </ion-label>
+          <ion-input formControlName="Address" [(value)]="userInfo.Address" clearInput
+            (input)="changValue('3', $event)" [disabled]="redeem == true"></ion-input>
+        </ion-item>
+        <ion-item></ion-item>
+      </ion-list>
+      
+      <ion-footer class="ion-padding ion-full-footer">
+        <ion-button expand="block" (click)="onRedeem()" color="light">兌換</ion-button>
+      </ion-footer>
+
+    </ion-content>
+
+  </ion-modal>
 
 </ion-content>

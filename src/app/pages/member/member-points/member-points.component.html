@@ -12,22 +12,24 @@
   <ion-item class="gray-bg">
     <h6>{{userInfo.Name}}您好, 您目前共有 <ion-text color="primary" class="point-text">{{data.PointTotal}}</ion-text> 點</h6>
   </ion-item>
-<ion-item lines="full">
-  <div slot="start">
-    <ion-label>
-      <p>{{thisYear}}年到期</p>
-    </ion-label>
-    <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="font-x-larger">
-        <b>{{data.PointsThisYear}}</b></ion-text>點</h6>
-  </div>
-  <div slot="end">
-    <ion-label>
-      <p>{{lastYear}}年到期</p>
-    </ion-label>
-    <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="font-x-larger">
-       <b>{{data.PointsLastYear}}</b> </ion-text>點</h6>
-  </div>
-</ion-item>
+  <ion-item lines="full">
+    <div slot="start">
+      <ion-label>
+        <p>{{thisYear}}年到期</p>
+      </ion-label>
+      <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="font-x-larger">
+          <b>{{data.PointsThisYear}}</b>
+        </ion-text>點</h6>
+    </div>
+    <div slot="end">
+      <ion-label>
+        <p>{{lastYear}}年到期</p>
+      </ion-label>
+      <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="font-x-larger">
+          <b>{{data.PointsLastYear}}</b>
+        </ion-text>點</h6>
+    </div>
+  </ion-item>
   <ion-card color="primary">
     <ion-card-header>
       <ion-text color="light">

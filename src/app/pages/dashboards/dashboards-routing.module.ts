@@ -12,6 +12,7 @@ import { LoginComponent } from '../login/login.component';
 import { ForgotComponent } from '../login/forgot/forgot.component';
 import { SouvenirComponent } from '../souvenir/souvenir.component';
 import { ProductComponent } from '../product/product.component';
+import { ProductExchangeComponent } from '../product/product-exchange/product-exchange.component';
 import { AbnormalComponent } from '../abnormal/abnormal.component';
 import { DelayComponent } from '../delay/delay.component';
 const routes: Routes = [
@@ -73,6 +74,11 @@ const routes: Routes = [
   },
   {
     path: 'product',
+    component: ProductComponent,
+    data: { title: '兌換專區', isPage: true, option: HeaderOption.None }
+  },
+  {
+    path: 'ProductExchangeComponent',
     component: ProductComponent,
     data: { title: '兌換專區', isPage: true, option: HeaderOption.None }
   },
