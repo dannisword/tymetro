@@ -7,6 +7,7 @@ import { NewsComponent } from '../news/news.component';
 import { MemberComponent } from '../member/member.component';
 import { MemberModifyComponent } from '../member/member-modify/member-modify.component';
 import { CarrierComponent } from '../carrier/carrier.component';
+import { CarrierSelectComponent } from '../carrier/carrier-select/carrier-select.component';
 import { ConstructComponent } from '../construct/construct.component';
 import { LoginComponent } from '../login/login.component';
 import { ForgotComponent } from '../login/forgot/forgot.component';
@@ -45,6 +46,11 @@ const routes: Routes = [
     path: 'carrier',
     component: CarrierComponent,
     data: { title: '載具專區', isPage: true, option: HeaderOption.Add }
+  },
+  {
+    path: 'carrier-select',
+    component: CarrierSelectComponent,
+    data: { title: '載具專區', isPage: true, option: HeaderOption.None }
   },
   {
     path: 'construct',

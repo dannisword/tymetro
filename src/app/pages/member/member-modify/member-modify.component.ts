@@ -83,7 +83,6 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       swipeToClose: true
     }
     const modelData = await this.openModal(ChangPasswordComponent, options);
-    console.log(modelData);
   }
 
   onClose(opened) {

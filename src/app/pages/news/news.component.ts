@@ -59,8 +59,6 @@ export class NewsComponent extends BaseComponent implements OnInit {
       swipeToClose: true
     };
     const modelData = await this.openModal(NewsContentComponent, options);
-    // 回傳值
-    console.log('modelData', modelData);
   }
 
   onGoBack(event) {

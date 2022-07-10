@@ -62,7 +62,6 @@ export class MemberComponent extends BaseComponent implements OnInit {
         swipeToClose: true
       }
       const modelData = await this.openModal(MemberPointsComponent, options);
-      console.log(modelData);
     }
 
   }

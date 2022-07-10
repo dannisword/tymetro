@@ -2,17 +2,16 @@
   <ion-toolbar>
     <ion-title color="primary">{{title}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()">關閉</ion-button>
+      <ion-button (click)="onClose()">關閉</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true" class="ion-padding">
-  <ion-item class="ion-form-group ion-margin-top" >
+  <ion-item lines="none">
        <ion-text>卡號位置說明</ion-text>
-      
   </ion-item>
-  <ion-item class="ion-form-group" >
+  <ion-item class="ion-form-group">
     <ion-input type="text" [(ngModel)]="account" placeholder="請輸入卡號"></ion-input>
     <ion-icon name="ticket" slot="start"></ion-icon>
   </ion-item>

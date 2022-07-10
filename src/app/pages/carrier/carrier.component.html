@@ -2,7 +2,7 @@
 <ion-content fullscreen>
     <ion-img class="logo-img" src="assets/logo.png"></ion-img>
     <ion-list>
-        <ion-item lines="full">
+        <ion-item lines="none">
             <ion-label slot="end" color="secondary">{{userInfo.Name}} 您好</ion-label>
         </ion-item>
     </ion-list>
@@ -14,7 +14,7 @@
             <ion-card-title>{{card.CardName}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-            <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />
+            <img [src]="card.PicPath" />
             <ion-item lines="full">
                 <ion-label>
                     <h3>有效日期：{{card.Status.InvalidDate}}</h3>

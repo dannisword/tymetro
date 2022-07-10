@@ -1,4 +1,5 @@
-<ion-header translucent>
+<!--
+  <ion-header translucent>
   <ion-toolbar>
     <ion-title color="primary">{{ title }}</ion-title>
     <ion-buttons slot="end">
@@ -6,18 +7,20 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
+-->
+<app-header (goBack)="onGoBack($event)"></app-header>
 <ion-content fullscreen>
-
+<ion-item lines="none">
+  請選擇您現有的票卡
+</ion-item>
   <ion-card *ngFor="let vehicleType of vehicleTypes">
     <ion-card-header (click)="onClick(vehicleType)">
-      <img src="https://www.tymetro.com.tw/tymetro-new/tw/_images/travel-guide/card-purple.jpg" />
       <ion-card-subtitle></ion-card-subtitle>
-      <ion-card-title>定期票</ion-card-title>
+      <ion-card-title>{{vehicleType.Name}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-     
+      <img [src]="vehicleType.Pic" (click)="onClick(vehicleType)"/>
     </ion-card-content>
   </ion-card>
 

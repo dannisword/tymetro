@@ -20,7 +20,7 @@ export class CarrierSelectComponent extends BaseComponent implements OnInit {
   async ngOnInit() {
     this.api.getVehicleType('TW').then(resp => {
       if (resp.Code == '0') {
-        this.vehicleTypes = resp.Data.Carrier;
+        this.vehicleTypes = resp.Data.Carrier.filter(x=> x.Type == 1);
       } else {
         this.alert('載具查詢失敗');
       }
@@ -40,13 +40,12 @@ export class CarrierSelectComponent extends BaseComponent implements OnInit {
       swipeToClose: true
     }
     const modelData = await this.openModal(CarrierAddComponent, options);
-    console.log(modelData);
     this.onGoBack(null);
   }
 
   async dismissModal() {
     super.dismissModal('CarrierAddComponent');
-    this.onGoBack(null);
+    //this.onGoBack(null);
     //await this.modalController.dismiss('CarrierAddComponent');
   }
 }

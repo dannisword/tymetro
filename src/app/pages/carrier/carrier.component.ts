@@ -38,6 +38,8 @@ export class CarrierComponent extends BaseComponent implements OnInit {
   }
 
   async onAction() {
+    this.onNavigate('dashboards/carrier-select');
+    /*
     const options = {
       componentProps: {
         title: this.translateService.instant('請選擇您現有的票卡')
@@ -45,7 +47,6 @@ export class CarrierComponent extends BaseComponent implements OnInit {
       swipeToClose: true
     }
     const modelData = await this.openModal(CarrierSelectComponent, options);
-    // 回傳值
-    console.log(modelData);
+    */
   }
 }

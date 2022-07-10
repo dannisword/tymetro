@@ -63,6 +63,6 @@ export class ProductComponent extends BaseComponent implements OnInit {
       swipeToClose: true
     }
     const modelData = await this.openModal(ProductExchangeComponent, options);
-    console.log(modelData);
+ 
   }
 }

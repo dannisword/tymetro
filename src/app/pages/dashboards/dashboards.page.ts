@@ -71,7 +71,6 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     clearInterval(this.interval);
   }
   async reload() {
-    console.log('reload');
     // 取得目前營運狀態
     let resp = await this.api.getNowStatus('TW');
     let data = {
@@ -160,7 +159,6 @@ export class DashboardsPage extends BaseComponent implements OnInit {
   async gotoMenu(menu) {
     if (menu.type == 'APPS') {
       const userInfo = this.getStore('userInfo');
-      console.log(userInfo);
       if (userInfo == null) {
         this.onNavigate('/dashboards/login');
         return;

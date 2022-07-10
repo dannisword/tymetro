@@ -20,13 +20,17 @@ export class CarrierAddComponent extends BaseComponent implements OnInit {
   ngOnInit() {
 
   }
-
+  onClose() {
+    this.dismissModal();
+    this.onNavigate('dashboards/carrier');
+  }
   onSave() {
     this.api.addVehicle(this.cardNo, this.data.Type).then(resp => {
       if (resp.Code == 0) {
         // 存擋
-        super.dismissModal(this.cardNo);
-      }else{
+        super.dismissModal();
+        this.onNavigate('dashboards/carrier');
+      } else {
         this.alert('新增載具失敗');
       }
     })

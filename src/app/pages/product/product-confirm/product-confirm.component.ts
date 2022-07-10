@@ -20,7 +20,6 @@ export class ProductConfirmComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.data);
     this.userInfo = this.getStore('userInfo');
 
     /*
@@ -40,7 +39,6 @@ export class ProductConfirmComponent extends BaseComponent implements OnInit {
 
   onRedeem() {
     this.redeem = true;
-    console.log(this.userInfo);
   }
 
   onClick() {
