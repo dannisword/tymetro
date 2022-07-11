@@ -64,7 +64,6 @@ export class ProductConfirmComponent extends BaseComponent implements OnInit {
       this.api.redeemProduct(param).then(resp => {
         if (resp.Code == '0') {
           this.confirm('兌換成功').then(res=>{
-            console.log(res);
             this.onNavigate('/dashboards/product');
           })
         } else {

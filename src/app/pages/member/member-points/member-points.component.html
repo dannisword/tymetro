@@ -1,9 +1,9 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title color="primary">{{title}}</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-button (click)="dismissModal()">關閉</ion-button>
     </ion-buttons>
+    <ion-title color="primary">{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +18,7 @@
         <p>{{thisYear}}年到期</p>
       </ion-label>
       <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="font-x-larger">
-          <b>{{data.PointsThisYear}}</b>
+          <b>{{data.PointsLastYear}}</b>
         </ion-text>點</h6>
     </div>
     <div slot="end">
@@ -26,7 +26,7 @@
         <p>{{lastYear}}年到期</p>
       </ion-label>
       <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="font-x-larger">
-          <b>{{data.PointsLastYear}}</b>
+          <b>{{data.PointsThisYear}}</b>
         </ion-text>點</h6>
     </div>
   </ion-item>

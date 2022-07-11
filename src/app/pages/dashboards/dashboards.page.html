@@ -2,7 +2,8 @@
 
 <ion-content [fullscreen]="true" [ngStyle]="{'background': 'url('+backgroupURL+') no-repeat center center / 120%'}">
   <ion-header>
-    <div class="logo-wall">
+    <!-- <div class="logo-wall"> -->
+    <div class="">
         <div [ngClass]="'station-status  station-status-'+title.StatusType"  *ngFor="let title of titleList">
           <div class="logo-wrapper first">
             <img [src]="'../../../assets/dashboard/'+title.StatusType+'.svg'" alt="">{{title.StatusText}}

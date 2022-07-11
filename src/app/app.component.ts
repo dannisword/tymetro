@@ -12,11 +12,10 @@ export class AppComponent {
   private options: InAppBrowserOptions = {
     location: 'no',//Or 'no' 
     hidden: 'no', //Or  'yes'
-    hideurlbar: 'yes',
     clearcache: 'yes',
     clearsessioncache: 'yes',
     zoom: 'yes',//Android only ,shows browser zoom controls 
-    hardwareback: 'no',
+    hardwareback: 'yes',
     mediaPlaybackRequiresUserAction: 'no',
     shouldPauseOnSuspend: 'no', //Android only 
     closebuttoncaption: '關閉', //iOS only
@@ -24,7 +23,10 @@ export class AppComponent {
     toolbarcolor: '#7b1fa2',
     disallowoverscroll: 'no', //iOS only 
     toolbar: 'yes', //iOS only 
-    toolbarposition: 'top',
+    toolbarposition: 'top', // bottom
+    footer: 'yes',
+    footercolor: '#7b1fa2',
+    hidenavigationbuttons: 'no',
     enableViewportScale: 'no', //iOS only 
     allowInlineMediaPlayback: 'no',//iOS only 
     //presentationstyle: 'pagesheet',//iOS only  

@@ -46,18 +46,16 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     const data = await this.api.getData();
 
     this.api.getVersion().then(resp => {
-      console.log(resp);
-
       if (this.platform.is('ios') == true) {
         const version = resp.Data.find(x => x.Type == 'ios');
         if (version.Version != data.version.ios) {
           this.confirm(`已有${version.Version}更新檔，請至App Store 更新程式`);
         }
-      }else{
+      } else {
         const version = resp.Data.find(x => x.Type == 'android');
         if (version.Version != data.version.android) {
           this.confirm(`已有${version.Version}更新檔，請至Google Play 更新程式`);
-        } 
+        }
       }
     })
 
