@@ -14,7 +14,7 @@
             <ion-card-title>{{card.CardName}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-            <img [src]="card.PicPath" />
+            <img [src]="card.PicPath" (click)="onClick(card)"/>
             <ion-item lines="full">
                 <ion-label>
                     <h3>有效日期：{{card.Status.InvalidDate}}</h3>

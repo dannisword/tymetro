@@ -40,11 +40,11 @@ export class ProductConfirmComponent extends BaseComponent implements OnInit {
     if (this.redeem == true) {
       const point = this.product.Point * this.redeemProduct.Product.Qty;
 
+      /*
       if (this.points.PointTotal <= 0 || this.points.PointTotal <= point) {
         this.confirm('兌換點數不足');
         return;
-      }
-
+      }*/
       if (this.redeemProduct.Product.Qty <= '0') {
         this.confirm('請輸入兌換數量');
         return;
@@ -63,14 +63,14 @@ export class ProductConfirmComponent extends BaseComponent implements OnInit {
       }
       this.api.redeemProduct(param).then(resp => {
         if (resp.Code == '0') {
-          this.confirm('兌換成功').then(res=>{
+          this.confirm('兌換成功').then(res => {
             this.onNavigate('/dashboards/product');
           })
         } else {
           this.snackbarService.warning(resp.Message);
         }
       });
-      
+
       return;
     }
     this.redeem = true;

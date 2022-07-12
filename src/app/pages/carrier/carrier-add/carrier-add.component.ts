@@ -31,7 +31,7 @@ export class CarrierAddComponent extends BaseComponent implements OnInit {
         super.dismissModal();
         this.onNavigate('dashboards/carrier');
       } else {
-        this.alert('新增載具失敗');
+        this.alert(resp.Message.CreateResult);
       }
     })
   }

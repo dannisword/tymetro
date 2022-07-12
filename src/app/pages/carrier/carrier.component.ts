@@ -30,13 +30,14 @@ export class CarrierComponent extends BaseComponent implements OnInit {
         this.snackbarService.success('目前無票卡資料');
       }
     })
-
   }
 
   onGoBack(event) {
     super.onBack('dashboards/member');
   }
-
+  onClick(card) {
+    console.log(card);
+  }
   async onAction() {
     this.onNavigate('dashboards/carrier-select');
     /*
