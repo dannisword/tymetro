@@ -24,6 +24,7 @@ ionic seve
 
 ## 編譯
 $ ionic build ios
+$ npx cap copy ios 
 $ npx cap sync ios  
 $ npx cap open ios   
 
