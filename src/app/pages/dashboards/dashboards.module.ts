@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { DashboardsPageRoutingModule } from './dashboards-routing.module';
 import { IonicInputMaskModule } from "@thiagoprz/ionic-input-mask";
 import { SharedModule } from '../../_shared/shared/shared.module';
+import { NgxBarcode6Module } from 'ngx-barcode6';
 
 import { DashboardsPage } from './dashboards.page';
 import { NewsComponent } from '../news/news.component';
@@ -33,7 +34,8 @@ import { DelayComponent } from '../delay/delay.component';
     IonicModule,
     SharedModule,
     DashboardsPageRoutingModule,
-    IonicInputMaskModule
+    IonicInputMaskModule,
+    NgxBarcode6Module
   ],
   declarations: [
     DashboardsPage,

@@ -11,8 +11,9 @@ import { ApiService } from '../_services/api.service';
 })
 export class CarrierComponent extends BaseComponent implements OnInit {
   public cards: any = [];
+  public card: any;
   public userInfo: any = {};
-
+  public opened: boolean = false;
   constructor(
     protected injector: Injector,
     protected api: ApiService) {
@@ -37,6 +38,8 @@ export class CarrierComponent extends BaseComponent implements OnInit {
   }
   onClick(card) {
     console.log(card);
+    this.card = card;
+    this.opened = true;
   }
   async onAction() {
     this.onNavigate('dashboards/carrier-select');

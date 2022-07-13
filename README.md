@@ -87,6 +87,7 @@ $ cordova-res android --skip-config --copy --type icon
 
 ## Generate APK
 $ ionic build android
+$ npx cap copy android 
 $ npx cap sync android 
 $ npx cap open android 
 

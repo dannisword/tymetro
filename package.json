@@ -1,8 +1,8 @@
 {
   "name": "tymetro",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "dannis",
+  "homepage": "https://www.tymetro.com.tw/tymetro-new/tw/index.php",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -41,7 +41,9 @@
     "cordova-plugin-app-version": "^0.1.14",
     "cordova-plugin-datepicker": "^0.9.3",
     "cordova-plugin-inappbrowser": "^5.0.0",
+    "jsbarcode": "^3.11.5",
     "moment": "^2.29.4",
+    "ngx-barcode6": "^1.0.20",
     "rxjs": "~6.6.0",
     "swiper": "^8.2.2",
     "tslib": "^2.2.0",

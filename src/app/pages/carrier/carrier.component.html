@@ -8,13 +8,13 @@
     </ion-list>
 
     <ion-card *ngFor="let card of cards">
-        
+
         <ion-card-header>
             <ion-card-subtitle>{{card.CardNo}}</ion-card-subtitle>
             <ion-card-title>{{card.CardName}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-            <img [src]="card.PicPath" (click)="onClick(card)"/>
+            <img [src]="card.PicPath" (click)="onClick(card)" />
             <ion-item lines="full">
                 <ion-label>
                     <h3>有效日期：{{card.Status.InvalidDate}}</h3>
@@ -25,4 +25,29 @@
             </ion-item>
         </ion-card-content>
     </ion-card>
+
+    <ion-modal *ngIf="opened" [isOpen]="opened" [backdropDismiss]="false">
+        <ng-template>
+            <ion-header>
+                <ion-toolbar>
+                    <ion-title>
+                        <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+                    </ion-title>
+                    <ion-button slot="start" fill="clear" color="primary" (click)="opened = false">
+                        關閉
+                    </ion-button>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content color="primary">
+                <ion-grid style="height: 100%">
+                    <ion-row justify-content-center align-items-center style="height: 100%">
+                        <ngx-barcode6 [bc-format]="'MSI'" [bc-value]="card.CardNo" [bc-display-value]="true">
+                        </ngx-barcode6>
+                    </ion-row>
+                </ion-grid>
+
+
+            </ion-content>
+        </ng-template>
+    </ion-modal>
 </ion-content>
