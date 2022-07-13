@@ -28,8 +28,6 @@ $ npx cap copy ios
 $ npx cap sync ios  
 $ npx cap open ios   
 
-
-
 ## Apple chip M1 pod install CocoaPod
 執行下面指令  
 $ sudo arch -x86_64 gem install ffi  
