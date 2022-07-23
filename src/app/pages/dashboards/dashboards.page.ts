@@ -92,15 +92,19 @@ export class DashboardsPage extends BaseComponent implements OnInit {
       StatusText: '全線停駛',
       StatusType: 'on'
     }
-
+    console.log(resp.Data);
     if (resp.Code == '0') {
       if (resp.Data.StatusType != 'on') {
         data.StatusText = resp.Data.StatusText;
         data.StatusType = resp.Data.StatusType;
-        this.titleList = [data];
       }
+      else{
+        data.StatusText = resp.Data.StatusText;
+        data.StatusType = resp.Data.StatusType;
+      }
+      this.titleList = [data];
     }
-    if (data.StatusType != 'on') {
+    if (data.StatusType == 'on') {
       return;
     }
     // 取得重大訊息

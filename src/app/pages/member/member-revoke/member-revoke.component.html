@@ -1,0 +1,41 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">關閉</ion-button>
+    </ion-buttons>
+    <ion-title color="primary">{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-img class="logo-img" src="assets/logo.png"></ion-img>
+  <ion-item class="gray-bg">
+    <h6>{{userInfo.Name}}您好, 您目前共有 <ion-text color="primary" class="point-text">{{data.PointTotal}}</ion-text> 點</h6>
+  </ion-item>
+  <ion-item lines="full">
+    <div slot="start">
+      <ion-label>
+        <p>{{thisYear}}年到期</p>
+      </ion-label>
+      <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="font-x-larger">
+          <b>{{data.PointsLastYear}}</b>
+        </ion-text>點</h6>
+    </div>
+    <div slot="end">
+      <ion-label>
+        <p>{{lastYear}}年到期</p>
+      </ion-label>
+      <h6 class="ion-no-margin ion-padding-bottom">共有<ion-text color="primary" class="font-x-larger">
+          <b>{{data.PointsThisYear}}</b>
+        </ion-text>點</h6>
+    </div>
+  </ion-item>
+  <ion-footer class="ion-padding ion-full-footer">
+    <ion-text color="light">
+      <h6>撤銷帳號後，系統將會移除您的個人檔案。</h6>
+    </ion-text>
+
+    <ion-button expand="block" (click)="onExec('close')" color="light">離開</ion-button>
+    <ion-button expand="block" (click)="onExec('revoke')" color="light">撤銷帳號</ion-button>
+  </ion-footer>
+</ion-content>

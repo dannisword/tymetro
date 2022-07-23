@@ -1,3 +1,7 @@
+## 安裝套件
+$ npm i @ionic-native/core
+$ npm i @ionic-native/date-picker
+
 ## capacitor 環境設定(擇一)  
 $ npm install @capacitor/ios  
 $ npm install @capacitor/android  
@@ -54,6 +58,7 @@ ionic generate component pages/member
 ionic generate component pages/member-modify
 ionic generate component pages/member-points
 ionic generate component pages/member/chang-password
+ionic generate component pages/member/member-revoke
 載具專區
 ionic generate component pages/carrier
 ionic generate component pages/carrier/carrier-select

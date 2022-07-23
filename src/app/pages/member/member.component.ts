@@ -3,6 +3,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
 import { MemberPointsComponent } from './member-points/member-points.component';
 import { ApiService } from '../_services/api.service';
+import { MemberRevokeComponent } from './member-revoke/member-revoke.component';
 
 @Component({
   selector: 'app-member',
@@ -21,7 +22,6 @@ export class MemberComponent extends BaseComponent implements OnInit {
   }
 
   async ngOnInit() {
-
     this.thisYear = new Date().getFullYear();
     this.lastYear = new Date().getFullYear() + 1;
     // 會員資料
@@ -51,7 +51,15 @@ export class MemberComponent extends BaseComponent implements OnInit {
   }
 
   async onOpen(menuID) {
-    if (menuID == 'MemberEdit') {
+    if (menuID == 'cancel') {
+      const options = {
+        componentProps: {
+          title: this.translateService.instant('撤銷帳號'),
+          data: this.points
+        },
+        swipeToClose: true
+      }
+      const modelData = await this.openModal(MemberRevokeComponent, options);
     }
     if (menuID == 'points') {
       const options = {
@@ -65,6 +73,7 @@ export class MemberComponent extends BaseComponent implements OnInit {
     }
 
   }
+
   async logout() {
     localStorage.removeItem('Token');
     localStorage.removeItem('userInfo')

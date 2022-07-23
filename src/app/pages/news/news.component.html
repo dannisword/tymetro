@@ -14,10 +14,10 @@
 
   <ion-segment (ionChange)="onTabChang($event)" value="Latest">
     <ion-segment-button value="Latest">
-      <ion-label>最新公告</ion-label>
+      <ion-label>最新消息</ion-label>
     </ion-segment-button>
     <ion-segment-button value="Activities">
-      <ion-label>活動公告</ion-label>
+      <ion-label>活動消息</ion-label>
     </ion-segment-button>
   </ion-segment>
   <ion-card *ngFor="let item of tempNews" (click)="openNewsContent(item)">

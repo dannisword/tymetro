@@ -39,12 +39,6 @@ export class ProductConfirmComponent extends BaseComponent implements OnInit {
   onRedeem() {
     if (this.redeem == true) {
       const point = this.product.Point * this.redeemProduct.Product.Qty;
-
-      /*
-      if (this.points.PointTotal <= 0 || this.points.PointTotal <= point) {
-        this.confirm('兌換點數不足');
-        return;
-      }*/
       if (this.redeemProduct.Product.Qty <= '0') {
         this.confirm('請輸入兌換數量');
         return;
@@ -73,8 +67,19 @@ export class ProductConfirmComponent extends BaseComponent implements OnInit {
 
       return;
     }
+    if (this.userInfo.Name == ''){
+      this.confirm('請輸入姓名');
+      return
+    }
+    if (this.userInfo.Tel == ''){
+      this.confirm('請輸入電話');
+      return;
+    }
+    if (this.userInfo.Address == ''){
+      this.confirm('請輸入住址');
+      return;
+    }
     this.redeem = true;
     this.redeemName = '確認';
-
   }
 }

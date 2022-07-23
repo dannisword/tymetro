@@ -31,6 +31,7 @@
     "@capacitor/keyboard": "1.2.2",
     "@capacitor/network": "^1.0.7",
     "@capacitor/status-bar": "1.0.8",
+    "@ionic-native/core": "^5.36.0",
     "@ionic-native/date-picker": "^5.36.0",
     "@ionic/angular": "^6.1.9",
     "@ionic/cli": "^6.19.1",
