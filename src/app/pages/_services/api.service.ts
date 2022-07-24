@@ -242,4 +242,12 @@ export class ApiService {
   public async getVersion(){
     return await this.http.post<any>('/api/GetVersion', '').toPromise();
   }
+/**
+ * 刪除會員資料
+ * @param param 
+ * @returns 
+ */
+  public async deleteMember(param){
+    return await this.http.post<any>('/api/Member/DeleteMember', param).toPromise();
+  }
 }

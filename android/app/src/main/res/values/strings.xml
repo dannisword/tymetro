@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">i桃捷2.0</string>
-    <string name="title_activity_main">i桃捷2.0</string>
+    <string name="app_name">i搭桃捷2.0</string>
+    <string name="title_activity_main">i搭桃捷2.0</string>
     <string name="package_name">com.tymetro.ios</string>
     <string name="custom_url_scheme">com.tymetro.ios</string>
 </resources>

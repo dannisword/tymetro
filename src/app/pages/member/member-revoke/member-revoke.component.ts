@@ -1,6 +1,7 @@
 import { Component, Injector, OnInit } from '@angular/core';
 import { Condition } from 'selenium-webdriver';
 import { BaseComponent } from 'src/app/_shared/component/base/base.component';
+import { ApiService } from '../../_services/api.service';
 
 @Component({
   selector: 'app-member-revoke',
@@ -11,7 +12,9 @@ export class MemberRevokeComponent extends BaseComponent implements OnInit {
   public userInfo: any;
   public title: string;
 
-  constructor(protected injector: Injector) {
+  constructor(
+    protected injector: Injector,
+    protected api: ApiService) {
     super(injector);
   }
 
@@ -19,13 +22,18 @@ export class MemberRevokeComponent extends BaseComponent implements OnInit {
     this.userInfo = this.getStore('userInfo');
 
   }
-  onExec(action) {
-    
+  async onExec(action) {
+
     if (action == 'close') {
       this.dismissModal();
     }
-    if (action == 'revoke'){
-      console.log(action);
+    if (action == 'revoke') {
+      const params = {
+        Token: localStorage.getItem('Token')
+      }
+      this.api.deleteMember(params).then(resp => {
+console.log(resp);
+      })
     }
   }
 }
