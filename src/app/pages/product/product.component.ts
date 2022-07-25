@@ -31,7 +31,6 @@ export class ProductComponent extends BaseComponent implements OnInit {
   async reload() {
     // 取得點數
     this.api.getPointsByToken('1').then(resp => {
-      console.log(resp);
       if (resp.Code == 0) {
         this.points = resp.Data;
       } else {
@@ -42,7 +41,7 @@ export class ProductComponent extends BaseComponent implements OnInit {
     });
     // 取得兌換商品
     this.api.getProductList().then(resp => {
-      console.log(resp);
+
       if (resp.Code == 0) {
         this.products = resp.Data;
       } else {

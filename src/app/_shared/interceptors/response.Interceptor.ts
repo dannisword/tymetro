@@ -26,7 +26,6 @@ export class ResponseInterceptor implements HttpInterceptor {
 
     private error(resp) {
         let message = 'An internal server error.';
-        console.log(resp);
         if (resp && resp.error && resp.error.message) {
             message = resp.error.message;
         }

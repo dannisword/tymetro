@@ -32,7 +32,14 @@ export class MemberRevokeComponent extends BaseComponent implements OnInit {
         Token: localStorage.getItem('Token')
       }
       this.api.deleteMember(params).then(resp => {
-console.log(resp);
+        if (resp.Code != 0) {
+          this.alert(resp.Message);
+        } else {
+          this.dismissModal();
+          localStorage.removeItem('Token');
+          localStorage.removeItem('userInfo')
+          this.onNavigate('/dashboards');
+        }
       })
     }
   }

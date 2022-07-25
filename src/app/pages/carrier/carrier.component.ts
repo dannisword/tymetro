@@ -25,7 +25,6 @@ export class CarrierComponent extends BaseComponent implements OnInit {
 
     //取得使用者載具
     this.api.getMemberVehicle().then(resp => {
-      console.log(resp);
       if (resp.Code == '0') {
         this.cards = resp.Data;
       } else {
@@ -38,7 +37,6 @@ export class CarrierComponent extends BaseComponent implements OnInit {
     super.onBack('dashboards/member');
   }
   onClick(card) {
-    console.log(card);
     this.card = card;
     this.opened = true;
   }

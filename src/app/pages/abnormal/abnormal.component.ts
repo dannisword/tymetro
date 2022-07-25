@@ -29,7 +29,6 @@ export class AbnormalComponent extends BaseComponent implements OnInit {
     //this.presentLoading();
     // 最新公告
     this.api.getNewAdvertising('10', 'TW').then(resp => {
-      console.log(resp);
       if (resp.Code == '0') {
         this.setStore('backgroupURL', resp.Data.BackgroupURL);
         this.setStore('banner', resp.Data.banner);
@@ -63,7 +62,6 @@ export class AbnormalComponent extends BaseComponent implements OnInit {
 
   async handler() {
     const status = await Network.getStatus();
-    console.log(status);
     if (status.connected == true) {
       clearInterval(this.interval);
   
