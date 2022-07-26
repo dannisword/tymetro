@@ -34,6 +34,7 @@ $ npx cap open ios
 
 ## Apple chip M1 pod install CocoaPod
 執行下面指令  
+$ sudo gem install cocoapods
 $ sudo arch -x86_64 gem install ffi  
 $ arch -x86_64 pod install  
  
