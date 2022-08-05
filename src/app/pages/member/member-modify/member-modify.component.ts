@@ -187,7 +187,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       OriginTrans: this.memberForm.value.OriginTrans,
       JobTitle: this.memberForm.value.JobTitle,
       ReadNotice: this.memberForm.value.ReadNotice,
-      VerifyType: verifyType
+      verifyType: verifyType
     };
 
     this.api.register(member).then(resp => {
