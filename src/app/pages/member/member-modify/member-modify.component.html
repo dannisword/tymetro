@@ -86,12 +86,12 @@
 
       <ion-item *ngIf="register == true" lines="none">
         <a color="primary" (click)="onChang('member')">會員條款及活動規約</a>
-        <ion-checkbox slot="start" formControlName="ReadNotice" value="" ></ion-checkbox>
+        <ion-checkbox slot="start" formControlName="ReadNotice" value=""></ion-checkbox>
       </ion-item>
 
       <ion-item lines="none">
         <a color="primary" (click)="onChang('ticket')">120定期票及369定期票優惠專案使用須知</a>
-        <ion-checkbox slot="start" formControlName="ReadNotice" value="" ></ion-checkbox>
+        <ion-checkbox slot="start" formControlName="ReadTicket" ></ion-checkbox>
       </ion-item>
       <ion-item lines="full">
 
@@ -101,15 +101,16 @@
   </form>
   <ion-footer>
     <ion-button expand="block" (click)="onChangPassword()" color="primary" *ngIf="register == false">修改密碼</ion-button>
-    <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == false">確認修改</ion-button>
+    <ion-button expand="block" (click)="onConfirm('modify')" color="primary" *ngIf="register == false">確認修改</ion-button>
     <ion-button expand="block" (click)="onCancel()" color="primary" *ngIf="register == false">取消</ion-button>
-    <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == true"
+    <ion-button expand="block" (click)="onConfirm('mail')" color="primary" *ngIf="register == true"
       [disabled]="memberForm.value.Email === undefined">發送驗證信</ion-button>
-    <ion-button expand="block" (click)="onConfirm()" color="primary" *ngIf="register == true"
+    <ion-button expand="block" (click)="onConfirm('phone')" color="primary" *ngIf="register == true"
       [disabled]="memberForm.value.PhoneNumber === undefined">發送驗證簡訊</ion-button>
   </ion-footer>
   <!-- && this.memberForm.value.Email !== undefined" -->
 </ion-content>
+
 <ion-modal [isOpen]="opened">
   <ng-template>
     <ion-header>
@@ -133,22 +134,247 @@
   </ng-template>
 </ion-modal>
 
-<!--
-  <ion-modal *ngIf="opened" [class.date-time]="mode === 'date-time'" [class.date]="mode === 'date'"
-    [class.time]="mode === 'time'" [isOpen]="opened" [backdropDismiss]="false">
-    <ng-template>
-      <ion-content>
-        <ion-datetime style="margin-top: 100px" size="cover" hourCycle="h23" [presentation]="mode" [value]="value"
-          [max]="'2050-12-31'" (ionChange)="updateValue($event)">
+<ion-modal [isOpen]="openedTicket">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>客服小提醒</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="onClose(false)">關閉</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <h4>桃園機場捷運通勤定期票優惠專案使用須知</h4>
+      <!-- 壹、發售票種及說明 -->
+      <h5>壹、發售票種及說明</h5>
+      <div style="padding-left: 2rem;">
+        <p class="indent-rev2rem">
+          一、 本票卡為記名非接觸式晶片卡，供記名持卡人本人於有效期間（7天、30天、60天、90
+          天、120天）及指定站間範圍內，不限次數搭乘之車票。
+        </p>
+        <p class="indent-rev2rem">
+          二、 優惠折扣分別為7天定期票約75折、30天定期票7折、60天定期票約65折、90天定期票6
+          折、120天定期票5折（定期票費用以單程票全票金額*通勤日*2趟*折扣數計算）。
+        </p>
+        <p class="indent-rev2rem">
+          三、 本票卡僅可用於搭乘桃園捷運，不適用於轉乘其他運具。
+        </p>
+        <p class="indent-rev2rem">
+          四、 本票卡僅儲存乘車期限，不具儲值現金功能。
+        </p>
+      </div>
+      <!-- 貳、購票及續購-->
+      <h5>貳、購票及續購</h5>
+      <div>
+        <p>一、購票：</p>
+        <div style="padding-left: 3rem;">
+          <p class="indent-rev3rem">
+            （一）第一次購票時，請至車站詢問處填寫「定期票申辦表」，或至本公司網站下載填寫申
+            辦表，選擇天期（7天、30天、60天、90天、120天）以及指定起迄站，繳交定期票費
+            用及工本費50元/張（不可退還）後現場領取票卡。
+          </p>
+          <p class="indent-rev3rem">
+            （二）本人辦理或委託他人代辦時，應確認填寫資料正確無誤，保障記名持卡人權益，如因
+            填寫資料有誤致影響持卡人辦理退票、掛失，或查票時無法證明為記名持卡人本人等，
+            本公司概不負責。
+          </p>
+          <p class="indent-rev3rem">
+            （三）每人限持有一張7天、30天、60天、90天或120天定期票。
+          </p>
+        </div>
+        <p>二、續購：</p>
+        <div style="padding-left: 3rem;">
+          <p class="indent-rev3rem">
+            （一）記名持卡人得於7天定期票有效期間內或有效期間屆滿後，至車站詢問處辦理續購，
+            30天、60天、90天或120天則可於有效期間屆滿前10天起辦理，依續購天期繳交定期
+            票費用，不需再次填寫「定期票申辦表」。
+          </p>
+          <p class="indent-rev3rem">
+            （二）如於原有效期間內辦理續購，續購之定期票天期需與原天期相同，如欲續購其他天期
+            之定期票，則需俟原有效期間屆滿後辦理。
+          </p>
+        </div>
+      </div>
 
-        </ion-datetime>
-        <ion-button fill="clear" color="primary" (click)="save()">
-          選擇
-        </ion-button>
-        <ion-button fill="clear" color="danger" (click)="cancel()">
-          取消
-        </ion-button>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
--->
+      <!-- 參、啟用及有效期間 -->
+      <h5>參、啟用及有效期間</h5>
+      <div>
+        <p>一、啟用：</p>
+        <div style="padding-left: 2rem;">
+          <p class="indent-rev2rem">
+            （一）購票：於購票後第一次使用當天啟用（需於購票後30天內啟用）。
+          </p>
+          <p class="indent-rev2rem">
+            （二）續購：如於原有效期間內辦理續購，則續購之定期票俟原有效期間屆滿後即啟用；如
+            於原有效期間屆滿後辦理續購，則續購之定期票自續購後第一次使用當天啟用（需於
+            續購後30天內啟用）。
+          </p>
+        </div>
+        <div style="padding-left: 2rem;">
+          <p class="indent-rev2rem">
+            二、有效期間：自啟用後計算至有效期間7天、30天、60天、90天、120天（連續天數）營業時間結束截止。
+          </p>
+        </div>
+      </div>
+
+      <!-- 肆、變更及退票、掛失、交易資料查詢 -->
+      <h5>肆、變更及退票、掛失、交易資料查詢</h5>
+      <div>
+        <p>一、變更及退票：</p>
+        <blockquote>
+          <p class="indent-rev3rem">
+            （一）定期票發售後恕不受理變更，如記名持卡人要求變更為其他記名持卡人，或於有效期
+            間內欲變更天期或起迄車站，均應依退票後重新申辦新卡方式辦理。
+          </p>
+          <p class="indent-rev3rem">
+            （二）定期票退票限於有效期間內，由記名持卡人本人辦理；逾期不予退費。
+          </p>
+          <p class="indent-rev3rem">
+            （三）定期票退票後即鎖卡，無法持原卡辦理續購，如有定期票使用需求須重新申辦新卡。
+          </p>
+          <p class="indent-rev3rem">
+            （四）退票金額之計算，除另有規定者外，應由定期票實收費用（不含工本費）扣除「指定
+            站間單程票全票金額乘以經過天數（日曆天）乘以每天使用2次」，並扣除退票手續
+            費20元後退還餘額（不敷扣除者不予退費）。
+          </p>
+          <p class="indent-rev3rem">
+            （五）前項經過天數係指自票卡啟用當天起算，至退票當天止之天數，退票當天均視為已搭
+            乘，不得計入退費。票卡未經啟用即辦理退票，則以定期票實收費用（不含工本費）
+            扣除退票手續費20元後退還餘額。
+          </p>
+          <p class="indent-rev3rem">
+            （六）定期票不受理回收票卡及歸還工本費，惟如票卡外觀完好，但無法判讀內容，本公司
+            將回收票卡，記名持卡人可選擇退費或補發票卡（含「搭乘憑證」）。如選擇退費，
+            本公司將以原購買費用（不含工本費）扣除「原購買費用（不含工本費）按天數（日
+            曆天）比例乘以經過天數」之優惠價計算餘額，並退還票卡工本費，且不另收手續費；
+            如選擇補發票卡（含「搭乘憑證」），本公司將依原已使用票卡之有效期間補發票卡
+            （含「搭乘憑證」）。
+          </p>
+          <p class="indent-rev3rem">
+            （七）卡片應避免污、折、刮、磨損、暴露高溫及扭曲之破壞，若有前述破壞情形致卡片資
+            訊無法讀取，記名持卡人可選擇退費或補發票卡（含「搭乘憑證」）。如選擇退費，
+            本公司將依照肆、一、（四）及（五）之退票規定，計算定期票剩餘金額後退還於原
+            記名持卡人；如選擇補發票卡（含「搭乘憑證」），需支付工本費50元，本公司將依
+            原已使用票卡之有效期間補發票卡（含「搭乘憑證」）。
+          </p>
+        </blockquote>
+      </div>
+      <div>
+        <p>二、掛失：</p>
+        <blockquote>
+          <p class="indent-rev3rem">
+            （一）定期票遺失時，應由記名持卡人本人至車站詢問處或聯絡客服專線辦理掛失停用手續，
+            掛失後如有被冒用之情事，由本公司承擔該損失風險。卡片一經掛失後，恕不受理取
+            消掛失。
+          </p>
+          <p class="indent-rev3rem">
+            （二）辦理掛失手續後，記名持卡人可選擇退費或補發票卡（含「搭乘憑證」）。如選擇退
+            費，本公司將依照肆、一、（四）及（五）之退票規定，計算定期票剩餘金額後退還
+            於原記名持卡人；如選擇補發票卡（含「搭乘憑證」），需支付工本費50元，本公司
+            將依原已使用票卡之有效期間補發票卡（含「搭乘憑證」）。
+          </p>
+        </blockquote>
+      </div>
+      <div>
+        <p>三、交易資料查詢：</p>
+        <blockquote>
+          <p class="indent-rev3rem">
+            （一）最近6筆交易紀錄：記名持卡人可持定期票卡至車站「車票餘額查詢機」查詢最近6筆交易紀錄。
+          </p>
+          <p class="indent-rev3rem">
+            （二）非最近6筆交易紀錄：
+          <div>
+            <p class="indent-rev1rem">
+              1.當天至前「6個月內」交易紀錄查詢：
+              記名持卡人至車站詢問處辦理查詢作業，本公司將產製交易紀錄寄發至旅客電子郵件
+              信箱；或於收到本公司所寄發之簡訊通知後由記名持卡人本人攜帶證件至指定車站領
+              取交易紀錄表。
+            </p>
+            <p class="indent-rev1rem">
+              2.當天至前「6個月前」交易紀錄查詢：
+              記名持卡人至車站詢問處辦理查詢作業，於收到本公司所寄發之簡訊通知後由記名持
+              卡人本人攜帶證件至指定車站領取交易紀錄表。(查詢費用收取標準：20元，每多1頁
+              加收5元)
+            </p>
+          </div>
+        </blockquote>
+      </div>
+      <!-- 伍、 使用方式 -->
+      <h5>伍、 使用方式</h5>
+      <div style="padding-left: 2rem;">
+        <p class="indent-rev2rem">
+          一、本票卡為非接觸式晶片卡，使用時將卡片輕觸自動收費閘門上之感應區，
+          閘門確認有效性後即自動開啟。
+        </p>
+        <p class="indent-rev2rem">
+          二、定期票不限搭乘車種。
+        </p>
+        <p class="indent-rev2rem">
+          三、定期票如搭乘超越指定站間範圍，需按身分別補足超越站間之單程票票價，
+          不受理持其他優惠票卡（如：定期票、回數票等）辦理補票或合併使用。
+        </p>
+        <p class="indent-rev2rem">
+          四、持定期票於指定站間以外之車站進站，應先行購足超越站間之單程票或持電子
+          票證感應進站，於目的地出站時持同一張單程票或電子票證（補票金額為超越站間
+          之單程票票價）以及定期票，至車站詢問處辦理人工出站或電子票證補票作業。
+        </p>
+        <p class="indent-rev2rem">
+          五、定期票於有效期間內，因不可抗力或其他臨時性因素致列車停駛超過1日（含）時
+          ，受影響之記名持卡人本人得向車站服務人員領取一次票，領取張數以停駛日數每日
+          2張計算。
+        </p>
+        <p class="indent-rev2rem">
+          六、定期票於有效期間內可不限次數搭乘，故因傷病或其他個人因素中止旅程者，
+          恕不受理補償。
+        </p>
+        <p class="indent-rev2rem">
+          七、記名定期票請妥善保管，且僅限記名持卡人本人使用，不得供其他人使用，如
+          經本公司查證非持卡人本人使用，將停用該定期票卡，並依大眾捷運法第49條規定，冒
+          用者除須補繳票價外，並支付票價50倍之違約金，同時將該定期票卡收回，並通知記名持
+          卡人領回該停用之票卡及依肆、一、（四）（五）退票規定計算之餘額，且本公司得不接
+          受該記名持卡人再次申辦定期票。相關因停用及收回衍生之權益損失由記名持卡人自行承擔。
+        </p>
+      </div>
+      <!-- 陸、 客戶資料 -->
+      <h5>陸、 客戶資料</h5>
+      <div style="padding-left: 2rem;">
+        <p class="indent-rev2rem">
+          一、記名持卡人同意提供個人基本資料予本公司，進行提供資訊服務、統計及市調分析等參
+          考依據。經提供予本公司之個人資料，持卡人得申請查詢、閱覽、複製，並就更新、登
+          載錯誤之資料請求補充、更正；若發生個人資料之蒐集、處理或利用無合理目的或違法
+          之情形，持卡人得要求本公司停止其個人資料之蒐集、處理或利用，並得要求本公司刪
+          除持卡人已提供之個人資料。
+        </p>
+        <p class="indent-rev2rem">
+          二、記名持卡人資料如有異動，應通知本公司更改，以確保其權益。
+        </p>
+        <p class="indent-rev2rem">
+          三、本公司除非經過記名持卡人同意、應法律規定之要求，或基於善意相信揭露為法律需要，
+          絕不將持卡人的個人資料提供、出借或出售給與本服務或交易無關之任何第三者，以保
+          護記名持卡人的個人資料及隱私權。
+        </p>
+      </div>
+      <!-- 柒、其他 -->
+      <h5>柒、其他</h5>
+      <div style="padding-left: 2rem;">
+        <p class="indent-rev2rem">
+          一、本須知如有修改或增刪時，本公司將於網站及車站公告其變更事項、條款內容、生效日期。
+        </p>
+        <p class="indent-rev2rem">
+          二、除本須知另有規定外，其餘依本公司旅客運送章則等相關規定辦理。
+        </p>
+      </div>
+      <div>
+        <img src="../../../assets/member/Ticket01.png" alt="">
+        <img src="../../../assets/member/Ticket02.png" alt="">
+        <img src="../../../assets/member/Ticket03.png" alt="">
+        <img src="../../../assets/member/Ticket04.png" alt="">
+        <img src="../../../assets/member/Ticket05.png" alt="">
+      </div>
+      <ion-footer>
+        <ion-button expand="block" (click)="onReview()" color="primary">閱讀</ion-button>
+      </ion-footer>
+    </ion-content>
+  </ng-template>
+</ion-modal>

@@ -22,6 +22,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   public jobs: any;
   public register: any = false;
   public opened: any = false;
+  public openedTicket: any = false;
 
   @Input() public readonly mode: DateTimePickerMode = 'date-time';
   @ViewChild(IonModal) modal!: IonModal;
@@ -46,6 +47,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       OriginTrans: [''],
       JobTitle: [''],
       ReadNotice: [false],
+      ReadTicket: [false],
       Password: [''],
       ReconfirmPassword: ['']
     })
@@ -87,6 +89,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
 
   onClose(opened) {
     this.opened = opened;
+    this.openedTicket = opened;
   }
 
   onVerifyLetter(close) {
@@ -104,21 +107,38 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     let url = 'https://www.tymetro.com.tw/tymetro-new/tw/_images/document/ticketson02/tab02/08.pdf';
     if (data == 'member') {
       url = 'https://www.tymetro.com.tw/tymetro-new/tw/_pages/service/protocol.html';
+      this.goToBrowser(url);
+      return;
     }
-    this.goToBrowser(url);
+    this.openedTicket = true;
   }
 
-  async onConfirm() {
+  async onConfirm(mode) {
     this.isSubmitted = !this.memberForm.valid;
 
     if (this.memberForm.valid == false) {
       this.snackbarService.warning('必填欄位，尚未完成');
       return;
     }
-    
+
+    if (this.memberForm.value.PhoneNumber != undefined && this.memberForm.value.PhoneNumber.length > 0 && this.memberForm.value.PhoneNumber.length != 11) {
+      this.snackbarService.warning('對不起, 手機格式錯誤');
+      return;
+    }
+
     // 註冊
     if (this.register == true) {
-      await this.registerUser();
+      if (this.memberForm.value.ReadNotice == false) {
+        this.snackbarService.warning('對不起, 未確認會員條款及活動規約');
+        return;
+      }
+      if (this.memberForm.value.ReadTicket == false) {
+        this.snackbarService.warning('對不起, 未確認定期票優惠專案使用須知');
+        return;
+      }
+
+      // 郵件認證
+      await this.registerUser(mode);
     } else {
       await this.modifyMember();
     }
@@ -128,6 +148,10 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     super.onBack('dashboards/member');
   }
 
+  async onReview() {
+    this.memberForm.get('ReadTicket').setValue(true);
+    this.openedTicket = false;
+  }
   async getMember() {
     const member = await this.api.reviewerMember();
     if (member.Code != '0') {
@@ -137,7 +161,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     this.member = member.Data;
   }
 
-  async registerUser() {
+  async registerUser(mode) {
     if (this.memberForm.value.Password == "" && this.memberForm.value.ReconfirmPassword == "") {
       this.alert('密碼未輸入完整');
       return;
