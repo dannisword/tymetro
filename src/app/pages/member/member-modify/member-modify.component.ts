@@ -152,6 +152,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
     this.memberForm.get('ReadTicket').setValue(true);
     this.openedTicket = false;
   }
+
   async getMember() {
     const member = await this.api.reviewerMember();
     if (member.Code != '0') {
@@ -170,7 +171,10 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       this.snackbarService.warning('再次確認密碼錯誤');
       return;
     }
-
+    let verifyType = 1;
+    if (mode == 'phone') {
+      verifyType = 2;
+    }
     let member = {
       Token: localStorage.getItem("Token"),
       Address: this.memberForm.value.Address,
@@ -182,7 +186,8 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       Tel: this.memberForm.value.PhoneNumber,
       OriginTrans: this.memberForm.value.OriginTrans,
       JobTitle: this.memberForm.value.JobTitle,
-      ReadNotice: '1'
+      ReadNotice: this.memberForm.value.ReadNotice,
+      VerifyType: verifyType
     };
 
     this.api.register(member).then(resp => {
