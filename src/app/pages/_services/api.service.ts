@@ -174,7 +174,7 @@ export class ApiService {
     return await this.http.post<any>('/api/PointRecord/GetPointsByToken', data).toPromise();
   }
   /**
-   * 取得載具類別
+   * 取得我的卡片
    * @returns 
    */
   public async getVehicleType(lang) {
@@ -183,7 +183,7 @@ export class ApiService {
   }
   /**
    * 
-   * @returns 取得使用者載具
+   * @returns 取得使用者卡片
    */
   public async getMemberVehicle() {
     const data = {
@@ -192,7 +192,7 @@ export class ApiService {
     return await this.http.post<any>('/api/vehicle/GetMemberVehicle', data).toPromise();
   }
   /**
-   * 新增載具
+   * 新增卡片
    * @param exterCode 
    * @param type 
    * @returns 
@@ -206,7 +206,7 @@ export class ApiService {
     return await this.http.post<any>('/api/vehicle/AddVehicle', data).toPromise();
   }
   /**
-   * 刪除載具
+   * 刪除卡片
    * @param exterCode 
    * @returns 
    */

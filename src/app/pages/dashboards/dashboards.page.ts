@@ -43,6 +43,10 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
   async ngOnInit() {
     this.mobile = window.screen.width <= 526 ? true : false;
+
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      App.exitApp();
+    });
     const data = await this.api.getData();
 
     this.api.getVersion().then(resp => {

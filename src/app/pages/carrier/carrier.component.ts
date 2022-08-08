@@ -23,7 +23,7 @@ export class CarrierComponent extends BaseComponent implements OnInit {
   ngOnInit() {
     this.userInfo = this.getStore('userInfo');
 
-    //取得使用者載具
+    //取得使用者卡片
     this.api.getMemberVehicle().then(resp => {
       if (resp.Code == '0') {
         this.cards = resp.Data;
