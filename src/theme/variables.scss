@@ -76,7 +76,12 @@
   --ion-color-light-tint: #f5f6f9;
 
 }
-
+.android {
+  .main-menu li {
+    -webkit-overflow: hidden;
+      overflow: hidden;
+  }
+}
 .ios {
 
   .brand-nav ion-toolbar {

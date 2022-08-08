@@ -100,8 +100,8 @@ ion-content {
   -webkit-clip-path: url(#sector);
   clip-path: url(#sector);
   /* try this one in Chrome/Opera/Safari */
-  -webkit-overflow: hidden;
-  overflow: hidden;
+  // -webkit-overflow: hidden;
+  // overflow: hidden;
   position: absolute;
   width: 100%;
   height: 100%;
