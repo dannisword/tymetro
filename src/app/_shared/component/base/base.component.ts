@@ -48,6 +48,7 @@ export abstract class BaseComponent {
     enableViewportScale: 'no', //iOS only 
     allowInlineMediaPlayback: 'no',//iOS only 
     //presentationstyle: 'pagesheet',//iOS only  
+    navigationbuttoncolor: '#fafafa',
     fullscreen: 'no',//Windows only Ｘ
   };
 

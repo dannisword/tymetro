@@ -30,6 +30,7 @@ export class AppComponent {
     enableViewportScale: 'no', //iOS only 
     allowInlineMediaPlayback: 'no',//iOS only 
     //presentationstyle: 'pagesheet',//iOS only  
+    navigationbuttoncolor: '#fafafa',
     fullscreen: 'no',//Windows only Ｘ
   };
 
