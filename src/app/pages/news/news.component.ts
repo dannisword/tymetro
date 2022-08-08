@@ -38,6 +38,8 @@ export class NewsComponent extends BaseComponent implements OnInit {
     for (let item of this.tempNews) {
       item.startDate = moment(item.startDate).format('YYYY-MM-DD')
     }
+
+    console.log(this.tempNews);
   }
   openURL() {
     const url = "https://shop.jaipurandco.com"

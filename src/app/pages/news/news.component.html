@@ -20,12 +20,12 @@
       <ion-label>活動消息</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <ion-card *ngFor="let item of tempNews" (click)="openNewsContent(item)">
+  <ion-card *ngFor="let item of tempNews" (click)="openNewsContent(item)" style="margin:12px 8px">
 <!--
     <div class="ribbon-content"><img src="{{item.logourl}}"></div>
     <img src="{{item.cover}}">
 -->
-    <ion-card-header color="primary">
+    <ion-card-header color="" style="padding: 10px 10px">
       <ion-card-subtitle>{{item.startDate }}
       </ion-card-subtitle>
       <ion-card-title>
