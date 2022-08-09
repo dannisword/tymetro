@@ -46,12 +46,12 @@ const routes: Routes = [
   {
     path: 'carrier',
     component: CarrierComponent,
-    data: { title: '我的卡片', isPage: true, option: HeaderOption.Add }
+    data: { title: '我的票卡', isPage: true, option: HeaderOption.Add }
   },
   {
     path: 'carrier-select',
     component: CarrierSelectComponent,
-    data: { title: '我的卡片', isPage: true, option: HeaderOption.None }
+    data: { title: '我的票卡', isPage: true, option: HeaderOption.None }
   },
   {
     path: 'construct',

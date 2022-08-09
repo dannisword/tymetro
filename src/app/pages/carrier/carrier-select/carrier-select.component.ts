@@ -22,7 +22,7 @@ export class CarrierSelectComponent extends BaseComponent implements OnInit {
       if (resp.Code == '0') {
         this.vehicleTypes = resp.Data.Carrier.filter(x=> x.Type == 1);
       } else {
-        this.alert('我的卡片查詢失敗');
+        this.alert('我的票卡查詢失敗');
       }
     });
   }
@@ -34,7 +34,7 @@ export class CarrierSelectComponent extends BaseComponent implements OnInit {
   async onClick(vehicleType) {
     const options = {
       componentProps: {
-        title: '我的卡片',
+        title: '我的票卡',
         data: vehicleType
       },
       swipeToClose: true

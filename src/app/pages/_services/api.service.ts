@@ -174,7 +174,7 @@ export class ApiService {
     return await this.http.post<any>('/api/PointRecord/GetPointsByToken', data).toPromise();
   }
   /**
-   * 取得我的卡片
+   * 取得我的票卡
    * @returns 
    */
   public async getVehicleType(lang) {

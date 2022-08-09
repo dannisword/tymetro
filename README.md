@@ -60,7 +60,7 @@ ionic generate component pages/member-modify
 ionic generate component pages/member-points
 ionic generate component pages/member/chang-password
 ionic generate component pages/member/member-revoke
-我的卡片
+我的票卡
 ionic generate component pages/carrier
 ionic generate component pages/carrier/carrier-select
 ionic generate component pages/carrier/carrier-add
