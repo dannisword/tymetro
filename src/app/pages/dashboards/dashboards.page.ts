@@ -101,7 +101,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
         data.StatusText = resp.Data.StatusText;
         data.StatusType = resp.Data.StatusType;
       }
-      else{
+      else {
         data.StatusText = resp.Data.StatusText;
         data.StatusType = resp.Data.StatusType;
       }
@@ -113,6 +113,9 @@ export class DashboardsPage extends BaseComponent implements OnInit {
     // 取得重大訊息
     resp = await this.api.getImportant('TW')
     if (resp.Code == '0') {
+      if (resp.Data = []) {
+        return
+      }
       if (resp.Message == 'Success') {
         data.StatusText = resp.Data.content;
         data.StatusType = 'on';

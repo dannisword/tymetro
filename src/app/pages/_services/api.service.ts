@@ -173,6 +173,16 @@ export class ApiService {
     }
     return await this.http.post<any>('/api/PointRecord/GetPointsByToken', data).toPromise();
   }
+
+
+  public async getNowPointByToken(page){
+    const data = {
+      Token: localStorage.getItem('Token'),
+      Page: page
+    }
+    return await this.http.post<any>('/api/PointRecord/GetNowPointByToken', data).toPromise();
+  }
+
   /**
    * 取得我的票卡
    * @returns 
