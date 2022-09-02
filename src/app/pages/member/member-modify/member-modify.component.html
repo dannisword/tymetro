@@ -28,7 +28,7 @@
 
       <ion-item>
         <ion-label position="floating">行動電話</ion-label>
-        <ion-input formControlName="PhoneNumber" type="tel" mask="****-******" [(ngModel)]="member.Tel" clearInput>
+        <ion-input formControlName="PhoneNumber" type="tel" [(ngModel)]="member.Tel" clearInput>
         </ion-input>
         <ion-note slot="helper">如需購買定期票，此選項為必填</ion-note>
         <ion-note slot="error">如需購買定期票，此選項為必填</ion-note>
@@ -84,21 +84,25 @@
         <ion-input formControlName="ReconfirmPassword" type="password" clearInput></ion-input>
       </ion-item>
 
-      <ion-item *ngIf="register == true" lines="none">
-        <a color="primary" (click)="onChang('member')">會員條款及活動規約</a>
-        <ion-checkbox slot="start" formControlName="ReadNotice" value=""></ion-checkbox>
-      </ion-item>
 
-      <ion-item lines="none">
-        <a color="primary" (click)="onChang('ticket')">120定期票及369定期票優惠專案使用須知</a>
-        <ion-checkbox slot="start" formControlName="ReadTicket"></ion-checkbox>
-      </ion-item>
       <ion-item lines="full">
 
       </ion-item>
 
     </ion-list>
   </form>
+  <ion-list>
+    <ion-item *ngIf="register == true" lines="none">
+      <a color="primary" (click)="onChang('member')">會員條款及活動規約</a>
+      <ion-checkbox slot="start"></ion-checkbox>
+    </ion-item>
+
+    <ion-item lines="none">
+      <a color="primary" (click)="onChang('ticket')">120定期票及369定期票優惠專案使用須知</a>
+      <ion-checkbox slot="start" [(ngModel)]="readNotice"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
   <ion-footer>
     <ion-button expand="block" (click)="onChangPassword()" color="primary" *ngIf="register == false">修改密碼</ion-button>
     <ion-button expand="block" (click)="onConfirm('modify')" color="primary" *ngIf="register == false">確認修改</ion-button>

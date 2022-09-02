@@ -23,6 +23,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   public register: any = false;
   public opened: any = false;
   public openedTicket: any = false;
+  public readNotice: any = false;
 
   @Input() public readonly mode: DateTimePickerMode = 'date-time';
   @ViewChild(IonModal) modal!: IonModal;
@@ -46,8 +47,8 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       Address: ['',],
       OriginTrans: [''],
       JobTitle: [''],
-      ReadNotice: [false],
-      ReadTicket: [false],
+      //ReadNotice: [false],
+      //ReadTicket: [false],
       Password: [''],
       ReconfirmPassword: ['']
     })
@@ -95,6 +96,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
   onVerifyLetter(close) {
     this.presentLoading();
     const user = this.getStore('userInfo');
+
     const param = {
       Id: user.Id
     };
@@ -121,7 +123,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       return;
     }
 
-    if (this.memberForm.value.PhoneNumber != undefined && this.memberForm.value.PhoneNumber.length > 0 && this.memberForm.value.PhoneNumber.length != 11) {
+    if (this.memberForm.value.PhoneNumber != undefined && this.memberForm.value.PhoneNumber.length > 0 && this.memberForm.value.PhoneNumber.length != 10) {
       this.snackbarService.warning('對不起, 手機格式錯誤');
       return;
     }
@@ -160,6 +162,7 @@ export class MemberModifyComponent extends BaseComponent implements OnInit {
       return;
     }
     this.member = member.Data;
+    this.readNotice = this.member.ReadNotice == 1 ? true : false
   }
 
   async registerUser(mode) {
