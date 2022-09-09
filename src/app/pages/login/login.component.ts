@@ -20,7 +20,11 @@ export class LoginComponent extends BaseComponent implements OnInit {
 
   async ngOnInit() {
     const data = await this.api.getData();
-    this.version = data.version.ios;
+    this.version = data.version.android;
+    if (this.platform.is('ios') == true) {
+      this.version = data.version.ios;
+    }
+    
    }
 
   onGoBack(event) {
