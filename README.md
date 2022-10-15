@@ -109,3 +109,6 @@ VersionName
 Keyalies: tymetro
 
 - 更新版本
+
+A124533570
+https://www.tymetro.com.tw/app/mangment/uploadFile/productImage/4563d90c-0bfb-4fff-bbff-af01b27b7783.png

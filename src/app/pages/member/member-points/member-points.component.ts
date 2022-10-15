@@ -26,9 +26,13 @@ export class MemberPointsComponent extends BaseComponent implements OnInit {
     this.thisYear = new Date().getFullYear();
     this.lastYear = new Date().getFullYear() + 1;
     const resp = await this.api.getPointsByToken('1');
-    for (let point of resp.Data.PointRecord) {
-      point.RecordTime = moment(point.RecordTime).format('YYYY/MM/DD');
+    if (resp.Code == 0) {
+      this.data = resp.Data;
+      for (let point of this.data.PointRecord) {
+        point.RecordTime = moment(point.RecordTime).format('YYYY/MM/DD');
+      }
+    } else {
+      this.alert(resp.Message);
     }
   }
-
 }

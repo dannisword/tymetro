@@ -52,14 +52,14 @@ export class DashboardsPage extends BaseComponent implements OnInit {
       if (this.platform.is('ios') == true) {
         const version = resp.Data.find(x => x.Type == 'ios');
         if (version.Version != data.version.ios) {
-          this.confirm(`已有${version.Version}更新檔，請至App Store 更新程式`).then(res => {
+          this.confirm(`已有更新檔，請至App Store 更新程式`).then(res => {
             window.open('itms-apps://itunes.apple.com/app/1629900420')
           });
         }
       } else {
         const version = resp.Data.find(x => x.Type == 'android');
         if (version.Version != data.version.android) {
-          this.confirm(`已有${version.Version}更新檔，請至Google Play 更新程式`).then(res=>{
+          this.confirm(`已有更新檔，請至Google Play 更新程式`).then(res=>{
             window.open('https://play.google.com/store/apps/details?id=com.tymetro.ios')
           }) 
         }
