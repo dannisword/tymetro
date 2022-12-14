@@ -109,6 +109,6 @@ VersionName
 Keyalies: tymetro/Qwer890@
 
 - 更新版本
-
+版號要修改
 A124533570/ oooo0000
 https://www.tymetro.com.tw/app/mangment/uploadFile/productImage/4563d90c-0bfb-4fff-bbff-af01b27b7783.png
