@@ -24,7 +24,7 @@ $ npm install @capacitor/app-launcher
 ## input-mask  
 $ npm i @thiagoprz/ionic-input-mask
 ## 執行
-ionic seve  
+ionic serve  
 
 ## 編譯
 $ ionic build ios
@@ -106,9 +106,9 @@ VersionName
 
 
 ## Android 
-Keyalies: tymetro
+Keyalies: tymetro/Qwer890@
 
 - 更新版本
 
-A124533570
+A124533570/ oooo0000
 https://www.tymetro.com.tw/app/mangment/uploadFile/productImage/4563d90c-0bfb-4fff-bbff-af01b27b7783.png

@@ -45,6 +45,7 @@
   </ion-list>
 
   <ion-footer class="ion-padding ion-full-footer">
-    <ion-button expand="block" (click)="onRedeem()" color="light">{{redeemName}}</ion-button>
+    <ion-button expand="block" (click)="onRedeem()" color="light" *ngIf="redeem == false">兌換</ion-button>
+    <ion-button expand="block" (click)="onConfirm()" color="light" *ngIf="redeem == true" [disabled]="btnLock == true">確認</ion-button>
   </ion-footer>
 </ion-content>
