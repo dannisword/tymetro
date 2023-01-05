@@ -16,13 +16,13 @@ export class RequestInterceptor implements HttpInterceptor {
                 'Content-Type': 'application/json'
             }
         });
-        
+
         if (request.url.startsWith('/api')) {
             newRequest = request.clone({
                 url: (environment.apiServer ? environment.apiServer : '') + request.url
             });
         }
-       
+
         return next.handle(newRequest);
     }
 }

@@ -96,8 +96,8 @@ $ npx cap sync android
 $ npx cap open android 
 
 ### defaultConfig
-VersionCode
-VersionName 
+versionCode
+versionName 
 
 ### Allowing Cleartext Traffic
 <application
