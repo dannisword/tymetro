@@ -58,10 +58,11 @@ export class DashboardsPage extends BaseComponent implements OnInit {
         }
       } else {
         const version = resp.Data.find(x => x.Type == 'android');
+
         if (version.Version != data.version.android) {
-          this.confirm(`已有更新檔，請至Google Play 更新程式`).then(res=>{
-            window.open('https://play.google.com/store/apps/details?id=com.tymetro.ios')
-          }) 
+          this.confirm(`已有更新檔，請至Google Play 更新程式`).then(res => {
+            //window.open('https://play.google.com/store/apps/details?id=com.tymetro.ios');
+          })
         }
       }
     })
