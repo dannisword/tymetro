@@ -112,3 +112,18 @@ Keyalies: tymetro/Qwer890@
 版號要修改
 A124533570/ oooo0000
 https://www.tymetro.com.tw/app/mangment/uploadFile/productImage/4563d90c-0bfb-4fff-bbff-af01b27b7783.png
+
+- AppLink
+MainActivity 加入
+```
+public class MainActivity extends BridgeActivity {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // ATTENTION: This was auto-generated to handle app links.
+    Intent appLinkIntent = getIntent();
+    String appLinkAction = appLinkIntent.getAction();
+    Uri appLinkData = appLinkIntent.getData();
+  }
+}
+```
