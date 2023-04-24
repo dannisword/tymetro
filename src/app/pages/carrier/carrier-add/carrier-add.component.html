@@ -21,7 +21,7 @@
   </ion-item>
 
   <section expand="block">
-    <ion-button expand="block" (click)="onSave()">確認送出</ion-button>
+    <ion-button expand="block" (click)="onSave()"  [disabled]="isSave == true">確認送出</ion-button>
   </section>
 
 </ion-content>
