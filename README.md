@@ -1,36 +1,84 @@
+## 開發套件網址
+https://capacitorjs.com/
+https://ionicframework.com/
+
 ## 安裝套件
+```
 $ npm i @ionic-native/core
 $ npm i @ionic-native/date-picker
+```
 
 ## capacitor 環境設定(擇一)  
+```
 $ npm install @capacitor/ios  
 $ npm install @capacitor/android  
 $ npx cap add ios  
-$ npx cap add android  
+$ npx cap add android 
+```
 
-## ionic 環境設定(擇一)  
+## ionic 環境設定(擇一) 
+```
 $ ionic capacitor add ios  
 $ ionic capacitor build ios --prod  
+```
 
 ## 多國
-npm install @ngx-translate/core
-npm install @ngx-translate/http-loader
-## 
+```
+$ npm install @ngx-translate/core
+$ npm install @ngx-translate/http-loader
+```
+## 其他套件
+- 開啟外部網頁
+```
 $ npm install cordova-plugin-inappbrowser 
 $ npm install @awesome-cordova-plugins/in-app-browser 
-$ npm install @awesome-cordova-plugins/core
-$ npm install cordova-plugin-datepicker
-$ npm install @capacitor/app-launcher
-## input-mask  
-$ npm i @thiagoprz/ionic-input-mask
-## 執行
-ionic serve  
+```
 
-## 編譯
+- Native plugins for ionic apps
+```
+$ npm install @awesome-cordova-plugins/core
+```
+- 日期元件
+```
+$ npm install cordova-plugin-datepicker
+```
+- AppLauncher
+```
+$ npm install @capacitor/app-launcher
+```
+## input-mask 輸入元件 
+$ npm i @thiagoprz/ionic-input-mask
+## 開發
+```
+$ ionic serve  
+```
+
+## IOS 編譯
+```
 $ ionic build ios
 $ npx cap copy ios 
 $ npx cap sync ios  
 $ npx cap open ios   
+```
+
+## Android 編譯
+```
+$ ionic build android
+$ npx cap copy android 
+$ npx cap sync android 
+$ npx cap open android 
+```
+## 發布
+- 版號要修改
+src/assets/data.json
+- android
+app/build.gradle
+- ios
+version
+
+## Android keystone
+Keyalies: tymetro/Qwer890@
+
 
 ## Apple chip M1 pod install CocoaPod
 執行下面指令  
@@ -54,7 +102,6 @@ ionic generate class --skip-tests pages/_module/lang
 
 ## component
 ionic generate component pages/construct
-member
 ionic generate component pages/member
 ionic generate component pages/member-modify
 ionic generate component pages/member-points
@@ -89,11 +136,6 @@ $ ionic cordova resources --splash
 $ cordova-res ios --skip-config --copy --type icon
 $ cordova-res android --skip-config --copy --type icon
 
-## Generate APK
-$ ionic build android
-$ npx cap copy android 
-$ npx cap sync android 
-$ npx cap open android 
 
 ### defaultConfig
 versionCode
@@ -105,8 +147,7 @@ versionName
     android:usesCleartextTraffic="true">
 
 
-## Android 
-Keyalies: tymetro/Qwer890@
+
 
 - 更新版本
 版號要修改
