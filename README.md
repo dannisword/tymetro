@@ -1,16 +1,22 @@
 ## 安裝套件
-$ npm i @ionic-native/core
-$ npm i @ionic-native/date-picker
+```
+$ npm i @ionic-native/core  
+$ npm i @ionic-native/date-picker  
+```
 
 ## capacitor 環境設定(擇一)  
+```
 $ npm install @capacitor/ios  
 $ npm install @capacitor/android  
 $ npx cap add ios  
 $ npx cap add android  
+```
 
 ## ionic 環境設定(擇一)  
+```
 $ ionic capacitor add ios  
 $ ionic capacitor build ios --prod  
+```
 
 ## 多國
 npm install @ngx-translate/core
