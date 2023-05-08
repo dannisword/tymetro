@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { InAppBrowser, InAppBrowserOptions } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { ApiService } from './pages/_services/api.service';
 import { MenuController } from '@ionic/angular';
+import { App, URLOpenListenerEvent } from '@capacitor/app';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -39,12 +41,28 @@ export class AppComponent {
     protected router: Router,
     protected api: ApiService,
     protected menuCtrl: MenuController,
-    protected inAppBrowser: InAppBrowser) {
+    protected inAppBrowser: InAppBrowser,
+    protected zone: NgZone) {
     this.api.getData().then(res => {
       this.appPages = res.appPages;
     });
   }
 
+  initializeApp() {
+    App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
+      this.zone.run(() => {
+        // https://www.tymetro.com.tw
+        const domain = "www.tymetro.com.tw";
+
+        const pathArray = event.url.split(domain);
+
+        const appPath = pathArray.pop();
+        if (appPath) {
+          this.router.navigateByUrl(appPath);
+        }
+      });
+    });
+  }
   public async onNav(page) {
     if (page.mode == 'URL') {
       let target = "_blank";
@@ -62,6 +80,7 @@ export class AppComponent {
     await this.router.navigate([page.url], { replaceUrl: true });
 
   }
+
   onClose() {
     this.menuCtrl.toggle();
     //this.router.navigate(['/dashboards'], { replaceUrl: true });
