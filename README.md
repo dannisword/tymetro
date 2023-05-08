@@ -1,5 +1,5 @@
 ## 開發套件網址
-https://capacitorjs.com/
+https://capacitorjs.com/  
 https://ionicframework.com/
 
 ## 安裝套件
@@ -22,16 +22,16 @@ $ ionic capacitor add ios
 $ ionic capacitor build ios --prod  
 ```
 
-## 多國
+## 多國語言
 ```
-$ npm install @ngx-translate/core
-$ npm install @ngx-translate/http-loader
+$ npm install @ngx-translate/core  
+$ npm install @ngx-translate/http-loader  
 ```
 ## 其他套件
 - 開啟外部網頁
 ```
-$ npm install cordova-plugin-inappbrowser 
-$ npm install @awesome-cordova-plugins/in-app-browser 
+$ npm install cordova-plugin-inappbrowser  
+$ npm install @awesome-cordova-plugins/in-app-browser  
 ```
 
 - Native plugins for ionic apps
@@ -44,10 +44,12 @@ $ npm install cordova-plugin-datepicker
 ```
 - AppLauncher
 ```
-$ npm install @capacitor/app-launcher
+$ npm install @capacitor/app-launcher  
 ```
 ## input-mask 輸入元件 
-$ npm i @thiagoprz/ionic-input-mask
+```
+$ npm i @thiagoprz/ionic-input-mask  
+```
 ## 開發
 ```
 $ ionic serve  
@@ -77,85 +79,95 @@ app/build.gradle
 version
 
 ## Android keystone
-Keyalies: tymetro/Qwer890@
+- Keyalies: tymetro/Qwer890@
 
 
 ## Apple chip M1 pod install CocoaPod
-執行下面指令  
+- 執行下面指令  
+```
 $ sudo gem install cocoapods
 $ sudo arch -x86_64 gem install ffi  
 $ arch -x86_64 pod install  
- 
+```
 
 ## 共用元件
-ionic generate component _shared/component/header
-ionic generate component _shared/component/base
-
+```
+$ ionic generate component _shared/component/header
+$ ionic generate component _shared/component/base
+```
 ## 服務
-ionic generate service _shared/services/snackbar
-
+```
+$ ionic generate service _shared/services/snackbar  
+```
 ## api 服務
-ionic generate service pages/_services/api
-
+```
+$ ionic generate service pages/_services/api  
+```
 ## moduel or class
-ionic generate class --skip-tests pages/_module/lang
-
+```
+$ ionic generate class --skip-tests pages/_module/lang  
+```
 ## component
-ionic generate component pages/construct
-ionic generate component pages/member
-ionic generate component pages/member-modify
-ionic generate component pages/member-points
-ionic generate component pages/member/chang-password
-ionic generate component pages/member/member-revoke
-我的票卡
-ionic generate component pages/carrier
-ionic generate component pages/carrier/carrier-select
-ionic generate component pages/carrier/carrier-add
+```
+$ ionic generate component pages/construct  
+$ ionic generate component pages/member  
+$ ionic generate component pages/member-modify  
+$ ionic generate component pages/member-points  
+$ ionic generate component pages/member/chang-password  
+$ ionic generate component pages/member/member-revoke  
+- 我的票卡  
+$ ionic generate component pages/carrier  
+$ ionic generate component pages/carrier/carrier-select  
+$ ionic generate component pages/carrier/carrier-add  
 
-ionic generate component pages/login
-ionic generate component pages/login/forgot
-ionic generate component pages/login/confirm
-ionic generate component pages/login/register
+$ ionic generate component pages/login  
+$ ionic generate component pages/login/forgot  
+$ ionic generate component pages/login/confirm  
+$ ionic generate component pages/login/register  
 
-ionic generate component pages/souvenir
-ionic generate component pages/product
-ionic generate component pages/product/product-exchange
-ionic generate component pages/product/product-confirm
-ionic generate component pages/abnormal
-ionic generate component pages/delay
-ionic generate component pages/activities
-
+$ ionic generate component pages/souvenir  
+$ ionic generate component pages/product  
+$ ionic generate component pages/product/product-exchange  
+$ ionic generate component pages/product/product-confirm  
+$ ionic generate component pages/abnormal  
+$ ionic generate component pages/delay  
+$ ionic generate component pages/activities  
+```
 
 ## Generate ICON 
+```
 $ npm install -g cordova-res
 $ ionic cordova resources
+```
 ### 產生圖示
+```
 $ ionic cordova resources --icon
 $ ionic cordova resources --splash
+```
 ### 複製圖示
+```
 $ cordova-res ios --skip-config --copy --type icon
 $ cordova-res android --skip-config --copy --type icon
+```
 
-
-### defaultConfig
-versionCode
-versionName 
+### defaultConfig  
+versionCode  
+versionName   
 
 ### Allowing Cleartext Traffic
+```
 <application
     ...
     android:usesCleartextTraffic="true">
+```
 
-
-
-
-- 更新版本
-版號要修改
-A124533570/ oooo0000
-https://www.tymetro.com.tw/app/mangment/uploadFile/productImage/4563d90c-0bfb-4fff-bbff-af01b27b7783.png
+- 更新版本  
+版號要修改  
+A124533570/ oooo0000  
+https://www.tymetro.com.tw/app/mangment/uploadFile/productImage/4563d90c-0bfb-4fff-bbff-af01b27b7783.png  
 
 - AppLink
-MainActivity 加入
+MainActivity 加入  
 ```
 public class MainActivity extends BridgeActivity {
   @Override
