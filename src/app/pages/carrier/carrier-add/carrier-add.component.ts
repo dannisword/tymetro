@@ -11,6 +11,8 @@ export class CarrierAddComponent extends BaseComponent implements OnInit {
   public data: any;
   public cardNo: any;
 
+  protected isSave = false;
+
   constructor(
     protected injector: Injector,
     protected api: ApiService) {
@@ -25,7 +27,9 @@ export class CarrierAddComponent extends BaseComponent implements OnInit {
     this.onNavigate('dashboards/carrier');
   }
   onSave() {
+    this.isSave = true;
     this.api.addVehicle(this.cardNo, this.data.Type).then(resp => {
+      this.isSave = false;
       if (resp.Code == 0) {
         // 存擋
         super.dismissModal();

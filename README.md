@@ -1,3 +1,7 @@
+## 開發套件網址
+https://capacitorjs.com/  
+https://ionicframework.com/
+
 ## 安裝套件
 ```
 $ npm i @ionic-native/core  
@@ -18,6 +22,7 @@ $ ionic capacitor add ios
 $ ionic capacitor build ios --prod  
 ```
 
+
 ## 多國
 ```
 npm install @ngx-translate/core
@@ -28,7 +33,11 @@ npm install @ngx-translate/http-loader
 $ npm install cordova-plugin-inappbrowser 
 $ npm install @awesome-cordova-plugins/in-app-browser 
 $ npm install @awesome-cordova-plugins/core
+```
+- 日期元件
+```
 $ npm install cordova-plugin-datepicker
+
 $ npm install @capacitor/app-launcher
 ```
 ## input-mask  
@@ -58,6 +67,7 @@ $ npx cap open android
 
 ## Apple chip M1 pod install CocoaPod
 執行下面指令  
+
 ```
 $ sudo gem install cocoapods
 $ sudo arch -x86_64 gem install ffi  
@@ -150,7 +160,7 @@ A124533570/ oooo0000
 https://www.tymetro.com.tw/app/mangment/uploadFile/productImage/4563d90c-0bfb-4fff-bbff-af01b27b7783.png
 
 - AppLink
-MainActivity 加入
+MainActivity 加入  
 ```
 public class MainActivity extends BridgeActivity {
   @Override

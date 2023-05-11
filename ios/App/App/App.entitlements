@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>webcredentials:example.com</string>
+		<string>tymetro://tymetro.com.tw</string>
 	</array>
 </dict>
 </plist>

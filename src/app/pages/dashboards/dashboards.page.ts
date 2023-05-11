@@ -61,7 +61,7 @@ export class DashboardsPage extends BaseComponent implements OnInit {
 
         if (version.Version != data.version.android) {
           this.confirm(`已有更新檔，請至Google Play 更新程式`).then(res => {
-            //window.open('https://play.google.com/store/apps/details?id=com.tymetro.ios');
+            window.open('https://play.google.com/store/apps/details?id=com.tymetro.ios');
           })
         }
       }
