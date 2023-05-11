@@ -46,6 +46,7 @@ export class AppComponent {
     this.api.getData().then(res => {
       this.appPages = res.appPages;
     });
+    this.initializeApp();
   }
 
   initializeApp() {
