@@ -5,6 +5,9 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>tymetro://tymetro.com.tw</string>
+		<string>applink:tymetro.com.tw</string>
+		<string>applink:www.tymetro.com.tw</string>
+		<string>tymetro://www.tymetro.com.tw</string>
 	</array>
 </dict>
 </plist>
