@@ -44,9 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the app was launched with an activity, including Universal Links.
         // Feel free to add additional processing here, but if you want the App API to support
         // tracking app url opens, make sure to keep this call
-        //return ApplicationDelegateProxy.shared.application(application, continue: userActivity, restorationHandler: restorationHandler)
+        return ApplicationDelegateProxy.shared.application(application, continue: userActivity, restorationHandler: restorationHandler)
         
         // 來源是網頁或網址
+        /*
         if userActivity.activityType == NSUserActivityTypeBrowsingWeb,
             let incomingURL = userActivity.webpageURL,
             let components = NSURLComponents(url: incomingURL, resolvingAgainstBaseURL: true),
@@ -60,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return false
         }
         return false
+        */
     }
 
 
