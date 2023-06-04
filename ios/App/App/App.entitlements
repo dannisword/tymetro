@@ -8,6 +8,7 @@
 		<string>applinks:www.tymetro.com.tw?mode=app</string>
 		<string>applinks:www.tymetro.com.tw</string>
 		<string>applinks:www.tymetro.com.tw/app</string>
+		<string>applinks:www.tymetro.com.tw/tymetroApp</string>
 	</array>
 </dict>
 </plist>
